@@ -646,6 +646,30 @@ def clear_state() -> None:
 
 
 # ---------------------------------------------------------------------------
+# Hook payload
+# Claude Code delivers hook context as JSON on stdin.
+# ---------------------------------------------------------------------------
+def read_hook_payload() -> dict:
+    """Read the hook's JSON payload from stdin, or {} if unavailable.
+
+    Reading is skipped when stdin is a TTY (i.e. the script was run by hand)
+    to avoid blocking on a terminal that will never send a payload.
+    """
+    if sys.stdin.isatty():
+        return {}
+    try:
+        raw = sys.stdin.read()
+    except OSError:
+        return {}
+    if not raw.strip():
+        return {}
+    try:
+        return json.loads(raw)
+    except json.JSONDecodeError:
+        return {}
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 def main() -> None:
@@ -663,6 +687,12 @@ def main() -> None:
     if event not in EVENTS:
         print(f"Unknown event: {event}. Use: {', '.join(EVENTS)}", file=sys.stderr)
         sys.exit(1)
+
+    # An agent_id is present only when the event originates from a subagent.
+    # Suppress the alert in that case so parallel subagents don't each fire a
+    # notification; alerts ring only for the main agent.
+    if read_hook_payload().get("agent_id"):
+        return
 
     config = load_config()
     ecfg = get_event_config(config, event)
