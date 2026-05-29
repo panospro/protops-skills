@@ -1,0 +1,25 @@
+{
+  "name": "me",
+  "version": "0.3.1",
+  "description": "Personal Claude Code skills + slash commands. Skills auto-trigger on natural language; commands surface in /-autocomplete as /me:check-consistency, /me:rubber-duck, /me:standup, /me:bank-jargon, /me:safe-commit.",
+  "author": {
+    "name": "pprotops"
+  },
+  "homepage": "https://github.com/pprotops/protops-skills",
+  "repository": "https://github.com/pprotops/protops-skills",
+  "license": "MIT",
+  "skills": [
+    "./plugins/check-consistency/skills/",
+    "./plugins/rubber-duck/skills/",
+    "./plugins/standup/skills/",
+    "./plugins/bank-jargon/skills/",
+    "./plugins/safe-commit/skills/"
+  ],
+  "commands": [
+    "./plugins/check-consistency/commands/check-consistency.md",
+    "./plugins/rubber-duck/commands/rubber-duck.md",
+    "./plugins/standup/commands/standup.md",
+    "./plugins/bank-jargon/commands/bank-jargon.md",
+    "./plugins/safe-commit/commands/safe-commit.md"
+  ]
+}

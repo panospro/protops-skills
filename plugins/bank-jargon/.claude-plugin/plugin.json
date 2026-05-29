@@ -1,0 +1,8 @@
+{
+  "name": "bank-jargon",
+  "version": "0.1.0",
+  "description": "Personal banking / software / AI terminology notebook. Auto-triggers on named terms / acronyms / domain concepts and maintains a glossary at ~/.claude/data/bank-jargon/glossary.md.",
+  "author": {
+    "name": "pprotops"
+  }
+}

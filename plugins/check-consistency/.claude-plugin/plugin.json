@@ -1,0 +1,8 @@
+{
+  "name": "check-consistency",
+  "version": "0.1.0",
+  "description": "Review a git diff against inferred repo patterns and universal best practices. Flags inconsistencies, sloppy comments, lazy / over-engineered code, and hardcoded paths before commit.",
+  "author": {
+    "name": "pprotops"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "description": "Inject a Next: directive into every user prompt so Claude finishes with a copy-pasteable slash command.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/next-step.sh\""
+          }
+        ]
+      }
+    ]
+  }
+}

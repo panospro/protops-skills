@@ -1,0 +1,60 @@
+{
+  "name": "protops-skills",
+  "owner": {
+    "name": "pprotops"
+  },
+  "metadata": {
+    "description": "Personal Claude Code skills — diff review, footgun hunting, rubber-duck debugging, daily standup, bug triage, and a banking-domain glossary.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "check-consistency",
+      "source": "./plugins/check-consistency",
+      "description": "Review a git diff against inferred repo patterns and universal best practices. Flags inconsistencies, sloppy comments, lazy / over-engineered code, and hardcoded paths before commit.",
+      "version": "0.1.0"
+    },
+    {
+      "name": "rubber-duck",
+      "source": "./plugins/rubber-duck",
+      "description": "Structured rubber-duck debugging — forces articulating the problem properly before any solution is proposed.",
+      "version": "0.1.0"
+    },
+    {
+      "name": "standup",
+      "source": "./plugins/standup",
+      "description": "Generate a daily standup summary from git activity. Reads git log over a window and produces a 3-bullet Yesterday / Today / Blockers summary.",
+      "version": "0.1.0"
+    },
+    {
+      "name": "bank-jargon",
+      "source": "./plugins/bank-jargon",
+      "description": "Personal banking / software / AI terminology notebook. Auto-triggers on named terms / acronyms / domain concepts and maintains a glossary at ~/.claude/data/bank-jargon/glossary.md.",
+      "version": "0.1.0"
+    },
+    {
+      "name": "safe-commit",
+      "source": "./plugins/safe-commit",
+      "description": "Commit safety layer — secret scanning, identity verification, and commit hygiene enforcement. Blocks commits containing secrets, sensitive files, hardcoded paths, or merge conflict markers. After a clean commit, reminds the user to run /me:check-consistency.",
+      "version": "0.1.0"
+    },
+    {
+      "name": "alert-sounds",
+      "source": "./plugins/alert-sounds",
+      "description": "Hook-based audio + visual alerts for Claude Code events — distinct sounds, desktop notifications, taskbar flash, and status line colors. Fully configurable per event via hooks/config.json. Installed separately from the `me` bundle (hooks can't live in a skill bundle).",
+      "version": "0.1.0"
+    },
+    {
+      "name": "next-step",
+      "source": "./plugins/next-step",
+      "description": "Tiny UserPromptSubmit hook — injects a `**Next:**` directive into every prompt so Claude ends responses with a copy-pasteable slash command. Standalone alternative to mk-flow's much bigger intent-inject hook. No slash commands of its own.",
+      "version": "0.1.0"
+    },
+    {
+      "name": "me",
+      "source": "./",
+      "description": "Personal Claude Code skills + matching /me:<name> slash commands. Skills under the `me:` namespace, commands as /me:check-consistency, /me:rubber-duck, /me:standup, /me:bank-jargon, /me:safe-commit.",
+      "version": "0.3.1"
+    }
+  ]
+}

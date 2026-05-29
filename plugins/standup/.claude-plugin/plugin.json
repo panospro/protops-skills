@@ -1,0 +1,8 @@
+{
+  "name": "standup",
+  "version": "0.1.0",
+  "description": "Generate a daily standup summary from git activity. Reads git log over a window and produces a 3-bullet Yesterday / Today / Blockers summary.",
+  "author": {
+    "name": "pprotops"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "volume": 100,
+  "muted": false,
+  "stop": {
+    "beep": true,
+    "sound": "/mnt/c/Windows/Media/tada.wav",
+    "notify": false,
+    "flash": true,
+    "statusline": true
+  },
+  "permission": {
+    "beep": true,
+    "sound": "/mnt/c/Windows/Media/Alarm06.wav",
+    "notify": true,
+    "flash": true,
+    "statusline": true
+  },
+  "idle": {
+    "beep": true,
+    "sound": "/mnt/c/Windows/Media/Alarm06.wav",
+    "notify": true,
+    "flash": true,
+    "statusline": true
+  }
+}

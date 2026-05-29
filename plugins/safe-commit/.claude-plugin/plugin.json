@@ -1,0 +1,8 @@
+{
+  "name": "safe-commit",
+  "version": "0.1.0",
+  "description": "Commit safety layer — secret scanning, identity verification, and commit hygiene enforcement. Blocks commits containing secrets, sensitive files, hardcoded paths, or merge conflict markers. After a clean commit, reminds the user to run /me:check-consistency for code-quality review.",
+  "author": {
+    "name": "pprotops"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "rubber-duck",
+  "version": "0.1.0",
+  "description": "Structured rubber-duck debugging — forces articulating the problem properly before any solution is proposed.",
+  "author": {
+    "name": "pprotops"
+  }
+}
