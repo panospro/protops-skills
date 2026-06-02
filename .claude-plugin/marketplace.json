@@ -51,10 +51,16 @@
       "version": "0.1.0"
     },
     {
+      "name": "ship-ready",
+      "source": "./plugins/ship-ready",
+      "description": "Whole-repo pre-distribution audit + guided cleanup. Scans everything that would be committed for personal identifiers, secrets, dangling references to gitignored paths, workflow/AI leakage, generated-file slop, dead config/code, and PII; stops with a fix-plan checklist you select from; then applies only the chosen fixes and hands over git/rm commands.",
+      "version": "0.1.0"
+    },
+    {
       "name": "me",
       "source": "./",
-      "description": "Personal Claude Code skills + matching /me:<name> slash commands. Skills under the `me:` namespace, commands as /me:check-consistency, /me:rubber-duck, /me:standup, /me:bank-jargon, /me:safe-commit.",
-      "version": "0.3.1"
+      "description": "Personal Claude Code skills + matching /me:<name> slash commands. Skills under the `me:` namespace, commands as /me:check-consistency, /me:rubber-duck, /me:standup, /me:bank-jargon, /me:safe-commit, /me:ship-ready.",
+      "version": "0.3.2"
     }
   ]
 }

@@ -1,0 +1,8 @@
+{
+  "name": "ship-ready",
+  "version": "0.1.0",
+  "description": "Whole-repo pre-distribution audit + guided cleanup. Scans everything that would be committed for personal identifiers, secrets, dangling references to gitignored paths, workflow/AI leakage, generated-file slop, dead config/code, and PII; stops with a fix-plan checklist you select from; then applies only the chosen fixes and hands over git/rm commands.",
+  "author": {
+    "name": "pprotops"
+  }
+}

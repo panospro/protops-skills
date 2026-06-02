@@ -12,3 +12,11 @@ Thumbs.db
 
 __pycache__/
 *.pyc
+
+# Secrets / local env
+.env
+.env.*
+!.env.example
+
+# ship-ready report (generated)
+.claude/ship-ready-report.md
