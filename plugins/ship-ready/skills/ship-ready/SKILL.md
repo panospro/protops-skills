@@ -56,7 +56,7 @@ Patterns live in `references/check-catalog.md`. Per finding: stable **ID**, seve
 
 | # | Module | Detects (folder-agnostic) |
 |---|---|---|
-| 1 | **audit-core** | **sensitive data anywhere in the target** — secrets/API keys/tokens/private keys, hardcoded home paths, PII shapes (emails, IBANs, national-ID/long-digit IDs, DOBs); personal identifiers (OS username, owner name, employee codes, workspace names); workflow/AI-tool leakage (skill names, slash commands, `Cap N`/phase tags, `Claude`/`anthropic`, ISO `Generated:` stamps); comment-voice (first-person, `Note:`, translator commentary, dangling `see <file>` refs) |
+| 1 | **audit-core** | **sensitive data anywhere in the target** — secrets/API keys/tokens/private keys, hardcoded home paths, PII shapes (emails, IBANs, national-ID/long-digit IDs, DOBs); personal identifiers (OS username, owner name, employee codes, workspace names); workflow/AI-tool leakage (skill names, slash commands, `Cap N`/phase tags, `Claude`/`anthropic`, ISO `Generated:` stamps); comment-voice (first-person, `Note:`, translator commentary, dangling `see <file>` refs); **hardcoded domain literals in live logic** (a business id / magic value in a comparison or `case` — e.g. `=== '9000000428'` — that should be a constant/config/state-flag) |
 | 2 | **dead-code** | unreferenced exports/functions/classes, unreachable branches, commented-out code blocks, orphaned files; **and** dead config — env vars declared (`.env*` / config) but never read + the code reachable only through them. Confirm "uncalled" by grepping the symbol before proposing removal |
 | 3 | **gitignore** | (a) committed files **referencing** gitignored paths (dangling on clone — skips common build/dep tokens); (b) target files that **should** be ignored but aren't (secrets, generated outputs, local-only, large/binary) |
 | 4 | **pii** | data files in the target that carry real-looking PII (structured records — JSON/CSV/SQL/YAML — with names, IDs, emails, etc.) → proposes a **consistent synthetic mapping**. A file qualifies by *what's in it*, wherever it lives — the folder name is irrelevant. Prose/code with incidental PII is just flagged by audit-core. |
@@ -135,13 +135,12 @@ postman/
   gitignore  env.qa.json                          carries a key
 ```
 
-When the triage yields a clean, non-empty **commit** set (ready to ship), propose **5** candidate messages **derived from this run's diff — never canned**. Recipe: read the staged change set, pick the dominant change `type`, then offer a spread — an umbrella subject covering the whole set, a narrower one on the primary file/feature, and alternatives framed under other valid prefixes. Format each `type: subject` (conventional prefix: `feat` / `fix` / `chore` / `docs` / `refactor` / `build` / `test` / `style` / `perf`), imperative mood, lowercase subject, ≤ ~72 chars, no trailing period. The shapes below are **templates — substitute real content from the diff, never emit them literally**:
+When the triage yields a clean, non-empty **commit** set (ready to ship), propose **3–5** candidate messages **derived from this run's diff — never canned**, scaled to the change: **~3** for a focused single-concern set, **up to 5** only when it spans multiple concerns/files. Recipe: read the staged change set, pick the dominant change `type`, then offer a spread — an umbrella subject covering the whole set, a narrower one on the primary file/feature, and alternatives framed under other valid prefixes. **Keep each message compact and direct** — one `type: subject` line stating *what changed*: conventional prefix (`feat` / `fix` / `chore` / `docs` / `refactor` / `build` / `test` / `style` / `perf`), imperative mood, lowercase subject, ≤ ~72 chars, no trailing period, **no multi-paragraph body, no ~100-word essay**. The shapes below are **templates — substitute real content from the diff, never emit them literally**:
 ```
-1. <type>: <summary of the whole change set>
-2. <type>: <narrower summary — the primary file/feature>
+1. <type>: <whole change set, compact>
+2. <type>: <narrower — the primary file/feature>
 3. <other valid type>: <same change framed differently>
-4. <type>: <…>
-5. <type>: <…>
+   (add a 4th/5th only if the set spans further concerns worth a distinct framing)
 ```
 The `.gitignore` patterns were already applied in P3 as an in-file edit, so `.gitignore` shows up as a file to stage — not a command. Then emit the matching command block (the user runs it; nothing executed):
 ```bash

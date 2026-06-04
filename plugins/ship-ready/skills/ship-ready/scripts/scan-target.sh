@@ -75,6 +75,7 @@ SCAN=("${CODE[@]}")    # comment-voice / leakage — code+doc only, skip data bl
 scan "Workflow/AI leakage (Warning)" '/[a-z-]+:[a-z-]+|create-sandbox|\bCap [0-9]+|SKELETON:|AGENT:|\b(claude code|anthropic)\b|Generated:[[:space:]]*20[0-9]{2}-[0-9]{2}-[0-9]{2}T' 'v=https?://'
 scan "First-person in comments (Warning)" '(//|#|^[[:space:]]*\*).*\b(we|our|us|let'"'"'s|we'"'"'ll|we'"'"'re)\b' 'v=https?://'
 scan "'Note:' comment prefix (Warning)" '(//|#|^[[:space:]]*\*)[[:space:]]*[Nn]ote:'
+scan "Hardcoded domain literal in logic (Warning)" '(===?|!==?|case[[:space:]])[[:space:]]*['"'"'"][0-9]{6,}['"'"'"]'
 
 echo; echo "============================== gen-hygiene =============================="
 SCAN=("${CODE[@]}")    # {{var}} NOT flagged — legit in Postman/Handlebars/Jinja
