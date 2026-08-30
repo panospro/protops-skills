@@ -222,7 +222,7 @@ def process_video(root: Path, selected: dict[str, Any], model: str, attempts: in
             "processed_at": utc_now(),
         }
         atomic_json(result_path, extraction)
-        status.update({"status": "succeeded", "completed_at": utc_now(), "extraction": str(result_path)})
+        status.update({"status": "succeeded", "completed_at": utc_now(), "extraction": str(result_path.relative_to(root))})
         atomic_json(status_path, status)
         print(f"Completed {selected['video_id']}: {result_path}")
         return "succeeded"
