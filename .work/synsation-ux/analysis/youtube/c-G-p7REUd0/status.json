@@ -1,0 +1,12 @@
+{
+  "video_id": "c-G-p7REUd0",
+  "source_url": "https://www.youtube.com/watch?v=c-G-p7REUd0",
+  "original_url": "https://www.youtube.com/watch?v=c-G-p7REUd0",
+  "title": "Which Loading State do You Choose: Building for Good UX Part 3 #uxdesign",
+  "model": "gemini-3.7-flash",
+  "status": "succeeded",
+  "started_at": "2026-08-30T22:34:49.932448+00:00",
+  "attempt_limit": 3,
+  "completed_at": "2026-08-30T22:40:19.763426+00:00",
+  "extraction": "/home/panospro/Programming/protops-skills/.work/synsation-ux/analysis/youtube/c-G-p7REUd0/extraction.json"
+}

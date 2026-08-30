@@ -1,0 +1,216 @@
+{
+  "source_identity": {
+    "video_id": "c-G-p7REUd0",
+    "source_url": "https://www.youtube.com/watch?v=c-G-p7REUd0"
+  },
+  "analysis_coverage": {
+    "audio_analyzed": true,
+    "visuals_analyzed": true,
+    "timestamp_ranges_reviewed": [
+      "00:00-01:10"
+    ],
+    "limitations": [
+      "None"
+    ]
+  },
+  "transcript": [
+    {
+      "start": "00:00",
+      "end": "00:05",
+      "speech": "Which loading option do you choose? A skeleton screen, a spinner, a progress bar, or no loader at all?"
+    },
+    {
+      "start": "00:05",
+      "end": "00:08",
+      "speech": "Each one will trigger a different psychological response in your user, so let's break it down."
+    },
+    {
+      "start": "00:08",
+      "end": "00:11",
+      "speech": "This is part three of my series of building with good UX."
+    },
+    {
+      "start": "00:11",
+      "end": "00:19",
+      "speech": "Skeleton screens are for when an entire page or a large section of content is loading. You're telling the user, the layout is here, the data is coming."
+    },
+    {
+      "start": "00:19",
+      "end": "00:25",
+      "speech": "That's why you often see them in feeds like Instagram, LinkedIn, YouTube. The page structure is what shows up first, and then the content fills in a little later."
+    },
+    {
+      "start": "00:25",
+      "end": "00:30",
+      "speech": "Progress bars are for when you know how long something is going to take: file uploads, downloads, installations."
+    },
+    {
+      "start": "00:30",
+      "end": "00:35",
+      "speech": "The user needs to have a sense of how far along they are and how much longer they might need to wait."
+    },
+    {
+      "start": "00:35",
+      "end": "00:38",
+      "speech": "And if you show a spinner on a file upload, people might assume that it's stuck."
+    },
+    {
+      "start": "00:38",
+      "end": "00:46",
+      "speech": "Inline spinners: these are for small, contained actions. Like a button you just clicked, or one part of the page that's refreshing. Just a small indicator that's like, we're working on it."
+    },
+    {
+      "start": "00:46",
+      "end": "00:50",
+      "speech": "And then, there's optimistic UI, where there's no loader at all. And what do I mean by that?"
+    },
+    {
+      "start": "00:50",
+      "end": "00:55",
+      "speech": "When you like a photo on Instagram, the heart turns red immediately. It doesn't wait for the server to confirm, it just assumes that it works."
+    },
+    {
+      "start": "00:55",
+      "end": "00:59",
+      "speech": "Later, if it fails, it rolls back, but for you, it feels instant. And that is by design."
+    },
+    {
+      "start": "00:59",
+      "end": "01:05",
+      "speech": "And in the next video, we're actually going to go deeper into inline spinners because there's more to talk about with them. There's different kinds,"
+    },
+    {
+      "start": "01:05",
+      "end": "01:10",
+      "speech": "and the psychology behind which ones work and which ones don't. So, see you in the next one. Follow."
+    }
+  ],
+  "visual_demonstrations": [
+    {
+      "timestamp": "00:17",
+      "observation": "A skeleton screen wireframe placeholder with grey blocks fades and transitions directly into actual image and body text content.",
+      "before": "Grey rectangle placeholders indicating image and lines of text.",
+      "after": "Rendered photograph and formatted text ('A Stud Elegar').",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:22",
+      "observation": "A multi-card grid skeleton mockup transitions into YouTube video feed thumbnail cards.",
+      "before": "Grey placeholder boxes representing video grid thumbnails and titles.",
+      "after": "Loaded YouTube video cards with actual thumbnail images and video titles.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:41",
+      "observation": "A rounded UI button labelled 'Submit' is displayed with an animated spinning loader icon placed directly inline to the left of the label.",
+      "before": null,
+      "after": "Submit button displaying an active inline spinner.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:50",
+      "observation": "An Instagram feed post UI is shown where the like count and outline heart icon instantly update to a filled red heart.",
+      "before": "Instagram post with outline heart icon.",
+      "after": "Heart icon turns filled red immediately upon interaction.",
+      "certainty": "high"
+    }
+  ],
+  "creator_derived_lessons": [
+    {
+      "timestamps": [
+        "00:11",
+        "00:25"
+      ],
+      "creator_statement_paraphrase": "Use skeleton screens when loading an entire page or large sections of content to communicate that layout is present and data is incoming.",
+      "visual_evidence": "Demonstrations of skeleton screens transitioning to loaded web pages and social feeds (LinkedIn, YouTube).",
+      "ux_problem": "Users lack visibility into what structure or content is loading during full-page or section data fetches.",
+      "recommended_change": "Display a skeleton screen placeholder structure before content arrives.",
+      "specific_visual_or_interaction_change": "Show placeholder blocks mimicking the final layout until content populates.",
+      "creator_reasoning": "It lets the user know the layout structure is already present and data is arriving shortly.",
+      "applicable_context": "Full-page loads, large content sections, and social media feeds.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    },
+    {
+      "timestamps": [
+        "00:25",
+        "00:38"
+      ],
+      "creator_statement_paraphrase": "Use progress bars for processes with a known duration (uploads, downloads, installations) rather than spinners, which make users think the process is frozen.",
+      "visual_evidence": "A graphic depicting progress bars for file uploads and downloads, along with a Windows compression progress dialog.",
+      "ux_problem": "Using spinners for long/determinate operations makes users think the system is stuck.",
+      "recommended_change": "Use a progress bar to show percentage or time remaining.",
+      "specific_visual_or_interaction_change": "Display a determinate progress bar indicator showing progress and time remaining.",
+      "creator_reasoning": "Users need to understand how far along the operation is and how much longer they must wait.",
+      "applicable_context": "File uploads, file downloads, installations, and data compression.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    },
+    {
+      "timestamps": [
+        "00:38",
+        "00:46"
+      ],
+      "creator_statement_paraphrase": "Use inline spinners for small, contained actions like a button click or refreshing a single component.",
+      "visual_evidence": "A Submit button containing an inline rotating spinner icon.",
+      "ux_problem": "Lack of feedback for local actions without taking over the entire screen.",
+      "recommended_change": "Place a small spinner directly inside or next to the triggering component.",
+      "specific_visual_or_interaction_change": "Render a spinner inside a button or local component.",
+      "creator_reasoning": "It provides a lightweight indicator showing the system is working on the specific action.",
+      "applicable_context": "Button clicks and small component refreshes.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    },
+    {
+      "timestamps": [
+        "00:46",
+        "00:59"
+      ],
+      "creator_statement_paraphrase": "Use optimistic UI without any loader for instant-feeling micro-actions, assuming success and rolling back only if an error occurs.",
+      "visual_evidence": "An Instagram like button turning red immediately without waiting for network confirmation.",
+      "ux_problem": "Waiting for server confirmation creates perceived lag on simple interactions.",
+      "recommended_change": "Update UI immediately upon user action (optimistic UI), rolling back state if server response fails.",
+      "specific_visual_or_interaction_change": "Immediately change state (e.g. heart turns red) upon user tap/click.",
+      "creator_reasoning": "It makes interactions feel instantaneous to the user.",
+      "applicable_context": "Low-stakes micro-interactions like liking a post.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    }
+  ],
+  "analyst_interpretation": {
+    "interpretation": "The video outlines the standard taxonomy of loading feedback mechanisms in interaction design, matching feedback latency and determinacy to appropriate UI patterns.",
+    "inferences_not_shown_or_said": [
+      "Optimistic UI requires robust client-side rollback mechanisms and error notification toast patterns if a failure occurs.",
+      "Determinate progress bars require backend or client API support for measuring byte stream transfer or step completion."
+    ]
+  },
+  "spot_check_visuals": [
+    {
+      "timestamp": "00:32",
+      "observation": "A classic Windows compression progress window titled 'Compressing...' displays 'About 26 minutes remaining' with a progress bar and a Cancel button."
+    },
+    {
+      "timestamp": "00:47",
+      "observation": "The text 'Optimistic UI' appears on screen in bold yellow typography with a drop shadow."
+    }
+  ],
+  "overall_uncertainties": [],
+  "model_reported_source_identity": {
+    "video_id": "video_sample_0",
+    "source_url": "unknown"
+  },
+  "workspace_source": {
+    "video_id": "c-G-p7REUd0",
+    "original_url": "https://www.youtube.com/watch?v=c-G-p7REUd0",
+    "canonical_url": "https://www.youtube.com/watch?v=c-G-p7REUd0",
+    "title": "Which Loading State do You Choose: Building for Good UX Part 3 #uxdesign",
+    "category": "build-for-good-ux",
+    "series_part": 3,
+    "model": "gemini-3.7-flash",
+    "processed_at": "2026-08-30T22:40:19.758983+00:00"
+  }
+}
