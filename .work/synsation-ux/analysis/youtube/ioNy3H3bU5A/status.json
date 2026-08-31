@@ -1,0 +1,12 @@
+{
+  "video_id": "ioNy3H3bU5A",
+  "source_url": "https://www.youtube.com/watch?v=ioNy3H3bU5A",
+  "original_url": "https://www.youtube.com/watch?v=ioNy3H3bU5A",
+  "title": "Building with Good UX Part 2",
+  "model": "gemini-3.7-flash",
+  "status": "succeeded",
+  "started_at": "2026-08-31T08:01:48.163525+00:00",
+  "attempt_limit": 3,
+  "completed_at": "2026-08-31T08:04:00.736344+00:00",
+  "extraction": "analysis/youtube/ioNy3H3bU5A/extraction.json"
+}

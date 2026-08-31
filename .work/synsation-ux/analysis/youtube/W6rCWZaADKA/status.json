@@ -1,0 +1,12 @@
+{
+  "video_id": "W6rCWZaADKA",
+  "source_url": "https://www.youtube.com/watch?v=W6rCWZaADKA",
+  "original_url": "https://www.youtube.com/watch?v=W6rCWZaADKA",
+  "title": "Jakobs Law: Build for Good UX Part 12 #uxdesign",
+  "model": "gemini-3.6-flash",
+  "status": "succeeded",
+  "started_at": "2026-08-31T13:37:30.828950+00:00",
+  "attempt_limit": 3,
+  "completed_at": "2026-08-31T13:38:04.373808+00:00",
+  "extraction": "analysis/youtube/W6rCWZaADKA/extraction.json"
+}

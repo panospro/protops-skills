@@ -1,0 +1,12 @@
+{
+  "video_id": "ZC9KWn8-kRo",
+  "source_url": "https://www.youtube.com/watch?v=ZC9KWn8-kRo",
+  "original_url": "https://www.youtube.com/watch?v=ZC9KWn8-kRo",
+  "title": "Build for Good UX Part 14: Hicks Law #uxdesign",
+  "model": "gemini-3.6-flash",
+  "status": "succeeded",
+  "started_at": "2026-08-31T13:38:34.216781+00:00",
+  "attempt_limit": 3,
+  "completed_at": "2026-08-31T13:39:23.337395+00:00",
+  "extraction": "analysis/youtube/ZC9KWn8-kRo/extraction.json"
+}

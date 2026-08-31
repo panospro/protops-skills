@@ -1,0 +1,12 @@
+{
+  "video_id": "48LLYpy9TUo",
+  "source_url": "https://www.youtube.com/watch?v=48LLYpy9TUo",
+  "original_url": "https://www.youtube.com/watch?v=48LLYpy9TUo",
+  "title": "Why Do People Hate Skeleton Screens So Much?",
+  "model": "gemini-3.6-flash",
+  "status": "succeeded",
+  "started_at": "2026-08-31T13:52:52.649958+00:00",
+  "attempt_limit": 3,
+  "completed_at": "2026-08-31T13:54:44.710628+00:00",
+  "extraction": "analysis/youtube/48LLYpy9TUo/extraction.json"
+}

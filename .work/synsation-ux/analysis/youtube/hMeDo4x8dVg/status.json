@@ -1,0 +1,12 @@
+{
+  "video_id": "hMeDo4x8dVg",
+  "source_url": "https://www.youtube.com/watch?v=hMeDo4x8dVg",
+  "original_url": "https://www.youtube.com/watch?v=hMeDo4x8dVg",
+  "title": "Don’t forget the empty state: Part 8 of Building for Good UX #uxdesign",
+  "model": "gemini-3.7-flash",
+  "status": "succeeded",
+  "started_at": "2026-08-31T08:07:44.946453+00:00",
+  "attempt_limit": 3,
+  "completed_at": "2026-08-31T08:11:08.360531+00:00",
+  "extraction": "analysis/youtube/hMeDo4x8dVg/extraction.json"
+}

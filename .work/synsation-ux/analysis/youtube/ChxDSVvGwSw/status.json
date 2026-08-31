@@ -1,0 +1,12 @@
+{
+  "video_id": "ChxDSVvGwSw",
+  "source_url": "https://www.youtube.com/watch?v=ChxDSVvGwSw",
+  "original_url": "https://www.youtube.com/watch?v=ChxDSVvGwSw",
+  "title": "Dark Side Of UX Part 3: Subscriptions Cont.",
+  "model": "gemini-3.6-flash",
+  "status": "succeeded",
+  "started_at": "2026-08-31T13:46:27.913968+00:00",
+  "attempt_limit": 3,
+  "completed_at": "2026-08-31T13:49:08.367584+00:00",
+  "extraction": "analysis/youtube/ChxDSVvGwSw/extraction.json"
+}

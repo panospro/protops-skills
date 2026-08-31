@@ -1,0 +1,12 @@
+{
+  "video_id": "BQV0L-JmR4g",
+  "source_url": "https://www.youtube.com/watch?v=BQV0L-JmR4g",
+  "original_url": "https://www.youtube.com/watch?v=BQV0L-JmR4g",
+  "title": "Build for Good UX Part 15: Progressive Disclosure",
+  "model": "gemini-3.6-flash",
+  "status": "succeeded",
+  "started_at": "2026-08-31T13:39:53.357183+00:00",
+  "attempt_limit": 3,
+  "completed_at": "2026-08-31T13:40:33.429424+00:00",
+  "extraction": "analysis/youtube/BQV0L-JmR4g/extraction.json"
+}

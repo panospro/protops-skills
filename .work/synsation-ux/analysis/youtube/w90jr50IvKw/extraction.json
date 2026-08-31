@@ -1,0 +1,188 @@
+{
+  "source_identity": {
+    "video_id": "w90jr50IvKw",
+    "source_url": "https://www.youtube.com/watch?v=w90jr50IvKw"
+  },
+  "analysis_coverage": {
+    "audio_analyzed": true,
+    "visuals_analyzed": true,
+    "timestamp_ranges_reviewed": [
+      "00:00-01:13"
+    ],
+    "limitations": [
+      "None"
+    ]
+  },
+  "transcript": [
+    {
+      "start": "00:00",
+      "end": "00:03",
+      "speech": "Beautiful UI with bad UX will make people leave."
+    },
+    {
+      "start": "00:03",
+      "end": "00:06",
+      "speech": "This is a series on how to build with good UX."
+    },
+    {
+      "start": "00:06",
+      "end": "00:09",
+      "speech": "And for part one, we need to understand the difference between UI and UX."
+    },
+    {
+      "start": "00:09",
+      "end": "00:13",
+      "speech": "UI stands for user interface and it is what your app looks like, think colours, buttons, layout,"
+    },
+    {
+      "start": "00:13",
+      "end": "00:16",
+      "speech": "and having good UI is attractive to people using it."
+    },
+    {
+      "start": "00:16",
+      "end": "00:22",
+      "speech": "But now I want you to think of a time when you were using an app or on a website, and you clicked on a button and you had an unpredictable result,"
+    },
+    {
+      "start": "00:22",
+      "end": "00:25",
+      "speech": "or nothing at all happened, so you tried again and then got confused."
+    },
+    {
+      "start": "00:25",
+      "end": "00:29",
+      "speech": "And then you might go blaming yourself like, oh, maybe I didn't do this right or something."
+    },
+    {
+      "start": "00:29",
+      "end": "00:32",
+      "speech": "That is bad UX. That stands for user experience."
+    },
+    {
+      "start": "00:32",
+      "end": "00:35",
+      "speech": "Can someone figure out what to do without extensive instructions?"
+    },
+    {
+      "start": "00:35",
+      "end": "00:38",
+      "speech": "What happens if something fails? Does the user get to know about that in a graceful way?"
+    },
+    {
+      "start": "00:38",
+      "end": "00:43",
+      "speech": "And here's the thing, a lot of AI tools inherently are not good at giving you good UX."
+    },
+    {
+      "start": "00:43",
+      "end": "00:47",
+      "speech": "They often build what I like to call the happy path, what the screen looks like when everything goes perfectly like you planned it."
+    },
+    {
+      "start": "00:47",
+      "end": "00:54",
+      "speech": "But here's the thing, as someone who is building this, you're going to know your app in and out and so sometimes the way that you behave on your app is not the way that the user will."
+    },
+    {
+      "start": "00:54",
+      "end": "00:58",
+      "speech": "And AI tools will often miss the loading state, the empty state, the error state."
+    },
+    {
+      "start": "00:58",
+      "end": "01:01",
+      "speech": "Good UX can also build a lot of trust with your product as well."
+    },
+    {
+      "start": "01:01",
+      "end": "01:06",
+      "speech": "And if your app is beautiful but hard to use or there's too many steps, that creates friction, and friction causes people to leave."
+    },
+    {
+      "start": "01:06",
+      "end": "01:13",
+      "speech": "In this series, I'm going to unpack many different scenarios if you're building software and you want to have good UX, you're going to want to know these."
+    }
+  ],
+  "visual_demonstrations": [
+    {
+      "timestamp": "00:18",
+      "observation": "A product card for 'Margherita Classico' pizza ($24.00) with a brown 'Place Order' button. A cursor clicks the button, a click effect appears, followed by black text boxes displaying 'Nothing happened.' and 'Still nothing!' as the button fails to provide feedback.",
+      "before": "The 'Place Order' button is shown in an unclicked state.",
+      "after": "The cursor clicks repeatedly with annotations indicating no action/feedback occurred.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:36",
+      "observation": "An error modal overlay card appears showing an orange warning icon, header 'Something went wrong', text 'We've been notified and are looking into it. Please try again later.', and a dark 'Go back home' button.",
+      "before": "The creator is speaking on camera.",
+      "after": "A graphic overlay demonstrating graceful failure notification is displayed.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:56",
+      "observation": "Three UI state mockups are displayed vertically: 'Loading state' with grey skeleton placeholders, 'Empty state' with a card showing a blank area and orange button, and 'Error state' showing a login form with red error text 'Please enter a valid email or phone number.'",
+      "before": "Creator speaking on camera.",
+      "after": "Three mockup states (Loading, Empty, Error) shown stacked vertically.",
+      "certainty": "high"
+    }
+  ],
+  "creator_derived_lessons": [
+    {
+      "timestamps": [
+        "00:09",
+        "00:31",
+        "00:38",
+        "00:54",
+        "01:01"
+      ],
+      "creator_statement_paraphrase": "UI is the visual presentation (colors, buttons, layout), whereas UX is the user experience (intuitiveness, handling failures gracefully, reducing friction). AI software generation tools often only design the 'happy path' and miss essential non-ideal states like loading states, empty states, and error states.",
+      "visual_evidence": "UI examples of mobile app screens, an un-interactive button failing to give feedback, an error modal explaining an issue gracefully, and mockups of loading, empty, and error states.",
+      "ux_problem": "Apps failing to provide responsive feedback on actions, having too many steps/friction, or failing to handle errors and non-happy-path states (loading, empty, error), which causes user confusion and churn.",
+      "recommended_change": "Design beyond just the happy path by explicitly building and communicating loading states, empty states, error states, and handling failures gracefully without requiring extensive instructions.",
+      "specific_visual_or_interaction_change": "Include skeleton loaders for loading states, clear empty state interfaces, and descriptive, actionable error states with fallback buttons (e.g., 'Go back home').",
+      "creator_reasoning": "Builders know their app inside out, but real users do not behave the same way; failing to account for errors or responsive feedback causes friction, loss of trust, and users abandoning the app.",
+      "applicable_context": "Software, mobile app, and web application design and development, especially when using AI code generation tools.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    }
+  ],
+  "analyst_interpretation": {
+    "interpretation": "The video introduces the conceptual distinction between visual user interface design (UI) and interaction workflow/state design (UX), highlighting why AI generation tools that only construct primary UI layouts often produce poor usability without intentional state management.",
+    "inferences_not_shown_or_said": [
+      "Specific implementation code or tools to generate loading/error states were not demonstrated in this introductory episode."
+    ]
+  },
+  "spot_check_visuals": [
+    {
+      "timestamp": "00:10",
+      "observation": "Three mobile screen UI designs are displayed with the credit handle '@slava7118' in the top-left corner."
+    },
+    {
+      "timestamp": "00:14",
+      "observation": "A browser mockup displaying the URL 'getty.edu/tracingart/' is shown on screen."
+    },
+    {
+      "timestamp": "01:02",
+      "observation": "A person viewed from behind sitting at a desk with hands to their head in front of a lit laptop screen."
+    }
+  ],
+  "overall_uncertainties": [],
+  "model_reported_source_identity": {
+    "video_id": "unknown",
+    "source_url": "supplied_video"
+  },
+  "workspace_source": {
+    "video_id": "w90jr50IvKw",
+    "original_url": "https://www.youtube.com/watch?v=w90jr50IvKw",
+    "canonical_url": "https://www.youtube.com/watch?v=w90jr50IvKw",
+    "title": "Building with Good UX Part 1 #userexperience #uxdesign",
+    "category": "build-for-good-ux",
+    "series_part": 1,
+    "model": "gemini-3.7-flash",
+    "processed_at": "2026-08-31T08:06:05.000541+00:00",
+    "recovery": "Model output contained 1 invalid \\' JSON escape(s); repaired locally from the saved raw-response.json with no additional API request."
+  }
+}

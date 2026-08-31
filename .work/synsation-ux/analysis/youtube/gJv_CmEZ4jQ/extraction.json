@@ -1,0 +1,198 @@
+{
+  "source_identity": {
+    "video_id": "gJv_CmEZ4jQ",
+    "source_url": "https://www.youtube.com/watch?v=gJv_CmEZ4jQ"
+  },
+  "analysis_coverage": {
+    "audio_analyzed": true,
+    "visuals_analyzed": true,
+    "timestamp_ranges_reviewed": [
+      "00:00-01:31"
+    ],
+    "limitations": []
+  },
+  "transcript": [
+    {
+      "start": "00:00",
+      "end": "00:04",
+      "speech": "If you've ever tried to cancel a subscription and you think, why is this so hard?"
+    },
+    {
+      "start": "00:04",
+      "end": "00:08",
+      "speech": "There's a name for this. It's called the Roach Motel. This is Part 1 of my Dark Side of UX series,"
+    },
+    {
+      "start": "00:08",
+      "end": "00:11",
+      "speech": "not to be confused with my Build for Good UX series."
+    },
+    {
+      "start": "00:11",
+      "end": "00:15",
+      "speech": "Because here I show the psychological tricks that are being played on you as a user."
+    },
+    {
+      "start": "00:15",
+      "end": "00:20",
+      "speech": "On the internet, a Roach Motel is any trial or subscription that is very easy to get in, but extremely difficult to get out of."
+    },
+    {
+      "start": "00:20",
+      "end": "00:28",
+      "speech": "In some cases, like LA Fitness, you might not even be able to cancel online. You have to download it, print it, mail it, or even hand-deliver it, ironically to the gym that you're canceling because you probably never go."
+    },
+    {
+      "start": "00:29",
+      "end": "00:30",
+      "speech": "And you might be wondering, how's this even legal?"
+    },
+    {
+      "start": "00:30",
+      "end": "00:36",
+      "speech": "You have probably been through a cancellation that is so painful that you start to second-guess whether you even want to cancel anymore."
+    },
+    {
+      "start": "00:36",
+      "end": "00:40",
+      "speech": "And that's literally the goal. The design is using a whole bunch of techniques just to try to get you to give up."
+    },
+    {
+      "start": "00:40",
+      "end": "00:46",
+      "speech": "In 2024, the FTC passed a rule called Click to Cancel. And the rule was that canceling has to be as easy as signing up."
+    },
+    {
+      "start": "00:46",
+      "end": "00:48",
+      "speech": "One-click sign-up, and then one-click cancel."
+    },
+    {
+      "start": "00:48",
+      "end": "00:51",
+      "speech": "And then this rule got canceled a couple days before it was going to take effect."
+    },
+    {
+      "start": "00:51",
+      "end": "00:57",
+      "speech": "So then California decided to pass something individually that went into effect July 2025, shortly followed by New York."
+    },
+    {
+      "start": "00:57",
+      "end": "00:59",
+      "speech": "But these laws only apply to the customers in those states."
+    },
+    {
+      "start": "00:59",
+      "end": "01:07",
+      "speech": "So technically a company could show someone in California a different cancellation flow than everybody else, even if that company itself is based in California."
+    },
+    {
+      "start": "01:07",
+      "end": "01:11",
+      "speech": "And companies do get caught. Last year, Amazon paid 2.5 billion just to settle with the FTC..."
+    },
+    {
+      "start": "01:11",
+      "end": "01:16",
+      "speech": "...after they said canceling Prime took like 4 pages, 6 clicks, and 15 different options."
+    },
+    {
+      "start": "01:16",
+      "end": "01:21",
+      "speech": "And internally, Amazon engineers literally had a name for this cancellation process: The Iliad, as in the war that lasted like 10 years."
+    },
+    {
+      "start": "01:22",
+      "end": "01:25",
+      "speech": "But what are the actual psychological tricks inside of these cancellation flows?"
+    },
+    {
+      "start": "01:25",
+      "end": "01:31",
+      "speech": "They're called Dark Patterns, and in the next part I'm going to show you exactly how these kinds of techniques are used to keep you subscribed."
+    }
+  ],
+  "visual_demonstrations": [
+    {
+      "timestamp": "00:37",
+      "observation": "Animated mobile app screen mockup depicting multi-step cancellation friction dialogs.",
+      "before": "Screen showing initial modal titled 'Are you sure?' with a prominent button 'Keep My Plan' and a small text link 'Continue to Cancel'.",
+      "after": "Screen transitions to 'Pause instead?' modal with primary button 'Pause My Account', then to 'Confirm one more time' modal with primary button 'STAY WITH US'.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:46",
+      "observation": "Animated UI comparison showing simple subscription and single-click cancellation.",
+      "before": "Mobile screen with 'Sign Up Now' button.",
+      "after": "Cursor clicks 'Sign Up Now', leading to subscription view where clicking 'Yes, Cancel' immediately cancels the plan.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "01:00",
+      "observation": "Side-by-side / sequential UI comparison of state-specific cancellation flows (California vs Everyone else).",
+      "before": "California UI shows 'Your Subscription' with a single red 'Cancel Subscription' button that immediately shows a green checkmark 'Cancelled' screen.",
+      "after": "Everyone else UI displays a multi-step sequence: step 1 survey ('Why are you leaving?'), step 2 loss aversion warning ('You'll lose everything!'), and step 3 double confirmation screen ('Final Confirmation').",
+      "certainty": "high"
+    }
+  ],
+  "creator_derived_lessons": [
+    {
+      "timestamps": [
+        "00:15",
+        "00:36",
+        "00:43",
+        "01:26"
+      ],
+      "creator_statement_paraphrase": "The 'Roach Motel' is a dark pattern where joining a subscription is effortless, but leaving is intentionally made difficult through psychological tricks and multi-step friction to force users to give up.",
+      "visual_evidence": "UI mockups showing 3+ modal barriers ('Are you sure?', 'Pause instead?', 'Confirm one more time') contrasting with simple single-click cancellation.",
+      "ux_problem": "Deceptive UX dark patterns that introduce artificial friction, confusing choices, and multi-step modal traps during account cancellation.",
+      "recommended_change": "Make subscription cancellation as simple and direct as signing up ('Click to Cancel' standard).",
+      "specific_visual_or_interaction_change": "Provide a direct, single-click cancellation option without forcing users through surveys, loss-aversion popups, pause offers, or offline physical mail/in-person requirements.",
+      "creator_reasoning": "Multi-step cancellation flows exploit psychological friction to make users second-guess or give up on canceling, leading to user frustration, regulatory scrutiny, and legal penalties.",
+      "applicable_context": "Digital subscription products, SaaS applications, recurring billing services, and membership platforms.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    }
+  ],
+  "analyst_interpretation": {
+    "interpretation": "The video highlights the legal tension and ethical considerations surrounding 'Roach Motel' dark patterns in subscription design, emphasizing regulatory efforts (like FTC Click-to-Cancel rules and California/NY legislation) aimed at requiring symmetric ease for sign-up and cancellation flows.",
+    "inferences_not_shown_or_said": [
+      "The specific court rulings invalidating federal rules are referenced verbally and visually via headlines, but full judicial context is omitted."
+    ]
+  },
+  "spot_check_visuals": [
+    {
+      "timestamp": "00:21",
+      "observation": "LA Fitness brand logo appears as a floating graphic over the presenter."
+    },
+    {
+      "timestamp": "00:43",
+      "observation": "FTC press release headline text displayed: 'Federal Trade Commission Announces Final Click-to-Cancel Rule Making It Easier for Consumers to End Recurring Subscriptions and Memberships'."
+    },
+    {
+      "timestamp": "01:09",
+      "observation": "BBC article overlay displayed: 'Amazon agrees to pay $2.5bn over claims it tricked Prime customers'."
+    },
+    {
+      "timestamp": "01:20",
+      "observation": "Historical painting of Trojan War artwork with graphic text label 'the Iliad'."
+    }
+  ],
+  "overall_uncertainties": [],
+  "model_reported_source_identity": {
+    "video_id": "ux_dark_patterns_roach_motel",
+    "source_url": "supplied_video"
+  },
+  "workspace_source": {
+    "video_id": "gJv_CmEZ4jQ",
+    "original_url": "https://www.youtube.com/watch?v=gJv_CmEZ4jQ",
+    "canonical_url": "https://www.youtube.com/watch?v=gJv_CmEZ4jQ",
+    "title": "The Dark Side Of UX Part 1: Roach Motels",
+    "category": "dark-side-of-ux",
+    "series_part": 1,
+    "model": "gemini-3.6-flash",
+    "processed_at": "2026-08-31T13:43:45.205007+00:00"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "video_id": "gJv_CmEZ4jQ",
+  "source_url": "https://www.youtube.com/watch?v=gJv_CmEZ4jQ",
+  "original_url": "https://www.youtube.com/watch?v=gJv_CmEZ4jQ",
+  "title": "The Dark Side Of UX Part 1: Roach Motels",
+  "model": "gemini-3.6-flash",
+  "status": "succeeded",
+  "started_at": "2026-08-31T13:42:08.765427+00:00",
+  "attempt_limit": 3,
+  "completed_at": "2026-08-31T13:43:45.220340+00:00",
+  "extraction": "analysis/youtube/gJv_CmEZ4jQ/extraction.json"
+}

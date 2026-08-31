@@ -1,0 +1,12 @@
+{
+  "video_id": "sedo-xVYllo",
+  "source_url": "https://www.youtube.com/watch?v=sedo-xVYllo",
+  "original_url": "https://www.youtube.com/watch?v=sedo-xVYllo",
+  "title": "Where do you put the error? : Building for Good UX Part 7 #uxdesign",
+  "model": "gemini-3.7-flash",
+  "status": "succeeded",
+  "started_at": "2026-08-31T08:07:21.761954+00:00",
+  "attempt_limit": 3,
+  "completed_at": "2026-08-31T08:07:39.922961+00:00",
+  "extraction": "analysis/youtube/sedo-xVYllo/extraction.json"
+}

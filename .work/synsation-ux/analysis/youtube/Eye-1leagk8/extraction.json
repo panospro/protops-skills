@@ -1,0 +1,201 @@
+{
+  "source_identity": {
+    "video_id": "Eye-1leagk8",
+    "source_url": "https://www.youtube.com/watch?v=Eye-1leagk8"
+  },
+  "analysis_coverage": {
+    "audio_analyzed": true,
+    "visuals_analyzed": true,
+    "timestamp_ranges_reviewed": [
+      "00:00-01:25"
+    ],
+    "limitations": []
+  },
+  "transcript": [
+    {
+      "start": "00:00",
+      "end": "00:02",
+      "speech": "This button is an example of confirm shaming."
+    },
+    {
+      "start": "00:02",
+      "end": "00:07",
+      "speech": "This is part 4 of my Dark Side of UX series, not to be confused with my Build for Good UX series,"
+    },
+    {
+      "start": "00:08",
+      "end": "00:11",
+      "speech": "where I show you the psychological tricks that are being played on you as a user of the web."
+    },
+    {
+      "start": "00:11",
+      "end": "00:15",
+      "speech": "Confirm shaming is when the decline option is worded literally to shame you."
+    },
+    {
+      "start": "00:15",
+      "end": "00:19",
+      "speech": "The whole goal is to emotionally manipulate you into doing something that you wouldn't have done otherwise."
+    },
+    {
+      "start": "00:20",
+      "end": "00:22",
+      "speech": "So why are people falling for this? There's a paradigm from the 1990s"
+    },
+    {
+      "start": "00:23",
+      "end": "00:25",
+      "speech": "called 'Computers are Social Actors'."
+    },
+    {
+      "start": "00:25",
+      "end": "00:29",
+      "speech": "This research came from Stanford and decades later, surprise surprise, it still holds up."
+    },
+    {
+      "start": "00:30",
+      "end": "00:33",
+      "speech": "It found that people mindlessly apply social rules and expectations to computers,"
+    },
+    {
+      "start": "00:34",
+      "end": "00:36",
+      "speech": "even though that we know are machines with no feelings."
+    },
+    {
+      "start": "00:37",
+      "end": "00:39",
+      "speech": "It's the same reason people will say thank you when they're just using a chatbot."
+    },
+    {
+      "start": "00:40",
+      "end": "00:43",
+      "speech": "So even though this is just a button, your brain is reacting like this is a real person judging you."
+    },
+    {
+      "start": "00:44",
+      "end": "00:45",
+      "speech": "This also creates cognitive dissonance."
+    },
+    {
+      "start": "00:46",
+      "end": "00:50",
+      "speech": "You might be thinking 'I'm a smart person', but then clicking 'I hate saving money' don't fit."
+    },
+    {
+      "start": "00:51",
+      "end": "00:54",
+      "speech": "And one of the easiest ways to remove that discomfort is to give in."
+    },
+    {
+      "start": "00:55",
+      "end": "00:57",
+      "speech": "But you can only guilt someone so far. The second that you notice it,"
+    },
+    {
+      "start": "00:58",
+      "end": "01:00",
+      "speech": "that guilt turns into reactance. AKA you're not guilting me into this,"
+    },
+    {
+      "start": "01:02",
+      "end": "01:03",
+      "speech": "and now you just resent the brand."
+    },
+    {
+      "start": "01:04",
+      "end": "01:06",
+      "speech": "Here's one example you might be familiar with: travel insurance."
+    },
+    {
+      "start": "01:07",
+      "end": "01:09",
+      "speech": "Look at this language. They could have just had a button with 'No thanks.'"
+    },
+    {
+      "start": "01:10",
+      "end": "01:13",
+      "speech": "But instead it's 'No, I'm willing to risk my flight'."
+    },
+    {
+      "start": "01:13",
+      "end": "01:18",
+      "speech": "Or this one where it lists out the price of the trip and then it uses language like 'only' for the travel insurance."
+    },
+    {
+      "start": "01:19",
+      "end": "01:23",
+      "speech": "And also trying to add in all the what ifs of 'you could miss a connection', 'you could miss your flight'."
+    },
+    {
+      "start": "01:23",
+      "end": "01:24",
+      "speech": "Follow for part 5."
+    }
+  ],
+  "visual_demonstrations": [
+    {
+      "timestamp": "00:16",
+      "observation": "A simulated web modal overlay pops up with two buttons: a primary accept button ('Yes! I'd like the discount') and a guilt-inducing decline button ('No thanks, I like full price'). A cursor clicks on the decline button.",
+      "before": "The presenter is speaking holding a mic.",
+      "after": "The cursor clicks the 'No thanks, I like full price' button in the modal graphics.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "01:07",
+      "observation": "An airline flight checkout interface displaying flight insurance options via radio buttons. The decline option reads: 'No, I'm willing to risk my [blacked out] flight.'",
+      "before": "Presenter speaking about travel insurance.",
+      "after": "A second travel insurance UI example is displayed showing 'No, I will travel without this insurance for my $1,198.03 trip...'",
+      "certainty": "high"
+    }
+  ],
+  "creator_derived_lessons": [
+    {
+      "timestamps": [
+        "00:11",
+        "01:07"
+      ],
+      "creator_statement_paraphrase": "Confirm shaming manipulates users emotionally by phrasing decline options in ways that induce guilt or shame, leading to user resentment.",
+      "visual_evidence": "Examples of decline options shown include 'No thanks, I like full price', 'No thanks, I hate saving money', and 'No, I'm willing to risk my flight'.",
+      "ux_problem": "Decline options in modals or checkouts are explicitly worded to induce guilt, shame, or cognitive dissonance in the user.",
+      "recommended_change": "Replace shame-inducing wording on decline options with simple, neutral language.",
+      "specific_visual_or_interaction_change": "Change decline button labels from guilt-inducing phrases like 'No, I'm willing to risk my flight' to a simple, neutral 'No thanks'.",
+      "creator_reasoning": "When users recognize confirm shaming, the guilt turns into psychological reactance and brand resentment, destroying trust.",
+      "applicable_context": "Web page popups, discount offers, newsletter signups, and checkout upsells like travel insurance.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    }
+  ],
+  "analyst_interpretation": {
+    "interpretation": "The video highlights 'confirm shaming' as a dark pattern leveraged through psychological principles like the 'Computers as Social Actors' paradigm and cognitive dissonance. The creator argues that while it might push short-term conversions, it damages long-term brand equity due to psychological reactance.",
+    "inferences_not_shown_or_said": [
+      "Exact conversion rate impact of neutral vs. confirm-shaming buttons is not provided."
+    ]
+  },
+  "spot_check_visuals": [
+    {
+      "timestamp": "00:30",
+      "observation": "Academic paper title page 'Computers are Social Actors' by Clifford Nass, Jonathan Steuer, and Ellen R. Tauber is displayed on screen with highlighted abstract text."
+    },
+    {
+      "timestamp": "01:14",
+      "observation": "Travel Guard insurance option selection interface showing text 'Yes, insure my trip for only $91.29' and 'No, I will travel without this insurance for my $1,198.03 trip' with highlighted warning text below."
+    }
+  ],
+  "overall_uncertainties": [],
+  "model_reported_source_identity": {
+    "video_id": "dark_side_of_ux_part_4",
+    "source_url": "user_provided_video"
+  },
+  "workspace_source": {
+    "video_id": "Eye-1leagk8",
+    "original_url": "https://www.youtube.com/watch?v=Eye-1leagk8",
+    "canonical_url": "https://www.youtube.com/watch?v=Eye-1leagk8",
+    "title": "Dark Side Of UX Part 4: Confirmshaming",
+    "category": "dark-side-of-ux",
+    "series_part": 4,
+    "model": "gemini-3.6-flash",
+    "processed_at": "2026-08-31T13:49:59.789226+00:00"
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "source_identity": {
+    "video_id": "7nwR9dZgbRA",
+    "source_url": "https://www.youtube.com/watch?v=7nwR9dZgbRA"
+  },
+  "analysis_coverage": {
+    "audio_analyzed": true,
+    "visuals_analyzed": true,
+    "timestamp_ranges_reviewed": [
+      "00:00-01:09"
+    ],
+    "limitations": []
+  },
+  "transcript": [
+    {
+      "start": "00:00",
+      "end": "00:03",
+      "speech": "If I told you the shopping cart should always be placed top right on your website, would you agree?"
+    },
+    {
+      "start": "00:04",
+      "end": "00:06",
+      "speech": "This is part 13 of my Build for Good UX series."
+    },
+    {
+      "start": "00:06",
+      "end": "00:11",
+      "speech": "We just talked about how users expect your site to work the same way that other websites work. That's known as Jakob's Law,"
+    },
+    {
+      "start": "00:11",
+      "end": "00:14",
+      "speech": "and I used the shopping cart example for that. But some of you noticed something."
+    },
+    {
+      "start": "00:15",
+      "end": "00:18",
+      "speech": "My visual, even though meant to represent the web, looked like a phone screen."
+    },
+    {
+      "start": "00:18",
+      "end": "00:23",
+      "speech": "But some of you guys were like, wait, on the phone, the shopping cart is usually on the bottom now, what are you talking about? Let's talk about it."
+    },
+    {
+      "start": "00:24",
+      "end": "00:27",
+      "speech": "The expected layouts that people are used to seeing are not the same on mobile and web."
+    },
+    {
+      "start": "00:28",
+      "end": "00:32",
+      "speech": "On desktop, the shopping cart often does live top right: Amazon, Target, Lululemon."
+    },
+    {
+      "start": "00:33",
+      "end": "00:36",
+      "speech": "But pull up the mobile app for any of these stores. Where's the cart now?"
+    },
+    {
+      "start": "00:36",
+      "end": "00:39",
+      "speech": "You guys are right, it's in the bottom now. Your thumb lives at the bottom of the screen."
+    },
+    {
+      "start": "00:39",
+      "end": "00:43",
+      "speech": "If you're using your phone one-handed, the top right is one of the hardest places to reach."
+    },
+    {
+      "start": "00:43",
+      "end": "00:48",
+      "speech": "And it goes further than mobile versus web. And if you're building something that people are going to use around the world, then the standard is not going to be the same everywhere."
+    },
+    {
+      "start": "00:49",
+      "end": "00:53",
+      "speech": "Open the Arabic version of Amazon. Everything is mirrored, the cart is top left."
+    },
+    {
+      "start": "00:53",
+      "end": "01:02",
+      "speech": "So when you're building an app, you need to not only take into consideration the patterns that people are used to seeing, but also the difference in devices that people are using and where your customers are going to be located in the world."
+    },
+    {
+      "start": "01:02",
+      "end": "01:09",
+      "speech": "Now that we've covered the differences, next time we are going to talk about some of those components that people are used to seeing in the same place every time. See you there and follow for more."
+    }
+  ],
+  "visual_demonstrations": [
+    {
+      "timestamp": "00:01",
+      "observation": "Desktop web browser mockup displaying 'Nook' website with a shopping cart icon in the top right opening a cart dropdown ('Your Cart - 2 Items').",
+      "before": null,
+      "after": "Cart popover displays items with prices and a 'Checkout' button.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:21",
+      "observation": "Screenshot of the Amazon mobile app bottom navigation bar with a red box outlining the shopping cart icon in the center-bottom position.",
+      "before": null,
+      "after": null,
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:40",
+      "observation": "Mobile screen wireframe highlighting a shopping cart icon at the top right inside a red circle to illustrate reachability difficulty.",
+      "before": null,
+      "after": null,
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:51",
+      "observation": "Screenshot of the Arabic Amazon website interface showing right-to-left layout where the shopping cart icon is positioned in the top-left corner.",
+      "before": null,
+      "after": null,
+      "certainty": "high"
+    }
+  ],
+  "creator_derived_lessons": [
+    {
+      "timestamps": [
+        "00:24",
+        "00:36",
+        "00:43"
+      ],
+      "creator_statement_paraphrase": "Designers should account for differing device layouts (desktop vs. mobile) and internationalization (such as RTL mirroring) when applying standard UI conventions.",
+      "visual_evidence": "Demonstrated with desktop web layouts showing cart in top right, mobile app navigation placing cart at the bottom for thumb reachability, and Arabic Amazon placing the cart at the top left.",
+      "ux_problem": "Applying a single rigid placement rule (e.g., cart always top right) ignores mobile ergonomics (thumb reach zone) and international reading direction.",
+      "recommended_change": "Place shopping carts at the top right for standard desktop LTR websites, move cart navigation to the bottom bar on mobile apps, and mirror placement (e.g., top left) for RTL localized websites.",
+      "specific_visual_or_interaction_change": "Move cart icon to bottom tab bar on mobile screens and top-left on RTL web interfaces.",
+      "creator_reasoning": "On mobile devices, user thumbs operate from the bottom of the screen, making the top right difficult to reach one-handed. In RTL languages like Arabic, layouts mirror standard LTR patterns.",
+      "applicable_context": "E-commerce websites, mobile apps, and multilingual/global digital products.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    }
+  ],
+  "analyst_interpretation": {
+    "interpretation": "The creator clarifies that Jakob's Law does not imply a universal, static pixel location across all platforms; rather, standard user expectations adapt to the physical ergonomics of mobile touchscreens and cultural text direction conventions.",
+    "inferences_not_shown_or_said": []
+  },
+  "spot_check_visuals": [
+    {
+      "timestamp": "00:10",
+      "observation": "Target website header is shown with 'Find Stores' and the shopping cart circled in red on the top right."
+    },
+    {
+      "timestamp": "00:51",
+      "observation": "Arabic Amazon header displayed with Arabic text and yellow top promotional banner, with cart at top left."
+    }
+  ],
+  "overall_uncertainties": [],
+  "model_reported_source_identity": {
+    "video_id": "shorts_build_for_good_ux_part_13",
+    "source_url": "supplied_video"
+  },
+  "workspace_source": {
+    "video_id": "7nwR9dZgbRA",
+    "original_url": "https://www.youtube.com/watch?v=7nwR9dZgbRA",
+    "canonical_url": "https://www.youtube.com/watch?v=7nwR9dZgbRA",
+    "title": "Build for Good UX Part 13: Jakobs Law Continued #uxdesign",
+    "category": "build-for-good-ux",
+    "series_part": 13,
+    "model": "gemini-3.7-flash",
+    "processed_at": "2026-08-31T08:15:06.936302+00:00"
+  }
+}

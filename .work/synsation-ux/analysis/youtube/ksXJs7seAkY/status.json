@@ -1,0 +1,12 @@
+{
+  "video_id": "ksXJs7seAkY",
+  "source_url": "https://www.youtube.com/watch?v=ksXJs7seAkY",
+  "original_url": "https://www.youtube.com/watch?v=ksXJs7seAkY",
+  "title": "Just make your app fast enough 💀#uxdesign",
+  "model": "gemini-3.6-flash",
+  "status": "succeeded",
+  "started_at": "2026-08-31T13:55:14.731767+00:00",
+  "attempt_limit": 3,
+  "completed_at": "2026-08-31T13:55:36.929151+00:00",
+  "extraction": "analysis/youtube/ksXJs7seAkY/extraction.json"
+}

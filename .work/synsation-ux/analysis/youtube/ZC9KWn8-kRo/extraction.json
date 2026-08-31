@@ -1,0 +1,195 @@
+{
+  "source_identity": {
+    "video_id": "ZC9KWn8-kRo",
+    "source_url": "https://www.youtube.com/watch?v=ZC9KWn8-kRo"
+  },
+  "analysis_coverage": {
+    "audio_analyzed": true,
+    "visuals_analyzed": true,
+    "timestamp_ranges_reviewed": [
+      "00:00-01:21"
+    ],
+    "limitations": [
+      "None"
+    ]
+  },
+  "transcript": [
+    {
+      "start": "00:00",
+      "end": "00:06",
+      "speech": "Out of these 24 jars of jelly, which one would you pick? Well, let me narrow it down for you. Choose"
+    },
+    {
+      "start": "00:06",
+      "end": "00:10",
+      "speech": "one out of these six."
+    },
+    {
+      "start": "00:10",
+      "end": "00:16",
+      "speech": "This is part 14 in my Build for Good UX series. And this video actually isn't about jelly or jam, whatever you want to call it."
+    },
+    {
+      "start": "00:16",
+      "end": "00:22",
+      "speech": "It is about Hick's Law. The law states that the time that it takes to make a decision increases with the complexity and the number of choices."
+    },
+    {
+      "start": "00:22",
+      "end": "00:27",
+      "speech": "And this applies to a lot of things in daily life. Like me asking you to pick from 24 jars versus six."
+    },
+    {
+      "start": "00:27",
+      "end": "00:33",
+      "speech": "Or when you're sitting at Cheesecake Factory looking at their 250 item menu compared to going to an In-N-Out where there's basically four options."
+    },
+    {
+      "start": "00:34",
+      "end": "00:39",
+      "speech": "And this concept doesn't change when you're thinking about the internet and how to design for a user. Look at Google"
+    },
+    {
+      "start": "00:39",
+      "end": "00:44",
+      "speech": "versus Yahoo. The web browser will give you one clear action: search. Yahoo has so much going"
+    },
+    {
+      "start": "00:44",
+      "end": "00:48",
+      "speech": "on, you could call it clutter, but really it's a lot of unnecessary additional choices competing for your attention."
+    },
+    {
+      "start": "00:48",
+      "end": "00:52",
+      "speech": "So, instead of showing someone a long form all at once, break it up into several pages."
+    },
+    {
+      "start": "00:52",
+      "end": "00:56",
+      "speech": "Studies have shown that if you have over seven fields, multi-page can increase conversion by over 300%."
+    },
+    {
+      "start": "00:56",
+      "end": "01:02",
+      "speech": "Instead of this menu where everything is listed out, keep a couple of options and then let people filter in the search results."
+    },
+    {
+      "start": "01:02",
+      "end": "01:06",
+      "speech": "And often it's not about limiting what a person can do, it's more about keeping the options manageable."
+    },
+    {
+      "start": "01:06",
+      "end": "01:11",
+      "speech": "Netflix does a good job of this where 80% of what you watch comes from recommendations, not what you search."
+    },
+    {
+      "start": "01:11",
+      "end": "01:18",
+      "speech": "They have thousands and thousands of movies you can watch, but you don't see them all at once. And the home page is just a few curated rows. And clearly it works."
+    },
+    {
+      "start": "01:18",
+      "end": "01:21",
+      "speech": "In the next part, we're going to talk about Progressive Disclosure, so follow for more."
+    }
+  ],
+  "visual_demonstrations": [
+    {
+      "timestamp": "00:49",
+      "observation": "A single long form titled 'Create Account' displaying six visible fields transitions into a multi-step step-by-step UI card titled '1/3 Basic Info' with a progress bar and 'Next Step' button.",
+      "before": "A white card UI listing 'First Name', 'Last Name', 'Email Address', 'Phone Number', and 'Company Name' fields all at once.",
+      "after": "A multi-step card displaying '1/3 Basic Info', two input fields ('Full Name', 'Email Address'), and a prominent blue 'Next Step' button.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:57",
+      "observation": "A mobile ecommerce menu showing 15 individual category links in a vertical list is replaced by a simplified menu showing four top-level category cards ('Women's Clothes', 'Men's Clothes', 'Women's Shoes', 'Men's Shoes') leading to a product grid page with horizontal filter chips.",
+      "before": "A long vertical menu drawer listing specific items like 'Women's High Heels', 'Women's T-Shirts', 'Men's Sneakers', etc.",
+      "after": "Top-level category cards transitioning to a product view with horizontal scroll filter tabs ('Dresses', 'Tops', 'T-Shirts', 'Blouses', 'Jeans') outlined in red.",
+      "certainty": "high"
+    }
+  ],
+  "creator_derived_lessons": [
+    {
+      "timestamps": [
+        "00:48",
+        "00:56"
+      ],
+      "creator_statement_paraphrase": "Instead of showing a user a long form all at once, divide it across several pages/steps. For forms with more than seven fields, multi-page structures can increase conversions by over 300%.",
+      "visual_evidence": "Demonstrated visually by converting a long 'Create Account' form with many text inputs into a multi-step card wizard UI showing '1/3 Basic Info' and a 'Next Step' button.",
+      "ux_problem": "Presenting a long single-page form creates choice overload and decision fatigue.",
+      "recommended_change": "Split forms containing more than seven fields across multiple pages/steps.",
+      "specific_visual_or_interaction_change": "Replace a single scrolling list of fields with step-based wizard cards featuring progress bars and step navigation buttons.",
+      "creator_reasoning": "Hick's Law states decision time increases with choice complexity; reducing visible options per screen reduces cognitive load and significantly improves conversion rates.",
+      "applicable_context": "Web and mobile form design, onboarding flows, and account registration processes with >7 fields.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    },
+    {
+      "timestamps": [
+        "00:56",
+        "01:02"
+      ],
+      "creator_statement_paraphrase": "Instead of exhaustive navigation menus listing every subcategory, show a few top-level categories and allow users to filter on results pages.",
+      "visual_evidence": "Demonstrated by replacing an exhaustive vertical list of 15+ subcategories with 4 main category buttons, followed by horizontal filter chips on the category results page.",
+      "ux_problem": "Exhaustive menus with dozens of choices overload users during navigation.",
+      "recommended_change": "Provide broad top-level category options in main menus and defer specific subcategory selection to result-page filters.",
+      "specific_visual_or_interaction_change": "Reduce main menu item count and introduce horizontal filter chips on the listings page.",
+      "creator_reasoning": "Limits initial choices in accordance with Hick's Law, keeping UI choices manageable without restricting total functionality.",
+      "applicable_context": "E-commerce store navigation menus and search UI design.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    },
+    {
+      "timestamps": [
+        "00:37",
+        "00:48"
+      ],
+      "creator_statement_paraphrase": "Google provides one clear primary action (search) on its browser view, whereas Yahoo presents cluttered additional choices competing for user attention.",
+      "visual_evidence": "Side-by-side comparison of Google's single search input page versus Yahoo's home page filled with news cards, ads, and trending widgets.",
+      "ux_problem": "Too many competing visual widgets and choices distract users from key tasks.",
+      "recommended_change": "Simplify primary landing interfaces to highlight the single key user action.",
+      "specific_visual_or_interaction_change": "Remove peripheral media blocks and secondary links to focus on a prominent search input field.",
+      "creator_reasoning": "Reducing choices speeds up decision-making and reduces user effort.",
+      "applicable_context": "Web homepages, search engines, and portal landing pages.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    }
+  ],
+  "analyst_interpretation": {
+    "interpretation": "The video uses Hick's Law to argue for chunking information into discrete steps (forms) and progressive disclosure (menus and recommendation carousels).",
+    "inferences_not_shown_or_said": [
+      "The exact source or study behind the '300% conversion increase for >7 fields' statistic is not cited on screen."
+    ]
+  },
+  "spot_check_visuals": [
+    {
+      "timestamp": "00:01",
+      "observation": "Grid of 24 numbered fruit jelly jars titled '24 jars of jelly'."
+    },
+    {
+      "timestamp": "00:37",
+      "observation": "Google dark mode search page with search bar and 'Google Search' / 'I'm Feeling Lucky' buttons."
+    }
+  ],
+  "overall_uncertainties": [],
+  "model_reported_source_identity": {
+    "video_id": "build_for_good_ux_part_14_hicks_law",
+    "source_url": "supplied_video"
+  },
+  "workspace_source": {
+    "video_id": "ZC9KWn8-kRo",
+    "original_url": "https://www.youtube.com/watch?v=ZC9KWn8-kRo",
+    "canonical_url": "https://www.youtube.com/watch?v=ZC9KWn8-kRo",
+    "title": "Build for Good UX Part 14: Hicks Law #uxdesign",
+    "category": "build-for-good-ux",
+    "series_part": 14,
+    "model": "gemini-3.6-flash",
+    "processed_at": "2026-08-31T13:39:23.320220+00:00"
+  }
+}

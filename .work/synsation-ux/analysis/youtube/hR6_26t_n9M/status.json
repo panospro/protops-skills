@@ -1,0 +1,12 @@
+{
+  "video_id": "hR6_26t_n9M",
+  "source_url": "https://www.youtube.com/watch?v=hR6_26t_n9M",
+  "original_url": "https://www.youtube.com/watch?v=hR6_26t_n9M",
+  "title": "Graceful Degredation: Build for Good UX Part 9",
+  "model": "gemini-3.7-flash",
+  "status": "succeeded",
+  "started_at": "2026-08-31T08:11:13.377289+00:00",
+  "attempt_limit": 3,
+  "completed_at": "2026-08-31T08:11:32.697701+00:00",
+  "extraction": "analysis/youtube/hR6_26t_n9M/extraction.json"
+}

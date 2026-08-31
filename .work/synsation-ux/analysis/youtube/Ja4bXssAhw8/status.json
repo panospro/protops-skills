@@ -1,0 +1,12 @@
+{
+  "video_id": "Ja4bXssAhw8",
+  "source_url": "https://www.youtube.com/watch?v=Ja4bXssAhw8",
+  "original_url": "https://www.youtube.com/watch?v=Ja4bXssAhw8",
+  "title": "Success States: Build for Good UX Part 11",
+  "model": "gemini-3.6-flash",
+  "status": "succeeded",
+  "started_at": "2026-08-31T13:57:46.428825+00:00",
+  "attempt_limit": 3,
+  "completed_at": "2026-08-31T13:58:23.698575+00:00",
+  "extraction": "analysis/youtube/Ja4bXssAhw8/extraction.json"
+}

@@ -1,0 +1,12 @@
+{
+  "video_id": "lulIaQ41TRA",
+  "source_url": "https://www.youtube.com/watch?v=lulIaQ41TRA",
+  "original_url": "https://www.youtube.com/watch?v=lulIaQ41TRA",
+  "title": "Building a Good Form: Part 6 of Building With Good UX #uxdesign",
+  "model": "gemini-3.7-flash",
+  "status": "succeeded",
+  "started_at": "2026-08-31T08:05:57.620681+00:00",
+  "attempt_limit": 3,
+  "completed_at": "2026-08-31T08:07:16.748278+00:00",
+  "extraction": "analysis/youtube/lulIaQ41TRA/extraction.json"
+}

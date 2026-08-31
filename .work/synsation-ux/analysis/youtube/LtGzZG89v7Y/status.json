@@ -1,0 +1,12 @@
+{
+  "video_id": "LtGzZG89v7Y",
+  "source_url": "https://www.youtube.com/watch?v=LtGzZG89v7Y",
+  "original_url": "https://www.youtube.com/watch?v=LtGzZG89v7Y",
+  "title": "Dark Side of UX Part 2: Subscription Cancelling",
+  "model": "gemini-3.6-flash",
+  "status": "succeeded",
+  "started_at": "2026-08-31T13:44:15.238323+00:00",
+  "attempt_limit": 3,
+  "completed_at": "2026-08-31T13:45:57.893997+00:00",
+  "extraction": "analysis/youtube/LtGzZG89v7Y/extraction.json"
+}

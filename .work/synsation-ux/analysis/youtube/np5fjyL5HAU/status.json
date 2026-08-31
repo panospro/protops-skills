@@ -1,0 +1,12 @@
+{
+  "video_id": "np5fjyL5HAU",
+  "source_url": "https://www.youtube.com/watch?v=np5fjyL5HAU",
+  "original_url": "https://www.youtube.com/watch?v=np5fjyL5HAU",
+  "title": "Progress Bars Might Not Be 100% Accurate",
+  "model": "gemini-3.6-flash",
+  "status": "succeeded",
+  "started_at": "2026-08-31T13:50:29.824589+00:00",
+  "attempt_limit": 3,
+  "completed_at": "2026-08-31T13:52:22.631171+00:00",
+  "extraction": "analysis/youtube/np5fjyL5HAU/extraction.json"
+}

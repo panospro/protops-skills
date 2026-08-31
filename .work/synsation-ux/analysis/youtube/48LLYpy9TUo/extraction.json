@@ -1,0 +1,279 @@
+{
+  "source_identity": {
+    "video_id": "48LLYpy9TUo",
+    "source_url": "https://www.youtube.com/watch?v=48LLYpy9TUo"
+  },
+  "analysis_coverage": {
+    "audio_analyzed": true,
+    "visuals_analyzed": true,
+    "timestamp_ranges_reviewed": [
+      "00:00-01:26"
+    ],
+    "limitations": [
+      "None"
+    ]
+  },
+  "transcript": [
+    {
+      "start": "00:00",
+      "end": "00:02",
+      "speech": "I posted a video asking which loading state you prefer:"
+    },
+    {
+      "start": "00:02",
+      "end": "00:05",
+      "speech": "a skeleton screen, a spinner, a progress bar, or no loader at all?"
+    },
+    {
+      "start": "00:05",
+      "end": "00:08",
+      "speech": "And what I learned from that video is there are two types of people in this world:"
+    },
+    {
+      "start": "00:08",
+      "end": "00:10",
+      "speech": "The ones that love skeleton screens,"
+    },
+    {
+      "start": "00:11",
+      "end": "00:15",
+      "speech": "And the ones who will go to war in the comments about their absolute hate for skeleton screens."
+    },
+    {
+      "start": "00:15",
+      "end": "00:17",
+      "speech": "Here's why I think people hate them. Skeleton tends to show up"
+    },
+    {
+      "start": "00:17",
+      "end": "00:19",
+      "speech": "when your connection is bad."
+    },
+    {
+      "start": "00:19",
+      "end": "00:21",
+      "speech": "So your brain links the visual with the negative experience."
+    },
+    {
+      "start": "00:21",
+      "end": "00:24",
+      "speech": "We have been trained that these boxes mean slow connection."
+    },
+    {
+      "start": "00:24",
+      "end": "00:27",
+      "speech": "Now, if one shows up even for just two seconds, you still attribute it to that."
+    },
+    {
+      "start": "00:27",
+      "end": "00:30",
+      "speech": "And the research is actually split, but there's also not that much research on this."
+    },
+    {
+      "start": "00:30",
+      "end": "00:33",
+      "speech": "One study tested skeletons against spinners and even blank screens."
+    },
+    {
+      "start": "00:33",
+      "end": "00:35",
+      "speech": "And the skeleton felt the slowest of the three."
+    },
+    {
+      "start": "00:35",
+      "end": "00:38",
+      "speech": "But a latest study found the opposite that skeleton screens can be perceived faster."
+    },
+    {
+      "start": "00:38",
+      "end": "00:39",
+      "speech": "But only when done a specific way."
+    },
+    {
+      "start": "00:39",
+      "end": "00:41",
+      "speech": "And that means that the skeleton did have to be animated,"
+    },
+    {
+      "start": "00:41",
+      "end": "00:43",
+      "speech": "no static gray boxes."
+    },
+    {
+      "start": "00:43",
+      "end": "00:46",
+      "speech": "The animation had to have the shimmer wave, not the pulsing fade."
+    },
+    {
+      "start": "00:46",
+      "end": "00:49",
+      "speech": "The wave had to move slow and steady, not fast."
+    },
+    {
+      "start": "00:49",
+      "end": "00:51",
+      "speech": "And it had to sweep left to right."
+    },
+    {
+      "start": "00:51",
+      "end": "00:53",
+      "speech": "If you get all of that right, skeletons might feel faster."
+    },
+    {
+      "start": "00:53",
+      "end": "00:56",
+      "speech": "And speaking of doing it right, skeleton screens are a promise. It's promising a layout."
+    },
+    {
+      "start": "00:57",
+      "end": "01:03",
+      "speech": "So if the real content loads in a different place than the boxes show, that everything jumps around, that's a broken promise, and it will trigger people."
+    },
+    {
+      "start": "01:03",
+      "end": "01:07",
+      "speech": "But at the end of the day, skeleton screens are only meant to exist for a couple of seconds,"
+    },
+    {
+      "start": "01:07",
+      "end": "01:10",
+      "speech": "because they give you zero information about how long you're going to be waiting."
+    },
+    {
+      "start": "01:10",
+      "end": "01:13",
+      "speech": "So your best use case is when you know your data arrives in less than three seconds."
+    },
+    {
+      "start": "01:13",
+      "end": "01:17",
+      "speech": "But the catch on the engineer side of it, when the connection is bad and it takes longer to load,"
+    },
+    {
+      "start": "01:17",
+      "end": "01:21",
+      "speech": "actually detecting that and switching from a skeleton to a progress indicator is genuinely hard to build,"
+    },
+    {
+      "start": "01:21",
+      "end": "01:23",
+      "speech": "so most apps just don't do that."
+    },
+    {
+      "start": "01:23",
+      "end": "01:26",
+      "speech": "So users just stay stuck staring at this way longer than they should."
+    }
+  ],
+  "visual_demonstrations": [
+    {
+      "timestamp": "00:03",
+      "observation": "Card graphic illustrating loading UI choices: Skeleton screen, Spinner, and Progress bar.",
+      "before": "Host speaking into a star-shaped microphone.",
+      "after": "Host speaking while comment overlays appear.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:40",
+      "observation": "Mobile phone wireframe graphic visually contrasting skeleton screen animation parameters: Animated vs Static, Shimmer Wave vs Pulsing Fade, and Left to Right Sweep.",
+      "before": "Graphic showing research study results rating skeleton screens as SLOWEST.",
+      "after": "Mobile phone frame showing layout structural mismatch.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:58",
+      "observation": "Mobile mockup showing three simple grey skeleton placeholder bars transition into a completely different content layout (Featured Article card and stats grid), causing visual layout shift.",
+      "before": "Skeleton screen displaying three horizontal placeholder cards.",
+      "after": "Loaded UI featuring a blue 'Featured Article' banner and metric cards.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:18",
+      "observation": "Mobile UI prototype illustrating a skeleton loading screen dynamically switching to a centered circular spinner ('Just a moment...') when loading exceeds expected duration.",
+      "before": "Skeleton card structure loading on mobile screen mockup.",
+      "after": "Blank screen displaying a blue circular spinner and 'Just a moment...' text.",
+      "certainty": "high"
+    }
+  ],
+  "creator_derived_lessons": [
+    {
+      "timestamps": [
+        "00:38",
+        "00:51"
+      ],
+      "creator_statement_paraphrase": "Skeleton screens are perceived as faster only if they feature an active left-to-right shimmer wave animation moving at a slow, steady pace rather than static grey boxes or pulsing fades.",
+      "visual_evidence": "Mobile mockups demonstrating labeled animation variants (Animated, Static, Shimmer Wave, Pulsing Fade, Fast, Left to Right Sweep).",
+      "ux_problem": "Static skeleton screens, pulsing fades, or excessively fast animations can increase perceived wait time or frustrate users.",
+      "recommended_change": "Animate skeleton screens using a slow, steady shimmer wave that sweeps from left to right.",
+      "specific_visual_or_interaction_change": "Replace static gray placeholders or pulsing fades with a steady, left-to-right shimmer animation.",
+      "creator_reasoning": "Perception research indicates that specific animation direction and steady movement reduce perceived loading times.",
+      "applicable_context": "Skeleton screen design in mobile and web user interfaces.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    },
+    {
+      "timestamps": [
+        "00:53",
+        "01:03"
+      ],
+      "creator_statement_paraphrase": "Skeleton screens must accurately reflect the layout of the incoming content to avoid visual layout shifts when content loads.",
+      "visual_evidence": "Mobile phone screen graphic showing simple rectangular skeleton bars loading into a completely different blue card layout, causing visual jumpiness.",
+      "ux_problem": "When loaded content position does not match the skeleton placeholders, items jump around, causing visual discomfort and breaking user expectation.",
+      "recommended_change": "Ensure skeleton placeholders mirror the exact structure, size, and layout of the real content.",
+      "specific_visual_or_interaction_change": "Match visual dimensions and alignment of skeleton elements directly to incoming layout components.",
+      "creator_reasoning": "Skeletons create an implicit visual promise of the layout; failing to match it creates visual clutter and frustrates users.",
+      "applicable_context": "Layout skeleton design for feed and page components.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    },
+    {
+      "timestamps": [
+        "01:03",
+        "01:25"
+      ],
+      "creator_statement_paraphrase": "Skeleton screens should only be used for fast loads under three seconds; longer loads require switching to explicit progress indicators.",
+      "visual_evidence": "UI mockup showing a skeleton loader transitioning to a spinner with text 'Just a moment...' after a delay.",
+      "ux_problem": "Skeleton screens provide no status or time feedback, leaving users stuck staring at placeholders during poor network conditions.",
+      "recommended_change": "Reserve skeleton screens for fast loads (<3 seconds) and programmatically switch to a spinner/progress bar if data fetching takes longer.",
+      "specific_visual_or_interaction_change": "Detect slow connection timeouts and transition the visual loading state from skeleton cards to a progress indicator.",
+      "creator_reasoning": "Skeletons convey zero information about wait time; prolonged skeleton display associates the visual pattern with bad connection quality.",
+      "applicable_context": "Loading feedback design across web and mobile applications.",
+      "stated_exceptions": "Engineering complexity in dynamically detecting slow loads and switching indicators.",
+      "claim_type": "usability",
+      "uncertainties": []
+    }
+  ],
+  "analyst_interpretation": {
+    "interpretation": "The video presents UX findings on skeleton loading screens, discussing user perception, animation parameters, visual continuity, and appropriate use cases based on load duration.",
+    "inferences_not_shown_or_said": [
+      "Specific academic paper titles or authors for the cited loading studies were not explicitly named in the video."
+    ]
+  },
+  "spot_check_visuals": [
+    {
+      "timestamp": "00:09",
+      "observation": "Social media comment list displayed on screen highlighting positive feedback for skeleton screens."
+    },
+    {
+      "timestamp": "01:05",
+      "observation": "YouTube Premium app interface shown in dark mode displaying dark gray skeleton loading cards before population."
+    }
+  ],
+  "overall_uncertainties": [],
+  "model_reported_source_identity": {
+    "video_id": "unknown",
+    "source_url": "unknown"
+  },
+  "workspace_source": {
+    "video_id": "48LLYpy9TUo",
+    "original_url": "https://www.youtube.com/watch?v=48LLYpy9TUo",
+    "canonical_url": "https://www.youtube.com/watch?v=48LLYpy9TUo",
+    "title": "Why Do People Hate Skeleton Screens So Much?",
+    "category": "standalone-loading-perceived-performance",
+    "series_part": null,
+    "model": "gemini-3.6-flash",
+    "processed_at": "2026-08-31T13:54:44.690869+00:00"
+  }
+}

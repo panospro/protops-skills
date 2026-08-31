@@ -1,0 +1,12 @@
+{
+  "video_id": "_bdeeAKLO6g",
+  "source_url": "https://www.youtube.com/watch?v=_bdeeAKLO6g",
+  "original_url": "https://www.youtube.com/watch?v=_bdeeAKLO6g",
+  "title": "What Makes a Good Error Message: Building With Good UX Part 5 #uxdesign",
+  "model": "gemini-3.7-flash",
+  "status": "succeeded",
+  "started_at": "2026-08-31T08:05:05.201457+00:00",
+  "attempt_limit": 3,
+  "completed_at": "2026-08-31T08:05:52.604877+00:00",
+  "extraction": "analysis/youtube/_bdeeAKLO6g/extraction.json"
+}

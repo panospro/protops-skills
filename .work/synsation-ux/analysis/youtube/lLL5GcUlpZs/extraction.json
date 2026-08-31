@@ -1,0 +1,249 @@
+{
+  "source_identity": {
+    "video_id": "lLL5GcUlpZs",
+    "source_url": "https://www.youtube.com/watch?v=lLL5GcUlpZs"
+  },
+  "analysis_coverage": {
+    "audio_analyzed": true,
+    "visuals_analyzed": true,
+    "timestamp_ranges_reviewed": [
+      "00:00-01:27"
+    ],
+    "limitations": [
+      "None"
+    ]
+  },
+  "transcript": [
+    {
+      "start": "00:00",
+      "end": "00:03",
+      "speech": "How long are you actually willing to stare at a loading spinner before you get annoyed?"
+    },
+    {
+      "start": "00:03",
+      "end": "00:06",
+      "speech": "Let's break down the psychology of spinners."
+    },
+    {
+      "start": "00:06",
+      "end": "00:08",
+      "speech": "This is part four of my series of building for good UX."
+    },
+    {
+      "start": "00:08",
+      "end": "00:13",
+      "speech": "If you show nothing, a blank screen, no spinner, users will leave in two to three seconds."
+    },
+    {
+      "start": "00:13",
+      "end": "00:17",
+      "speech": "But here's the thing: you should never show a spinner if something will take less than a second to load."
+    },
+    {
+      "start": "00:17",
+      "end": "00:20",
+      "speech": "One second is not enough time to show the full animation."
+    },
+    {
+      "start": "00:20",
+      "end": "00:24",
+      "speech": "Because then it just flashes on the screen and the user's brain registers like 'something weird just happened'."
+    },
+    {
+      "start": "00:24",
+      "end": "00:27",
+      "speech": "You actually make it feel slower, so if it's under 1 second, just show the results."
+    },
+    {
+      "start": "00:27",
+      "end": "00:30",
+      "speech": "Okay, so what if your action takes longer than a second?"
+    },
+    {
+      "start": "00:30",
+      "end": "00:33",
+      "speech": "A plain spinner with no text works for about 2 to 5 seconds."
+    },
+    {
+      "start": "00:33",
+      "end": "00:36",
+      "speech": "And past 5 seconds, a spinner with no text starts to feel broken."
+    },
+    {
+      "start": "00:36",
+      "end": "00:39",
+      "speech": "The user has no idea what's happening and the patience starts to drop very quickly."
+    },
+    {
+      "start": "00:39",
+      "end": "00:45",
+      "speech": "So you have some static text: 'Loading...' or 'Saving...', and that buys you maybe one more second."
+    },
+    {
+      "start": "00:45",
+      "end": "00:48",
+      "speech": "Now, instead of static text, you show text that changes:"
+    },
+    {
+      "start": "00:48",
+      "end": "00:51",
+      "speech": "'connecting to your account', then 'working on it...', 'almost there...'"
+    },
+    {
+      "start": "00:51",
+      "end": "00:54",
+      "speech": "This is where people are willing to wait significantly longer."
+    },
+    {
+      "start": "00:54",
+      "end": "00:57",
+      "speech": "Because they feel that there's action happening, even if it's fake."
+    },
+    {
+      "start": "00:57",
+      "end": "01:00",
+      "speech": "But all of this works up to about 10 seconds."
+    },
+    {
+      "start": "01:00",
+      "end": "01:03",
+      "speech": "After 10 seconds, looped animations just stop working."
+    },
+    {
+      "start": "01:03",
+      "end": "01:10",
+      "speech": "Don't do them. They actually start hurting, the user's patience flips, and all of a sudden they're feeling more frustrated with the spinner instead of less."
+    },
+    {
+      "start": "01:10",
+      "end": "01:15",
+      "speech": "Past 10 seconds, you need a different approach: a progress bar, a step-by-step indicator, something else."
+    },
+    {
+      "start": "01:15",
+      "end": "01:18",
+      "speech": "And if something fails, just show the error immediately, as soon as you can."
+    },
+    {
+      "start": "01:18",
+      "end": "01:23",
+      "speech": "Try not to make them wait 20 seconds with a loading spinner and then be like 'sorry, that didn't work :('."
+    },
+    {
+      "start": "01:23",
+      "end": "01:27",
+      "speech": "And speaking about errors, in the next video, we're going to talk about those, so see you there."
+    }
+  ],
+  "visual_demonstrations": [
+    {
+      "timestamp": "00:20",
+      "observation": "A demonstration showing a 'Submit' button where a quick flash occurs instead of a full animation cycle.",
+      "before": "Static 'Submit' button displayed.",
+      "after": "Quick animation flash appearing and disappearing abruptly.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:41",
+      "observation": "Screen demonstrates a spinner accompanied by static text labels ('Loading...', 'Saving...').",
+      "before": "Plain circular spinner animation.",
+      "after": "Circular spinner paired with 'Loading...' and then 'Saving...' text below/above it.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:48",
+      "observation": "Screen demonstrates dynamic changing text under a spinner ('connecting to your account...', 'working on it...', 'almost there...').",
+      "before": "Static label loading state.",
+      "after": "Dynamic text cycling through process stages beneath the spinner.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "01:12",
+      "observation": "Screen displays examples of alternatives for long operations (>10s), including segmented progress bars and a vertical 'Step by Step indicator' ('Step One', 'Step Two', 'Step Three', etc.).",
+      "before": "Looped spinner animation.",
+      "after": "Segmented progress bar graphic and multi-step vertical stepper component.",
+      "certainty": "high"
+    }
+  ],
+  "creator_derived_lessons": [
+    {
+      "timestamps": [
+        "00:13",
+        "00:27"
+      ],
+      "creator_statement_paraphrase": "Do not show a loading spinner for tasks taking under 1 second; show the results directly.",
+      "visual_evidence": "Text overlay 'Loading time < 1 sec: just show the results' and visual representation of a brief flash on submit.",
+      "ux_problem": "A spinner displayed for less than a second flashes abruptly, confusing the user and making the process feel slower.",
+      "recommended_change": "Directly display results without any loading spinner.",
+      "specific_visual_or_interaction_change": "Suppress loading animation display if response latency is under 1 second.",
+      "creator_reasoning": "One second is not enough time to show a full animation loop, leading to perceived glitching and slower perceived performance.",
+      "applicable_context": "Fast web and app operations taking under 1 second.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    },
+    {
+      "timestamps": [
+        "00:30",
+        "00:59"
+      ],
+      "creator_statement_paraphrase": "Use plain spinners for 2-5 seconds, static text for 5-6 seconds, and changing dynamic text for up to 10 seconds.",
+      "visual_evidence": "Summary table showing thresholds: 'No spinner: < 1 second', 'plain spinner: 2 - 5 seconds', 'Spinner with static text: 5 - 6 seconds', 'Spinner with changing text: up to 10 seconds'.",
+      "ux_problem": "Plain spinners make systems appear broken after 5 seconds, causing patience to drop.",
+      "recommended_change": "Match the indicator complexity (plain spinner, static text, or changing status messages) to the expected duration.",
+      "specific_visual_or_interaction_change": "Add informative, changing status messages ('connecting to your account...', 'working on it...', 'almost there...') as wait times approach 10 seconds.",
+      "creator_reasoning": "Users tolerate longer waits when they perceive ongoing action and progress.",
+      "applicable_context": "Loading states lasting between 2 and 10 seconds.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    },
+    {
+      "timestamps": [
+        "01:00",
+        "01:23"
+      ],
+      "creator_statement_paraphrase": "For operations lasting longer than 10 seconds, replace looped spinners with progress bars or step-by-step indicators, and return errors immediately.",
+      "visual_evidence": "Displays of a progress bar, a 5-step indicator component, and an error screen with 'sorry that didn't work :(' after loading.",
+      "ux_problem": "Looped spinners after 10 seconds increase frustration; waiting 20 seconds before displaying a failure worsens user dissatisfaction.",
+      "recommended_change": "Use explicit progress bars or steppers for >10s operations and fail fast when errors occur.",
+      "specific_visual_or_interaction_change": "Replace infinite loop spinners with progress bars or step-by-step indicators; display error states immediately upon failure detection.",
+      "creator_reasoning": "Infinite looped spinners lose efficacy and cause user frustration past 10 seconds; prolonged waiting for an eventual error wastes user time.",
+      "applicable_context": "Long processes (>10s) and asynchronous error handling.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    }
+  ],
+  "analyst_interpretation": {
+    "interpretation": "The video outlines standard perceived performance and UI latency heuristics regarding visual loading indicators based on response duration thresholds.",
+    "inferences_not_shown_or_said": [
+      "Technical implementation details like debounce delays for spinners (e.g., waiting 200-300ms before mounting a spinner component) are not explicitly named in code terms."
+    ]
+  },
+  "spot_check_visuals": [
+    {
+      "timestamp": "00:57",
+      "observation": "A 4-row summary table appears detailing loading types ('No spinner', 'plain spinner', 'Spinner with static text', 'Spinner with changing text') and their corresponding durations."
+    },
+    {
+      "timestamp": "01:22",
+      "observation": "A white screen with a red circular 'X' icon and the text 'sorry that didn't work :(' is displayed."
+    }
+  ],
+  "overall_uncertainties": [],
+  "model_reported_source_identity": {
+    "video_id": "building_for_good_ux_part_4_spinners",
+    "source_url": "supplied_video"
+  },
+  "workspace_source": {
+    "video_id": "lLL5GcUlpZs",
+    "original_url": "https://www.youtube.com/watch?v=lLL5GcUlpZs",
+    "canonical_url": "https://www.youtube.com/watch?v=lLL5GcUlpZs",
+    "title": "The Psychology of Spinners: Build for Good UX Part 4 #uxdesign",
+    "category": "build-for-good-ux",
+    "series_part": 4,
+    "model": "gemini-3.7-flash",
+    "processed_at": "2026-08-31T08:05:00.174058+00:00"
+  }
+}

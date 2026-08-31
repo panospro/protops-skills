@@ -1,0 +1,16 @@
+{
+  "video_id": "w90jr50IvKw",
+  "source_url": "https://www.youtube.com/watch?v=w90jr50IvKw",
+  "original_url": "https://www.youtube.com/watch?v=w90jr50IvKw",
+  "title": "Building with Good UX Part 1 #userexperience #uxdesign",
+  "model": "gemini-3.7-flash",
+  "status": "succeeded",
+  "started_at": "2026-08-31T08:01:02.763253+00:00",
+  "attempt_limit": 3,
+  "failed_at": "2026-08-31T08:01:43.141786+00:00",
+  "completed_at": "2026-08-31T08:06:05.017659+00:00",
+  "extraction": "analysis/youtube/w90jr50IvKw/extraction.json",
+  "recovery": "parse failure repaired locally from raw-response.json (invalid \\' escapes); original error retained below",
+  "original_error_type": "JSONDecodeError",
+  "original_error": "Invalid \\escape: line 114 column 130 (char 4064)"
+}

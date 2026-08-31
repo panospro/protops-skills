@@ -1,0 +1,170 @@
+{
+  "source_identity": {
+    "video_id": "ChxDSVvGwSw",
+    "source_url": "https://www.youtube.com/watch?v=ChxDSVvGwSw"
+  },
+  "analysis_coverage": {
+    "audio_analyzed": true,
+    "visuals_analyzed": true,
+    "timestamp_ranges_reviewed": [
+      "00:00-01:24"
+    ],
+    "limitations": []
+  },
+  "transcript": [
+    {
+      "start": "00:00",
+      "end": "00:05",
+      "speech": "You ever find the cancel button for a subscription and then the app starts begging, bribing, and guilt tripping you just to stay?"
+    },
+    {
+      "start": "00:05",
+      "end": "00:12",
+      "speech": "This is Part 3 of my Dark Side of UX series, where I show you the psychological tricks being played on you as a user on the web, not to be confused with my Build for Good UX series."
+    },
+    {
+      "start": "00:13",
+      "end": "00:18",
+      "speech": "In the last part, I covered how apps will hide the cancel subscription button to increase friction."
+    },
+    {
+      "start": "00:18",
+      "end": "00:21",
+      "speech": "But here are a couple of tricks that you've probably seen."
+    },
+    {
+      "start": "00:21",
+      "end": "00:33",
+      "speech": "First, we have the exit survey. Sometimes this is genuine with wanting to know why you left, but often what you answer here will decide the next screen that you see. If you say too expensive, you get a discount screen. If you say you're not using it enough, you might get a pause offer."
+    },
+    {
+      "start": "00:33",
+      "end": "00:38",
+      "speech": "Now let's talk about the offers. You'll probably get hit with an offer that's pretty convincing, like two months free or 50% off."
+    },
+    {
+      "start": "00:38",
+      "end": "00:48",
+      "speech": "But did you notice that these discounts are usually tied to only a few months? As much as that may feel like a good deal now, they're betting on the fact that in the future you're going to forget to cancel, and the price is just going to go right back up again."
+    },
+    {
+      "start": "00:48",
+      "end": "00:57",
+      "speech": "The psychology behind this is when someone gives you an offer, your brain feels like it owes it a genuine consideration. And when you decline, they come back with an even better offer. That's a negotiation tactic."
+    },
+    {
+      "start": "00:57",
+      "end": "01:08",
+      "speech": "And when the bribing doesn't work, what can they try next? Shame. Language like, 'No thanks, I hate saving money.' Amazon at one point literally had a button that says, 'No, I don't want free shipping.' This is called confirmshaming. I might actually make a whole video on this."
+    },
+    {
+      "start": "01:08",
+      "end": "01:24",
+      "speech": "These are all known as dark patterns designed to keep you as a customer a little bit longer to try to get you to not unsubscribe now. Because it's not like we already subscribe and forget about things anyways, right? Like they're not capitalizing off of anything with that, right? Follow for the next part in the series."
+    }
+  ],
+  "visual_demonstrations": [
+    {
+      "timestamp": "00:26",
+      "observation": "An exit survey modal asks 'Why are you canceling today?'. Selecting the option 'It's too expensive' immediately opens a retention modal offering 'Wait! Get 50% Off'.",
+      "before": "Exit survey modal showing multiple-choice reasons for cancellation.",
+      "after": "Pop-up overlay offering 50% off for the next 2 months.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:31",
+      "observation": "Selecting 'I'm not using it enough' in the exit survey triggers a 'Need a Break?' screen prompting the user to pause their account for 2 months.",
+      "before": "Exit survey modal with 'I'm not using it enough' radio option selected.",
+      "after": "Modal screen with 'Pause Subscription' primary green button.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:53",
+      "observation": "A modal presenting a 'FINAL OFFER 50% OFF' displays a secondary decline button with guilt-inducing text: 'I am a monster, cancel anyway'.",
+      "before": "Previous retention pop-up screen.",
+      "after": "Final offer screen featuring confirmshaming button label.",
+      "certainty": "high"
+    }
+  ],
+  "creator_derived_lessons": [
+    {
+      "timestamps": [
+        "00:21",
+        "00:33"
+      ],
+      "creator_statement_paraphrase": "Exit surveys are often leveraged to dynamically alter the cancellation flow based on the user's selected answer, routing them to specific retention offers.",
+      "visual_evidence": "Selecting 'It's too expensive' triggers a discount modal, while selecting 'I'm not using it enough' triggers a pause option modal.",
+      "ux_problem": "Exit surveys used as manipulative gates that block standard cancellation and force targeted retention pitches.",
+      "recommended_change": "Provide straightforward unsubscription options without using survey responses to hijack or complicate the cancellation process.",
+      "specific_visual_or_interaction_change": "Ensure survey responses do not lock or obstruct the primary path to complete cancellation.",
+      "creator_reasoning": "Companies use survey logic to present tailored hurdles or bribing screens to discourage canceling.",
+      "applicable_context": "SaaS and subscription cancellation user flows.",
+      "stated_exceptions": "Exit surveys can sometimes be genuine attempts to collect feedback on why a user left.",
+      "claim_type": "usability",
+      "uncertainties": []
+    },
+    {
+      "timestamps": [
+        "00:33",
+        "00:56"
+      ],
+      "creator_statement_paraphrase": "Limited-time discounts and escalating retention offers exploit human psychology and negotiation tactics, relying on users forgetting to cancel before full pricing resumes.",
+      "visual_evidence": "UI mockups show 2 Months Free and escalating 50% OFF pop-ups when users try to proceed with cancellation.",
+      "ux_problem": "Temporary retention discounts function as dark patterns that exploit cognitive bias and user forgetfulness.",
+      "recommended_change": "Avoid deceptive multi-tiered retention loops and short-term price traps.",
+      "specific_visual_or_interaction_change": "Allow clean cancellation without multi-step discount escalation pop-ups.",
+      "creator_reasoning": "Offers trigger an implicit sense of obligation to evaluate the deal, betting that users will forget to cancel once the promotional period ends.",
+      "applicable_context": "Subscription management and billing UX.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    },
+    {
+      "timestamps": [
+        "00:57",
+        "01:08"
+      ],
+      "creator_statement_paraphrase": "Confirmshaming uses manipulative language on decline options to make users feel guilty or foolish for opting out.",
+      "visual_evidence": "Mockups display buttons labeled 'No thanks, I hate saving money' and 'I am a monster, cancel anyway'.",
+      "ux_problem": "Confirmshaming creates emotional discomfort and guilt during basic opt-out or cancellation actions.",
+      "recommended_change": "Use neutral, clear, and non-judgmental button labels for declining offers.",
+      "specific_visual_or_interaction_change": "Replace shaming text with straightforward actions like 'No thanks' or 'Cancel subscription'.",
+      "creator_reasoning": "Shame-based UX language attempts to guilt users into staying rather than providing a respectful exit path.",
+      "applicable_context": "Opt-out dialogues, cancellation flows, and promotional pop-ups.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    }
+  ],
+  "analyst_interpretation": {
+    "interpretation": "The creator breaks down dark patterns commonly embedded in modern subscription cancellation workflows, categorizing them into dynamic exit survey traps, temporary retention bribes, negotiation tactics, and confirmshaming.",
+    "inferences_not_shown_or_said": [
+      "The specific regulatory guidelines (such as FTC click-to-cancel rules) governing subscription cancellations."
+    ]
+  },
+  "spot_check_visuals": [
+    {
+      "timestamp": "00:01",
+      "observation": "A mobile UI screen shows subscription details for 'Pro Unlimited' with a outlined red button labeled 'Cancel Subscription'."
+    },
+    {
+      "timestamp": "01:00",
+      "observation": "A prompt displays falling money graphic elements around a button reading 'No thanks, I hate saving money'."
+    }
+  ],
+  "overall_uncertainties": [],
+  "model_reported_source_identity": {
+    "video_id": "dark_side_of_ux_part_3",
+    "source_url": "N/A"
+  },
+  "workspace_source": {
+    "video_id": "ChxDSVvGwSw",
+    "original_url": "https://www.youtube.com/watch?v=ChxDSVvGwSw",
+    "canonical_url": "https://www.youtube.com/watch?v=ChxDSVvGwSw",
+    "title": "Dark Side Of UX Part 3: Subscriptions Cont.",
+    "category": "dark-side-of-ux",
+    "series_part": 3,
+    "model": "gemini-3.6-flash",
+    "processed_at": "2026-08-31T13:49:08.349181+00:00"
+  }
+}

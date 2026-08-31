@@ -1,0 +1,230 @@
+{
+  "source_identity": {
+    "video_id": "LtGzZG89v7Y",
+    "source_url": "https://www.youtube.com/watch?v=LtGzZG89v7Y"
+  },
+  "analysis_coverage": {
+    "audio_analyzed": true,
+    "visuals_analyzed": true,
+    "timestamp_ranges_reviewed": [
+      "00:00-01:32"
+    ],
+    "limitations": []
+  },
+  "transcript": [
+    {
+      "start": "00:00",
+      "end": "00:05",
+      "speech": "You ever try to cancel subscription, then you end up cursing at your screen because the cancel button is just nowhere to be found?"
+    },
+    {
+      "start": "00:05",
+      "end": "00:10",
+      "speech": "This is part 2 of my Dark Side of UX series, not to be confused with my Build for Good UX series,"
+    },
+    {
+      "start": "00:10",
+      "end": "00:14",
+      "speech": "because here I'm showing the psychological tricks that are being played on you as a user of the web."
+    },
+    {
+      "start": "00:14",
+      "end": "00:19",
+      "speech": "When you sign up for a subscription, you are at peak motivation. That's the moment you got convinced to put your credit card down."
+    },
+    {
+      "start": "00:19",
+      "end": "00:23",
+      "speech": "But canceling happens at your lowest. It already feels like a chore before you start, even if it's not that difficult."
+    },
+    {
+      "start": "00:24",
+      "end": "00:27",
+      "speech": "And when motivation is low, guess what's deadly? Friction."
+    },
+    {
+      "start": "00:27",
+      "end": "00:31",
+      "speech": "So every trick I'm about to show you does one thing: add enough friction to try to outlast your willpower."
+    },
+    {
+      "start": "00:31",
+      "end": "00:36",
+      "speech": "Technique 1 is putting the cancel button where it's not obvious: a link that is four menus deep or at the bottom of a settings page,"
+    },
+    {
+      "start": "00:36",
+      "end": "00:41",
+      "speech": "because every extra step is a chance for you to give up, and they know the drop-off math."
+    },
+    {
+      "start": "00:42",
+      "end": "00:44",
+      "speech": "So say you find it, okay? Easy from here, right? Nope."
+    },
+    {
+      "start": "00:44",
+      "end": "00:48",
+      "speech": "First, you might get hit with a 'take a break' screen: pause for a month or two."
+    },
+    {
+      "start": "00:48",
+      "end": "00:53",
+      "speech": "And with the design, the pause button is usually big and bright, and the 'continue to cancel' look so small that you might have to squint and it doesn't look clickable."
+    },
+    {
+      "start": "00:53",
+      "end": "00:57",
+      "speech": "And if you're on the fence, 'hmm, maybe I shouldn't cancel', boom, they got you."
+    },
+    {
+      "start": "00:58",
+      "end": "01:01",
+      "speech": "You start convincing yourself that you might actually come back, especially with things like food delivery or ClassPass."
+    },
+    {
+      "start": "01:02",
+      "end": "01:06",
+      "speech": "But billing will automatically resume when the pause ends, whether you open the app or not, and that's how they get you."
+    },
+    {
+      "start": "01:06",
+      "end": "01:10",
+      "speech": "Say you're mentally strong, no pause, continue to cancel."
+    },
+    {
+      "start": "01:10",
+      "end": "01:15",
+      "speech": "Now you might get hit with something like, 'well, you have an 847-day history that you're about to get rid of'."
+    },
+    {
+      "start": "01:15",
+      "end": "01:19",
+      "speech": "Now your own data is put in front of you to make you feel like you are throwing something away. That is called the endowment effect,"
+    },
+    {
+      "start": "01:19",
+      "end": "01:23",
+      "speech": "where we overvalue things that are just simply ours."
+    },
+    {
+      "start": "01:23",
+      "end": "01:26",
+      "speech": "Your history, your playlist, suddenly it's just too precious to lose, right?"
+    },
+    {
+      "start": "01:26",
+      "end": "01:32",
+      "speech": "And that's not even half the techniques that they use to stop you from canceling, so follow for part 3 when we discuss more, because it gets worse."
+    }
+  ],
+  "visual_demonstrations": [
+    {
+      "timestamp": "00:32",
+      "observation": "Mobile UI mockup demonstrating multi-level menu navigation to locate the cancellation link.",
+      "before": "Settings main screen showing Apple ID header.",
+      "after": "Deep menu navigation leading through Apple ID -> Media & Purchases -> Subscriptions -> StreamMax Premium -> Cancel Subscription.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:46",
+      "observation": "Modal pop-up offering a pause option with unbalanced visual styling.",
+      "before": "Subscription details screen with 'Cancel Subscription' link selected.",
+      "after": "'Want to take a break instead?' modal with prominent blue 'Pause for 1 month'/'Pause Subscription' button and tiny, unstyled 'continue to cancel' text link.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "01:12",
+      "observation": "Loss aversion screen displaying accumulated user history metric during cancellation.",
+      "before": "Modal transition after selecting 'continue to cancel'.",
+      "after": "Screen featuring a trophy icon, 'You have a 847 day history', and 'do you really want to get rid of that?' prompt.",
+      "certainty": "high"
+    }
+  ],
+  "creator_derived_lessons": [
+    {
+      "timestamps": [
+        "00:31",
+        "00:41"
+      ],
+      "creator_statement_paraphrase": "Hiding the cancellation option deep within multi-level menus adds intentional friction to exploit low user motivation during cancellation.",
+      "visual_evidence": "Mockup of navigating 4 menus deep (Settings -> Apple ID -> Media & Purchases -> Subscriptions) to reach 'Cancel Subscription'.",
+      "ux_problem": "Buried cancellation links cause user frustration and drop-off, forcing users to stay subscribed.",
+      "recommended_change": "Make subscription cancellation straightforward and easy to access without excessive menu layers.",
+      "specific_visual_or_interaction_change": "Place the cancellation option in a clear, visible location on top-level account or subscription settings.",
+      "creator_reasoning": "User motivation is lowest during cancellation, so added friction and extra steps significantly increase abandonment rates.",
+      "applicable_context": "Subscription management and account cancellation user flows.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    },
+    {
+      "timestamps": [
+        "00:44",
+        "00:53"
+      ],
+      "creator_statement_paraphrase": "Using bright, large 'Pause' buttons while making 'Continue to cancel' tiny, low-contrast, and unclickable misleads users into pausing instead of canceling.",
+      "visual_evidence": "UI modal displaying a large blue 'Pause Subscription' button above a tiny, unstyled 'continue to cancel' text link.",
+      "ux_problem": "Visual asymmetry tricks users into selecting pause, after which billing silently resumes automatically.",
+      "recommended_change": "Provide clear, equal visual weight for choices between pausing and canceling without obscuring the cancellation path.",
+      "specific_visual_or_interaction_change": "Ensure the cancellation link has readable contrast, clear clickability, and equal prominence relative to alternative options like pausing.",
+      "creator_reasoning": "Unfair visual hierarchy exploits user indecision, leading to automatic billing resumption once the pause window expires.",
+      "applicable_context": "Subscription cancellation modal dialogs and retention flows.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    },
+    {
+      "timestamps": [
+        "01:10",
+        "01:25"
+      ],
+      "creator_statement_paraphrase": "Displaying accumulated user history or data during cancellation leverages the endowment effect to make users feel like they are throwing away something valuable.",
+      "visual_evidence": "UI screen stating 'You have a 847 day history' alongside a trophy icon and prompt 'do you really want to get rid of that?'.",
+      "ux_problem": "Manipulative psychological guilt-tripping prevents users from completing an intended cancellation.",
+      "recommended_change": "Avoid emotional manipulation or guilt tactics using user metrics during cancellation.",
+      "specific_visual_or_interaction_change": "Allow direct cancellation without intercepting screens designed to trigger loss aversion via saved data or history metrics.",
+      "creator_reasoning": "The endowment effect causes people to overvalue things that belong to them (like history or playlists), making them feel hesitant to lose them.",
+      "applicable_context": "Retention screens in subscription services with personal history or curated data.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    }
+  ],
+  "analyst_interpretation": {
+    "interpretation": "The speaker analyzes deceptive design patterns ('dark patterns') in subscription management, showing how interface friction, misleading visual hierarchy, and behavioral economics (endowment effect) are deliberately employed to hinder cancellation.",
+    "inferences_not_shown_or_said": [
+      "Legal or regulatory frameworks (e.g., FTC click-to-cancel rules).",
+      "Quantitative user analytics or empirical drop-off percentages beyond conceptual explanations."
+    ]
+  },
+  "spot_check_visuals": [
+    {
+      "timestamp": "00:33",
+      "observation": "Apple ID settings screen displaying options including 'Password & Security', 'Payment & Shipping', 'iCloud', and 'Media & Purchases'."
+    },
+    {
+      "timestamp": "00:46",
+      "observation": "Modal dialog titled 'Want to take a break instead?' displaying blue action buttons for 'Pause for 1 month' and 'Pause for 2 months'."
+    },
+    {
+      "timestamp": "01:12",
+      "observation": "Cancellation confirmation screen displaying a golden trophy icon above large text '847 day history'."
+    }
+  ],
+  "overall_uncertainties": [],
+  "model_reported_source_identity": {
+    "video_id": "dark_side_of_ux_part_2",
+    "source_url": "provided_video"
+  },
+  "workspace_source": {
+    "video_id": "LtGzZG89v7Y",
+    "original_url": "https://www.youtube.com/watch?v=LtGzZG89v7Y",
+    "canonical_url": "https://www.youtube.com/watch?v=LtGzZG89v7Y",
+    "title": "Dark Side of UX Part 2: Subscription Cancelling",
+    "category": "dark-side-of-ux",
+    "series_part": 2,
+    "model": "gemini-3.6-flash",
+    "processed_at": "2026-08-31T13:45:57.875899+00:00"
+  }
+}

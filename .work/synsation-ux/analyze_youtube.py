@@ -154,11 +154,17 @@ def output_text(response: Any) -> str:
 def call_gemini(video: dict[str, Any], model: str, attempts: int) -> Any:
     try:
         from google import genai
-        from google.genai import errors
+        from google.genai._gaos.utils import RetryConfig as SDKRetryConfig
     except ImportError as exc:
         raise RuntimeError("Official Google Gen AI SDK is absent; install requirements.txt in the local venv") from exc
 
+    # The SDK internally retries 408/409/429/5xx up to 3 extra times per call
+    # (public HttpRetryOptions floors at 1), silently multiplying free-tier
+    # request spend. Strategy "none" makes each create() exactly one HTTP
+    # request, leaving the loop below as the only retry policy. The private
+    # import matches the google-genai version pinned in requirements.txt.
     client = genai.Client()
+    client.interactions.sdk_configuration.retry_config = SDKRetryConfig("none", None, False)
     try:
         for attempt in range(1, attempts + 1):
             try:
@@ -168,13 +174,24 @@ def call_gemini(video: dict[str, Any], model: str, attempts: int) -> Any:
                         {"type": "video", "uri": video["canonical_url"]},
                         {"type": "text", "text": PROMPT},
                     ],
+                    # Bounds each attempt; observed successful video analyses take
+                    # 20s-5.5min, and a degraded backend can otherwise hold the
+                    # connection open indefinitely. A timeout fails the attempt
+                    # (not retried) so the batch moves to the next video.
+                    timeout=420,
                 )
-            except errors.APIError as exc:
-                retryable = exc.code == 429 or (isinstance(exc.code, int) and exc.code >= 500)
+            except Exception as exc:
+                # The SDK raises HTTP errors from two hierarchies (errors.APIError and the
+                # interactions API's compat errors); both expose the status via status_code/code.
+                code = getattr(exc, "status_code", None) or getattr(exc, "code", None)
+                # 429 means the daily free-tier budget is gone; retrying it only burns
+                # more of the budget, so fail fast. Server errors (5xx) are transient
+                # and a retry usually rescues the already-spent attempt.
+                retryable = isinstance(code, int) and code >= 500
                 if not retryable or attempt == attempts:
                     raise
                 delay = 10 * (2 ** (attempt - 1)) + random.uniform(0, 2)
-                print(f"Gemini returned {exc.code}; retrying in about {delay:.0f}s ({attempt}/{attempts})", file=sys.stderr)
+                print(f"Gemini returned {code}; retrying in about {delay:.0f}s ({attempt}/{attempts})", file=sys.stderr)
                 time.sleep(delay)
     finally:
         client.close()
@@ -239,6 +256,7 @@ def main() -> int:
     parser.add_argument("--manifest", type=Path, default=root / "youtube-videos.json")
     parser.add_argument("--video-id", help=f"single video ID; defaults to pilot {DEFAULT_PILOT_ID}")
     parser.add_argument("--all", action="store_true", help="process all remaining manifest videos sequentially")
+    parser.add_argument("--exclude", action="append", default=[], metavar="VIDEO_ID", help="video IDs to skip entirely (repeatable)")
     parser.add_argument("--pilot-confirmed", action="store_true", help="required safety gate for --all")
     parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument("--attempts", type=int, default=3)
@@ -258,7 +276,7 @@ def main() -> int:
         parser.error("--delay-seconds must be between 0 and 300")
 
     if args.all:
-        selected_videos = videos
+        selected_videos = [item for item in videos if item["video_id"] not in set(args.exclude)]
     else:
         requested_id = args.video_id or DEFAULT_PILOT_ID
         selected = next((item for item in videos if item["video_id"] == requested_id), None)

@@ -1,0 +1,200 @@
+{
+  "source_identity": {
+    "video_id": "ioNy3H3bU5A",
+    "source_url": "https://www.youtube.com/watch?v=ioNy3H3bU5A"
+  },
+  "analysis_coverage": {
+    "audio_analyzed": true,
+    "visuals_analyzed": true,
+    "timestamp_ranges_reviewed": [
+      "00:00-01:23"
+    ],
+    "limitations": [
+      "None"
+    ]
+  },
+  "transcript": [
+    {
+      "start": "00:00",
+      "end": "00:06",
+      "speech": "Every screen in your app has four states you should be building: loading, success, error, and empty. And if you're not thinking about all four, your users will notice."
+    },
+    {
+      "start": "00:07",
+      "end": "00:10",
+      "speech": "This is part two of my series of How to build for good UX."
+    },
+    {
+      "start": "00:11",
+      "end": "00:14",
+      "speech": "Today we're talking about loading states, and to do that, we are going to take a trip to history."
+    },
+    {
+      "start": "00:14",
+      "end": "00:19",
+      "speech": "In 1984, the Mac showed you a tiny wristwatch cursor when something was loading. No animation."
+    },
+    {
+      "start": "00:19",
+      "end": "00:24",
+      "speech": "Windows came along in 1985 with the hourglass, still no animation, and that lasted for about 20 years."
+    },
+    {
+      "start": "00:25",
+      "end": "00:31",
+      "speech": "And in the late 80s, we started seeing progress bars for the first time. Research at the time showed that 86% of people preferred them even if they weren't even accurate."
+    },
+    {
+      "start": "00:32",
+      "end": "00:45",
+      "speech": "In 2001, Mac OS X gave us the spinning rainbow wheel, which I like to call the beach ball of death. It was animated, but it told you nothing. Has it been five seconds? Two minutes? No idea. And technically, it still exists today, you just don't see it as much because the hardware is a lot better."
+    },
+    {
+      "start": "00:46",
+      "end": "00:58",
+      "speech": "Now, we have skeleton screens, those grey placeholder outlines on Instagram or other apps. The concept came from a designer in 2013, Facebook was early to adopt it, and they work because your brain starts processing all of the layout before the data arrives."
+    },
+    {
+      "start": "00:58",
+      "end": "01:04",
+      "speech": "We do still use spinners too inside buttons or in smaller parts of the page where the skeleton doesn't really make sense."
+    },
+    {
+      "start": "01:04",
+      "end": "01:14",
+      "speech": "Loaders should feel intuitive. Most of the time when they're there, you don't really even think or notice them. But when they're missing, users do notice and they assume something is broken. Now, when they're done well, people will wait longer without even realizing it."
+    },
+    {
+      "start": "01:15",
+      "end": "01:23",
+      "speech": "Next video, I'm going to talk about which loader to use where: the skeleton, the spinner, the progress bar, because they're not interchangeable. Follow so you don't miss out."
+    }
+  ],
+  "visual_demonstrations": [
+    {
+      "timestamp": "00:02",
+      "observation": "Four distinct UI cards appear representing screen states: 'loading state' (black box with a white spinner), 'success state' (green checkmark with 'Payment Successful'), 'error state' (red border with a warning icon), and 'empty state' ('+ Create Project' button).",
+      "before": "Empty background with caption 'four states'",
+      "after": "Four cards arranged in a 2x2 grid",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:26",
+      "observation": "Visual examples of installation and OS progress bars are displayed: a classic DOS installer bar at 26%, followed by Windows 2000, Windows XP, Windows Vista, and Windows 7 style progress bars.",
+      "before": "The creator speaking on camera",
+      "after": "Compilation image of historical progress bars",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:48",
+      "observation": "A smartphone mockup demonstrates Instagram and Facebook feed interfaces rendered with grey skeleton placeholder blocks before actual images/text load.",
+      "before": "Abstract grey placeholder boxes",
+      "after": "Mobile app feed UI skeleton with animated grey shimmer effect",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "01:00",
+      "observation": "A pill-shaped button labeled 'Submit' displays a spinning loading indicator to the left of the label.",
+      "before": "Plain screen with spinner",
+      "after": "Interactive button element enclosing the spinner icon",
+      "certainty": "high"
+    }
+  ],
+  "creator_derived_lessons": [
+    {
+      "timestamps": [
+        "00:00",
+        "00:06"
+      ],
+      "creator_statement_paraphrase": "Every app screen needs four core states designed: loading, success, error, and empty. Users will notice if any of these states are neglected.",
+      "visual_evidence": "Displays 2x2 grid representing loading, success, error, and empty state cards.",
+      "ux_problem": "Omitting necessary UI states leaves users confused or under the impression that an interface is broken.",
+      "recommended_change": "Design and build all four states (loading, success, error, empty) for every app screen.",
+      "specific_visual_or_interaction_change": "Provide dedicated screens or modules for loading (spinner/skeleton), success notifications, error alerts, and empty call-to-actions.",
+      "creator_reasoning": "Users notice missing feedback states and assume errors or failures.",
+      "applicable_context": "App screen design across desktop and mobile.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    },
+    {
+      "timestamps": [
+        "00:46",
+        "00:58"
+      ],
+      "creator_statement_paraphrase": "Skeleton screens (grey placeholder outlines) are effective because the user's brain begins processing page layout before content data arrives.",
+      "visual_evidence": "Shows skeleton placeholders for cards and social feed posts.",
+      "ux_problem": "Blank loading screens provide no visual hierarchy or context while waiting for data.",
+      "recommended_change": "Implement skeleton screens to indicate incoming layout structure.",
+      "specific_visual_or_interaction_change": "Replace blank loading states with grey outline blocks matching the target layout.",
+      "creator_reasoning": "Skeletons allow the brain to perceive structural layout ahead of actual data arrival, improving perceived load performance.",
+      "applicable_context": "Content-heavy pages and feeds.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    },
+    {
+      "timestamps": [
+        "00:58",
+        "01:04"
+      ],
+      "creator_statement_paraphrase": "Spinners are best placed inside buttons or in small UI segments where a skeleton layout does not make sense.",
+      "visual_evidence": "Shows a spinner icon embedded inside a 'Submit' button.",
+      "ux_problem": "Using skeleton loaders in confined areas or small interactive elements where structural placeholders are impractical.",
+      "recommended_change": "Use spinners inside buttons and localized small components.",
+      "specific_visual_or_interaction_change": "Embed a spinner icon directly within the action button or small container.",
+      "creator_reasoning": "Skeleton loaders do not fit all contexts, especially small components or button submission states.",
+      "applicable_context": "Button actions and small page widgets.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    },
+    {
+      "timestamps": [
+        "01:04",
+        "01:14"
+      ],
+      "creator_statement_paraphrase": "Loaders must feel intuitive and subtle; when missing, users assume the system is broken, but when done well, users tolerate longer wait times without noticing.",
+      "visual_evidence": "Demonstrates various geometric and progress loader animations.",
+      "ux_problem": "Missing loading indicators cause users to think the application has frozen or failed.",
+      "recommended_change": "Ensure clear, intuitive loading indicators are always present during asynchronous operations.",
+      "specific_visual_or_interaction_change": "Render appropriate loaders (skeletons, spinners, progress bars) during background tasks.",
+      "creator_reasoning": "Well-designed feedback increases perceived speed and user patience during wait times.",
+      "applicable_context": "Any asynchronous data loading or system processing state.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    }
+  ],
+  "analyst_interpretation": {
+    "interpretation": "The video summarizes the historical evolution of loading UI (static wristwatch/hourglass cursors, progress bars, indeterminate spinners, and modern skeleton screens) to emphasize perceived performance and visual feedback principles in UX design.",
+    "inferences_not_shown_or_said": [
+      "Specific technical implementations (e.g., CSS shimmer vs SVG animations) are not detailed."
+    ]
+  },
+  "spot_check_visuals": [
+    {
+      "timestamp": "00:21",
+      "observation": "An IBM PC-style CRT monitor displaying a Microsoft logo and copyright text appears with a pixelated hourglass cursor above it."
+    },
+    {
+      "timestamp": "00:56",
+      "observation": "A Facebook post skeleton UI is shown containing circular profile avatar placeholder, two text line blocks, a square image placeholder, and 'Like', 'Comment', 'Share' action buttons below."
+    }
+  ],
+  "overall_uncertainties": [],
+  "model_reported_source_identity": {
+    "video_id": "good_ux_loading_states_part_2",
+    "source_url": "supplied_video"
+  },
+  "workspace_source": {
+    "video_id": "ioNy3H3bU5A",
+    "original_url": "https://www.youtube.com/watch?v=ioNy3H3bU5A",
+    "canonical_url": "https://www.youtube.com/watch?v=ioNy3H3bU5A",
+    "title": "Building with Good UX Part 2",
+    "category": "build-for-good-ux",
+    "series_part": 2,
+    "model": "gemini-3.7-flash",
+    "processed_at": "2026-08-31T08:04:00.714543+00:00"
+  }
+}

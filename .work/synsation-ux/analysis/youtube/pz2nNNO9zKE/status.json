@@ -1,0 +1,12 @@
+{
+  "video_id": "pz2nNNO9zKE",
+  "source_url": "https://www.youtube.com/watch?v=pz2nNNO9zKE",
+  "original_url": "https://www.youtube.com/watch?v=pz2nNNO9zKE",
+  "title": "Labor Illusion in Loading #uxdesign",
+  "model": "gemini-3.6-flash",
+  "status": "succeeded",
+  "started_at": "2026-08-31T13:56:06.950196+00:00",
+  "attempt_limit": 3,
+  "completed_at": "2026-08-31T13:56:32.488852+00:00",
+  "extraction": "analysis/youtube/pz2nNNO9zKE/extraction.json"
+}

@@ -1,0 +1,202 @@
+{
+  "source_identity": {
+    "video_id": "sedo-xVYllo",
+    "source_url": "https://www.youtube.com/watch?v=sedo-xVYllo"
+  },
+  "analysis_coverage": {
+    "audio_analyzed": true,
+    "visuals_analyzed": true,
+    "timestamp_ranges_reviewed": [
+      "00:00-01:08"
+    ],
+    "limitations": []
+  },
+  "transcript": [
+    {
+      "start": "00:00",
+      "end": "00:05",
+      "speech": "Which error message placement do you choose? A toast notification, a modal in the center of the screen, or in-line?"
+    },
+    {
+      "start": "00:05",
+      "end": "00:08",
+      "speech": "This is part 7 of my series of building for good UX. So let's break it down."
+    },
+    {
+      "start": "00:08",
+      "end": "00:14",
+      "speech": "A toast is a message that pops up at the top or the bottom of your screen, and then it auto-dismisses in a couple of seconds."
+    },
+    {
+      "start": "00:14",
+      "end": "00:18",
+      "speech": "Don't use toast for an important error. Think if the user looks away and they miss this, are they going to be okay?"
+    },
+    {
+      "start": "00:18",
+      "end": "00:22",
+      "speech": "It's perfect for messages like \"couldn't connect\", \"retrying\"."
+    },
+    {
+      "start": "00:22",
+      "end": "00:26",
+      "speech": "A modal takes over the center of the screen and blocks everything until the user responds."
+    },
+    {
+      "start": "00:26",
+      "end": "00:30",
+      "speech": "And for this reason, use this sparingly. Only when the user can't continue without addressing the issue."
+    },
+    {
+      "start": "00:30",
+      "end": "00:37",
+      "speech": "For example, a payment fails, so a modal pops up saying your payment did not process, and it gives you an action, which is a button to press to update your payment."
+    },
+    {
+      "start": "00:37",
+      "end": "00:41",
+      "speech": "Or permissions error like \"you don't have access to this project\" with a button to request access."
+    },
+    {
+      "start": "00:41",
+      "end": "00:44",
+      "speech": "If you're going to block the user, you have to give them a way forward."
+    },
+    {
+      "start": "00:44",
+      "end": "00:49",
+      "speech": "In-line errors show up right next to the thing that went wrong. As a general rule, the closer your error is to your issue, the better."
+    },
+    {
+      "start": "00:49",
+      "end": "00:53",
+      "speech": "So these are the ones that you'll probably use most often."
+    },
+    {
+      "start": "00:53",
+      "end": "00:56",
+      "speech": "For a form showing a red border for a field that needs correction."
+    },
+    {
+      "start": "00:56",
+      "end": "01:03",
+      "speech": "Right next to a button that they just clicked. If the user click save and it fails, it should say \"try again\" right next to it. The user's eyes are already there."
+    },
+    {
+      "start": "01:03",
+      "end": "01:08",
+      "speech": "In the next video, we're going to talk about empty states, what the user sees when there's no data, so follow for more."
+    }
+  ],
+  "visual_demonstrations": [
+    {
+      "timestamp": "00:19",
+      "observation": "A smartphone interface displays a top toast notification banner with a disconnected icon and the text 'Couldn't connect / Retrying...'.",
+      "before": "Blank phone interface screen.",
+      "after": "Toast alert pops into view at the top of the mobile screen.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:32",
+      "observation": "A modal dialog overlay appears titled 'Keep Your Subscription' with description 'Your latest payment couldn't be processed. Update your card to keep enjoying Better UX.' and an 'Update your card' primary button.",
+      "before": "Screen background is active/clear.",
+      "after": "Background is dimmed out and blocked by the modal card.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:46",
+      "observation": "On a 'Create your account' form, when 'Continue' is clicked with username '@alex', the input field turns red with an error icon and displays 'That username is already taken.' directly underneath.",
+      "before": "Standard input field with text '@alex'.",
+      "after": "Input border turns red and inline error text appears below the field.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:58",
+      "observation": "A user clicks 'Save Changes', a circular spinner briefly appears, and an inline error message with an exclamation icon reading 'Couldn't save, try again' displays directly underneath the button.",
+      "before": "'Save Changes' button in default state.",
+      "after": "Inline error text displayed beneath the button.",
+      "certainty": "high"
+    }
+  ],
+  "creator_derived_lessons": [
+    {
+      "timestamps": [
+        "00:08",
+        "00:21"
+      ],
+      "creator_statement_paraphrase": "Toast notifications auto-dismiss after a few seconds, so they should not be used for critical errors where missing the message causes problems. They are suited for low-severity transient statuses like connection retries.",
+      "visual_evidence": "Demonstration of top and bottom toast notifications including a 'Couldn't connect / Retrying...' toast banner.",
+      "ux_problem": "Users may miss critical error information if it auto-dismisses while they are looking away.",
+      "recommended_change": "Reserve toast messages for non-critical, auto-retrying, or informational errors.",
+      "specific_visual_or_interaction_change": "Display auto-dismissing toast notifications at the top or bottom of the screen only for transient issues.",
+      "creator_reasoning": "If a user looks away and misses an auto-dismissing toast, critical tasks could be compromised.",
+      "applicable_context": "Transient system statuses and low-impact feedback.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    },
+    {
+      "timestamps": [
+        "00:22",
+        "00:44"
+      ],
+      "creator_statement_paraphrase": "Modals block all user interaction and should be used sparingly, only when the user cannot proceed without resolving the issue, and must always provide an actionable path forward.",
+      "visual_evidence": "Examples of centered modals for failed payment with an 'Update your card' action and access denial with a 'Request access' action.",
+      "ux_problem": "Blocking the user without an actionable resolution creates frustration and dead ends.",
+      "recommended_change": "Use modal errors only for blocking blockers, and always provide an action button to resolve the situation.",
+      "specific_visual_or_interaction_change": "Center modal dialog that dims background interaction and includes a clear action button.",
+      "creator_reasoning": "If you block the user from interacting with the app, you must give them a direct path to fix the problem.",
+      "applicable_context": "Hard-blocking errors such as payment failures or access permission denials.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    },
+    {
+      "timestamps": [
+        "00:44",
+        "01:03"
+      ],
+      "creator_statement_paraphrase": "In-line errors should be placed right next to the source of the issue (like invalid input fields or clicked action buttons) because the user's visual focus is already located there.",
+      "visual_evidence": "Form input border turning red with validation text below, and a 'Save Changes' button showing 'Couldn't save, try again' directly below the button.",
+      "ux_problem": "Errors placed far from the user's visual focus may be missed or cause confusion about what needs fixing.",
+      "recommended_change": "Position error messages directly adjacent to the input field or button that triggered them.",
+      "specific_visual_or_interaction_change": "Apply a red border to the invalid form field with red error text below it, or place error text directly beneath the clicked button.",
+      "creator_reasoning": "The closer an error is placed to the issue, the easier it is to notice because the user's gaze is already focused on that element.",
+      "applicable_context": "Form validation and direct button action feedback.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    }
+  ],
+  "analyst_interpretation": {
+    "interpretation": "The video outlines a three-tier taxonomy for UX error placement: ambient/transient (toasts), blocking/critical (modals with CTAs), and localized contextual (inline validation).",
+    "inferences_not_shown_or_said": [
+      "Accessibility requirements like ARIA live regions or screen reader announcements for dynamically injected inline errors were not discussed."
+    ]
+  },
+  "spot_check_visuals": [
+    {
+      "timestamp": "00:39",
+      "observation": "A modal dialog with a red lock icon titled 'Access Denied' contains a blue 'Request access' button."
+    },
+    {
+      "timestamp": "00:48",
+      "observation": "A callout banner reading 'The closer your error is to your issue, the better.' appears in pink above the form card."
+    }
+  ],
+  "overall_uncertainties": [],
+  "model_reported_source_identity": {
+    "video_id": "ux_error_message_placement_part_7",
+    "source_url": "unknown"
+  },
+  "workspace_source": {
+    "video_id": "sedo-xVYllo",
+    "original_url": "https://www.youtube.com/watch?v=sedo-xVYllo",
+    "canonical_url": "https://www.youtube.com/watch?v=sedo-xVYllo",
+    "title": "Where do you put the error? : Building for Good UX Part 7 #uxdesign",
+    "category": "build-for-good-ux",
+    "series_part": 7,
+    "model": "gemini-3.7-flash",
+    "processed_at": "2026-08-31T08:07:39.902627+00:00"
+  }
+}

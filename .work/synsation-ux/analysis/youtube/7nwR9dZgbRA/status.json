@@ -1,0 +1,12 @@
+{
+  "video_id": "7nwR9dZgbRA",
+  "source_url": "https://www.youtube.com/watch?v=7nwR9dZgbRA",
+  "original_url": "https://www.youtube.com/watch?v=7nwR9dZgbRA",
+  "title": "Build for Good UX Part 13: Jakobs Law Continued #uxdesign",
+  "model": "gemini-3.7-flash",
+  "status": "succeeded",
+  "started_at": "2026-08-31T08:14:07.411334+00:00",
+  "attempt_limit": 3,
+  "completed_at": "2026-08-31T08:15:06.950822+00:00",
+  "extraction": "analysis/youtube/7nwR9dZgbRA/extraction.json"
+}

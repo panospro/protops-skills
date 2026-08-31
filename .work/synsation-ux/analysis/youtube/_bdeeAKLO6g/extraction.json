@@ -1,0 +1,230 @@
+{
+  "source_identity": {
+    "video_id": "_bdeeAKLO6g",
+    "source_url": "https://www.youtube.com/watch?v=_bdeeAKLO6g"
+  },
+  "analysis_coverage": {
+    "audio_analyzed": true,
+    "visuals_analyzed": true,
+    "timestamp_ranges_reviewed": [
+      "00:00-01:20"
+    ],
+    "limitations": [
+      "None"
+    ]
+  },
+  "transcript": [
+    {
+      "start": "00:00",
+      "end": "00:02",
+      "speech": "What makes a good error message?"
+    },
+    {
+      "start": "00:02",
+      "end": "00:05",
+      "speech": "This is part 5 of my series of building with good UX."
+    },
+    {
+      "start": "00:05",
+      "end": "00:08",
+      "speech": "In the last few parts we went deep on loading states, and now we're going to error states."
+    },
+    {
+      "start": "00:08",
+      "end": "00:14",
+      "speech": "And if you're building with AI tools, unless you specifically ask for it, most tools are pretty bad at creating error states by default."
+    },
+    {
+      "start": "00:15",
+      "end": "00:20",
+      "speech": "First is your error message should never be your database or backend logic just dumped on the screen."
+    },
+    {
+      "start": "00:20",
+      "end": "00:23",
+      "speech": "One being, how would a regular person even know what that means?"
+    },
+    {
+      "start": "00:23",
+      "end": "00:27",
+      "speech": "And two, this could also be a security vulnerability if you're exposing details about your app's backend."
+    },
+    {
+      "start": "00:28",
+      "end": "00:30",
+      "speech": "Okay, so then you just put 'something went wrong', right? Wrong."
+    },
+    {
+      "start": "00:30",
+      "end": "00:34",
+      "speech": "Your user doesn't need to know the technical details, but they do need something less vague than that."
+    },
+    {
+      "start": "00:34",
+      "end": "00:39",
+      "speech": "Think about it. If you enter your card information and you press pay, and it says 'something went wrong',"
+    },
+    {
+      "start": "00:39",
+      "end": "00:43",
+      "speech": "you have no idea if your payment went through or not. That is a pretty terrible user experience."
+    },
+    {
+      "start": "00:43",
+      "end": "00:48",
+      "speech": "A good error message does three things: it tells them what happened, why it happened, and gives them a clear action."
+    },
+    {
+      "start": "00:48",
+      "end": "00:56",
+      "speech": "So instead of saying 'something went wrong', you say: 'Your payment didn't go through. Your card was declined. Please check your card details or try a different payment method.'"
+    },
+    {
+      "start": "00:56",
+      "end": "00:59",
+      "speech": "Now the user knows exactly what happened, why, and what's next."
+    },
+    {
+      "start": "00:59",
+      "end": "01:03",
+      "speech": "And then there's the worst kind of error: the silent failure. No message at all."
+    },
+    {
+      "start": "01:03",
+      "end": "01:08",
+      "speech": "The user clicks submit, the button does nothing, the screen doesn't change. They don't know if it worked, if it broke."
+    },
+    {
+      "start": "01:08",
+      "end": "01:12",
+      "speech": "And this is what a lot of vibe coding AI tools generate by default. So you need to know these things to know what to ask for."
+    },
+    {
+      "start": "01:12",
+      "end": "01:16",
+      "speech": "In the next video, we're going to talk about forms and how a lot of people don't feel like filling them out,"
+    },
+    {
+      "start": "01:16",
+      "end": "01:20",
+      "speech": "and how to design them so that your user hates you a little less. So follow for more."
+    }
+  ],
+  "visual_demonstrations": [
+    {
+      "timestamp": "00:15",
+      "observation": "A mobile UI demonstrates a photo upload failure showing a raw technical error popup modal containing internal backend error codes ('userID: 34fd3d4dfjnke out of storage capacity', 'STORAGE_QUOTA_EXCEEDED', trace IDs).",
+      "before": "A mobile screen showing a photo being uploaded with an 'Uploading...' spinner button.",
+      "after": "A red modal overlays with technical backend error trace information.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:35",
+      "observation": "A payment form with credit card fields is submitted by clicking 'Pay $99.00', which shows a vague top banner saying 'Something went wrong'.",
+      "before": "Card details filled out in form fields above 'Pay $99.00' button.",
+      "after": "A red banner with an exclamation mark appears above the title stating 'Something went wrong'.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:49",
+      "observation": "The payment form submission displays an improved informative banner stating: 'Your payment didn't go through / Your card was declined. Please check your card details or try a different payment method.'",
+      "before": "Payment form filled out before clicking 'Pay $99.00'.",
+      "after": "The descriptive error alert banner appears with explanation and recovery instructions.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "01:03",
+      "observation": "A 'Submit' button is repeatedly clicked with a mouse cursor, but the button state and screen do not respond or give feedback, leaving the user unsure if the action succeeded.",
+      "before": "A black 'Submit' button centered on a white screen.",
+      "after": "Cursor clicks repeatedly on 'Submit'; text 'Did that even work?' appears above the button without any confirmation or error state.",
+      "certainty": "high"
+    }
+  ],
+  "creator_derived_lessons": [
+    {
+      "timestamps": [
+        "00:15",
+        "00:20",
+        "00:23"
+      ],
+      "creator_statement_paraphrase": "Do not dump raw database errors or backend logic directly onto the user's screen, because regular users will not understand it and exposing backend implementation details is a security risk.",
+      "visual_evidence": "Demonstration of raw database exception code and a technical backend trace popup on a mobile screen.",
+      "ux_problem": "Raw backend error traces confuse non-technical users and expose internal system architecture/security vulnerabilities.",
+      "recommended_change": "Handle errors cleanly without showing raw backend/database error logs in the client UI.",
+      "specific_visual_or_interaction_change": "Hide database stack traces, internal IDs, and raw server logs from the user interface.",
+      "creator_reasoning": "Standard users cannot interpret technical stack traces, and leaking server details creates security vulnerabilities.",
+      "applicable_context": "Any application encountering server, database, or API errors.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    },
+    {
+      "timestamps": [
+        "00:28",
+        "00:30",
+        "00:34",
+        "00:43",
+        "00:48",
+        "00:56"
+      ],
+      "creator_statement_paraphrase": "Avoid vague messages like 'something went wrong'. A good error message must fulfill three criteria: explain what happened, explain why it happened, and provide a clear action for the user to resolve it.",
+      "visual_evidence": "Side-by-side comparison of a checkout form showing 'Something went wrong' versus 'Your payment didn't go through. Your card was declined. Please check your card details or try a different payment method.'",
+      "ux_problem": "Vague error messages leave users confused about whether their transaction or action succeeded and what they should do next.",
+      "recommended_change": "Write descriptive error messages that specify the failure, the underlying reason, and next steps.",
+      "specific_visual_or_interaction_change": "Replace generic alert banners with specific text explaining the issue and recovery options.",
+      "creator_reasoning": "Users need to know the state of their action (e.g., whether money was charged) and how to fix the issue.",
+      "applicable_context": "Forms, payments, and interactive submission flows.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    },
+    {
+      "timestamps": [
+        "00:59",
+        "01:03",
+        "01:08"
+      ],
+      "creator_statement_paraphrase": "Never allow silent failures where an action button does nothing and provides no visual feedback.",
+      "visual_evidence": "A 'Submit' button clicked repeatedly with no state change, leaving the screen static.",
+      "ux_problem": "Users do not know whether the system received their input, crashed, or succeeded.",
+      "recommended_change": "Always provide clear visual feedback or an error message when an action fails.",
+      "specific_visual_or_interaction_change": "Ensure button interactions trigger appropriate visual states or explicit error notifications.",
+      "creator_reasoning": "Silent failure is the worst user experience because the user is left completely uninformed.",
+      "applicable_context": "Button clicks and form submissions.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    }
+  ],
+  "analyst_interpretation": {
+    "interpretation": "The video highlights three common error-handling anti-patterns (raw technical error dumps, vague generic errors, and silent failure states) and prescribes actionable, user-centric error messaging with clear status, rationale, and resolution guidance.",
+    "inferences_not_shown_or_said": [
+      "Specific accessibility requirements such as ARIA live regions or screen-reader announcements are not discussed in the video."
+    ]
+  },
+  "spot_check_visuals": [
+    {
+      "timestamp": "00:06",
+      "observation": "A graphic displays three loading state UI types labeled 'Skeleton screen', 'Spinner', and 'Progress bar'."
+    },
+    {
+      "timestamp": "00:51",
+      "observation": "A payment modal shows a red callout banner reading 'Your payment didn't go through' with body text 'Your card was declined. Please check your card details or try a different payment method.'"
+    }
+  ],
+  "overall_uncertainties": [],
+  "model_reported_source_identity": {
+    "video_id": "good_error_message_ux_part5",
+    "source_url": "unknown"
+  },
+  "workspace_source": {
+    "video_id": "_bdeeAKLO6g",
+    "original_url": "https://www.youtube.com/watch?v=_bdeeAKLO6g",
+    "canonical_url": "https://www.youtube.com/watch?v=_bdeeAKLO6g",
+    "title": "What Makes a Good Error Message: Building With Good UX Part 5 #uxdesign",
+    "category": "build-for-good-ux",
+    "series_part": 5,
+    "model": "gemini-3.7-flash",
+    "processed_at": "2026-08-31T08:05:52.590213+00:00"
+  }
+}

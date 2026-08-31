@@ -1,0 +1,227 @@
+{
+  "source_identity": {
+    "video_id": "hMeDo4x8dVg",
+    "source_url": "https://www.youtube.com/watch?v=hMeDo4x8dVg"
+  },
+  "analysis_coverage": {
+    "audio_analyzed": true,
+    "visuals_analyzed": true,
+    "timestamp_ranges_reviewed": [
+      "00:00-01:08"
+    ],
+    "limitations": [
+      "None"
+    ]
+  },
+  "transcript": [
+    {
+      "start": "00:00",
+      "end": "00:03",
+      "speech": "You log into an app for the first time and you see this, or maybe even worse, this."
+    },
+    {
+      "start": "00:04",
+      "end": "00:08",
+      "speech": "This is part 8 of my Building with Good UX series. This one is all about empty states."
+    },
+    {
+      "start": "00:08",
+      "end": "00:13",
+      "speech": "And although they're not sexy to think about because as designers and developers we like to think about all the new features,"
+    },
+    {
+      "start": "00:14",
+      "end": "00:17",
+      "speech": "the empty state is often what your user will see first. So let's make a good impression."
+    },
+    {
+      "start": "00:17",
+      "end": "00:21",
+      "speech": "Your user signs up, lands on the dashboard, and it's blank. You have no projects"
+    },
+    {
+      "start": "00:21",
+      "end": "00:24",
+      "speech": "leaves the user with no actions. They don't know what to do."
+    },
+    {
+      "start": "00:25",
+      "end": "00:28",
+      "speech": "So you add 'create your first project' with a button right here. Amazing! Now the user has an action."
+    },
+    {
+      "start": "00:29",
+      "end": "00:34",
+      "speech": "Maybe let's add a step-by-step gamified instructions to get them started with the project."
+    },
+    {
+      "start": "00:34",
+      "end": "00:40",
+      "speech": "And for every section of your app that doesn't have content yet, don't just leave it blank. Let the user know what the section is for and how to start using it."
+    },
+    {
+      "start": "00:41",
+      "end": "00:44",
+      "speech": "Next, empty search results. 'No results' is okay, but what about"
+    },
+    {
+      "start": "00:44",
+      "end": "00:49",
+      "speech": "'No results for prple shoes. Did you mean purple shoes?' with a link to search that term. That keeps the user moving."
+    },
+    {
+      "start": "00:50",
+      "end": "00:56",
+      "speech": "Sometimes the goal is empty state, a zero inbox. So when someone clears all their mail and hits zero, make it feel like an achievement."
+    },
+    {
+      "start": "00:57",
+      "end": "01:00",
+      "speech": "Add a nice animation, add a background that is something that they look forward to seeing."
+    },
+    {
+      "start": "01:00",
+      "end": "01:05",
+      "speech": "A good empty state tells a user why it's empty, shows them what to do next, and doesn't feel broken."
+    },
+    {
+      "start": "01:05",
+      "end": "01:08",
+      "speech": "In the next video we talk about partial states, so see you there and follow for more."
+    }
+  ],
+  "visual_demonstrations": [
+    {
+      "timestamp": "00:19",
+      "observation": "A mobile UI dashboard titled 'Workspace' displays plain text stating 'You have no projects' in the center of an empty screen.",
+      "before": "User signs up on account creation screen.",
+      "after": "Text 'You have no projects' is highlighted with a yellow box.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:26",
+      "observation": "A primary action button '+ Create new project' is added beneath the explanatory text in the dashboard's empty state.",
+      "before": "Workspace screen shows only 'You have no projects' with no call-to-action button.",
+      "after": "Workspace displays '+ Create new project' button.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:30",
+      "observation": "A multi-step onboarding checklist titled 'Set up your workspace' displays progress (e.g., '1 of 5 complete', '20%' progressing to '2 of 5 complete', '40%').",
+      "before": "Empty dashboard with single project creation button.",
+      "after": "Step-by-step gamified setup flow interface.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:44",
+      "observation": "Search bar containing the misspelled query 'prple shoes' updates from displaying a plain 'No results found' message to showing 'No results for 'prple shoes' / Did you mean 'purple shoes'?' with an interactive link that loads purple shoe products.",
+      "before": "Screen shows 'No results found'.",
+      "after": "Screen suggests corrected spelling with clickable link to search results.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:55",
+      "observation": "An inbox app clears from 4 items to 0 items, then transitions to an animated celebratory screen displaying '6 DAY STREAK' and an aesthetic illustration with the text 'you've reached inbox zero'.",
+      "before": "Inbox list with decreasing item counts.",
+      "after": "Celebratory streak animation and illustrated landscape background.",
+      "certainty": "high"
+    }
+  ],
+  "creator_derived_lessons": [
+    {
+      "timestamps": [
+        "00:17",
+        "00:28"
+      ],
+      "creator_statement_paraphrase": "Leaving a dashboard blank with just 'You have no projects' leaves users with no clear action. Adding a clear call-to-action button like 'Create new project' tells users what to do next.",
+      "visual_evidence": "Mockup transitions from a bare 'You have no projects' string to including a '+ Create new project' button.",
+      "ux_problem": "Users land on an empty screen and do not know what actions to take.",
+      "recommended_change": "Provide a clear call to action and instructions on how to start.",
+      "specific_visual_or_interaction_change": "Add an actionable button (e.g., '+ Create new project') and explanatory copy.",
+      "creator_reasoning": "The empty state is often the first impression a user sees; providing an action removes confusion.",
+      "applicable_context": "First-time user onboarding and empty dashboard screens.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    },
+    {
+      "timestamps": [
+        "00:29",
+        "00:34"
+      ],
+      "creator_statement_paraphrase": "Add step-by-step gamified onboarding instructions to help users get started with their first project.",
+      "visual_evidence": "Setup screen showing task list with progress bar and percentage completion.",
+      "ux_problem": "Users may be overwhelmed or unsure how to complete initial setup.",
+      "recommended_change": "Incorporate gamified onboarding checklist steps.",
+      "specific_visual_or_interaction_change": "Checklist showing task completion status, percentage, and estimated time per step.",
+      "creator_reasoning": "Guides the user progressively through setup.",
+      "applicable_context": "Initial product setup / workspace onboarding.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    },
+    {
+      "timestamps": [
+        "00:41",
+        "00:49"
+      ],
+      "creator_statement_paraphrase": "For zero search results due to misspellings, provide spelling suggestions with a direct link to search the corrected term instead of a dead-end message.",
+      "visual_evidence": "Typo 'prple shoes' generates a 'Did you mean purple shoes?' link that navigates to relevant results upon clicking.",
+      "ux_problem": "Plain 'No results found' messages stall user progress on misspelled search queries.",
+      "recommended_change": "Suggest corrected query terms with direct clickable links.",
+      "specific_visual_or_interaction_change": "Display 'Did you mean [term]?' link below the zero results message.",
+      "creator_reasoning": "Keeps the user moving forward rather than abandoning search.",
+      "applicable_context": "Search result empty states.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    },
+    {
+      "timestamps": [
+        "00:50",
+        "01:00"
+      ],
+      "creator_statement_paraphrase": "When the goal is achieving an empty state (like Inbox Zero), make reaching zero feel rewarding by adding celebratory animations and pleasing visual backgrounds.",
+      "visual_evidence": "Clearing an inbox triggers a streak count and an illustrated 'inbox zero' screen.",
+      "ux_problem": "Reaching an empty goal state can feel unfulfilling or bare without feedback.",
+      "recommended_change": "Display an achievement screen with animation and visual polish.",
+      "specific_visual_or_interaction_change": "Show a streak badge/animation and a pleasant illustrated background.",
+      "creator_reasoning": "Provides positive reinforcement that users look forward to seeing.",
+      "applicable_context": "Task completion and inbox/queue management apps.",
+      "stated_exceptions": "none stated",
+      "claim_type": "mixed",
+      "uncertainties": []
+    }
+  ],
+  "analyst_interpretation": {
+    "interpretation": "The video provides design guidelines for handling zero-data scenarios in UI/UX design, categorizing empty states into onboarding/first-use empty states, zero search results, and intentional completion/zero-inbox states.",
+    "inferences_not_shown_or_said": [
+      "No specific analytics or conversion metrics are presented to quantify the performance lift of these changes."
+    ]
+  },
+  "spot_check_visuals": [
+    {
+      "timestamp": "00:06",
+      "observation": "A graphic overlay displays the text 'Building with GOOD UX Part 8'."
+    },
+    {
+      "timestamp": "01:03",
+      "observation": "Three key takeaways appear as bullet points on screen: 'Why it's empty', 'Shows them what to do next', and 'Doesn't feel broken'."
+    }
+  ],
+  "overall_uncertainties": [],
+  "model_reported_source_identity": {
+    "video_id": "good_ux_part_8_empty_states",
+    "source_url": "user_provided_video"
+  },
+  "workspace_source": {
+    "video_id": "hMeDo4x8dVg",
+    "original_url": "https://www.youtube.com/watch?v=hMeDo4x8dVg",
+    "canonical_url": "https://www.youtube.com/watch?v=hMeDo4x8dVg",
+    "title": "Don’t forget the empty state: Part 8 of Building for Good UX #uxdesign",
+    "category": "build-for-good-ux",
+    "series_part": 8,
+    "model": "gemini-3.7-flash",
+    "processed_at": "2026-08-31T08:11:08.347531+00:00"
+  }
+}

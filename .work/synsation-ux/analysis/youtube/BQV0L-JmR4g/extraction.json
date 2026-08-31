@@ -1,0 +1,170 @@
+{
+  "source_identity": {
+    "video_id": "BQV0L-JmR4g",
+    "source_url": "https://www.youtube.com/watch?v=BQV0L-JmR4g"
+  },
+  "analysis_coverage": {
+    "audio_analyzed": true,
+    "visuals_analyzed": true,
+    "timestamp_ranges_reviewed": [
+      "00:00-01:27"
+    ],
+    "limitations": []
+  },
+  "transcript": [
+    {
+      "start": "00:00",
+      "end": "00:08",
+      "speech": "If you're driving somewhere you've never been, would you rather the GPS list out all 35 turns before you even leave the driveway, or just tell you where to turn one at a time as you drive?"
+    },
+    {
+      "start": "00:08",
+      "end": "00:17",
+      "speech": "By the way, if you picked the first one, I don't believe you. This is Part 15 of my Build for Good UX series, and today we're talking about Progressive Disclosure and how to apply it to the apps that you're building."
+    },
+    {
+      "start": "00:17",
+      "end": "00:24",
+      "speech": "Progressive Disclosure just basically means showing people what they need right now. Whether that is the next step, the next layer of options, whatever they need as they go."
+    },
+    {
+      "start": "00:24",
+      "end": "00:29",
+      "speech": "None of the features that you built are removed, they're just not thrown at the user all at once."
+    },
+    {
+      "start": "00:29",
+      "end": "00:37",
+      "speech": "So let me show you a bad example. This is Higgsfield's website, and this is a drop-down of their image generation. It's so big that you literally have to scroll to see all the options."
+    },
+    {
+      "start": "00:37",
+      "end": "00:41",
+      "speech": "And if you think that's a lot, then I go one tab over, and these are all of the video options."
+    },
+    {
+      "start": "00:41",
+      "end": "00:47",
+      "speech": "Now say my goal is to create a motion graphic. It's here at the bottom of this menu, but naturally my eyes go to Create Video at the top."
+    },
+    {
+      "start": "00:47",
+      "end": "00:53",
+      "speech": "And up until now, as I'm making this video for you guys, I didn't realize that the motion graphic option actually existed."
+    },
+    {
+      "start": "00:53",
+      "end": "01:00",
+      "speech": "Now here's a good example: Notion. Notion can do a million things — in one document you can add database tables, sub-pages, a whole bunch of stuff, but the interface feels clean."
+    },
+    {
+      "start": "01:00",
+      "end": "01:12",
+      "speech": "Watch — the AI chat only shows up when I ask for it. And this menu of everything you can add to your dock, it's hidden until I hit the slash key — then it reminds me what's possible, I type what I'm looking for, and it gives me just those options."
+    },
+    {
+      "start": "01:12",
+      "end": "01:20",
+      "speech": "Now one caveat with progressive disclosure: you don't want to hide your most important features so deep that people can't figure out your app without a tutorial, so be cautious of that."
+    },
+    {
+      "start": "01:20",
+      "end": "01:27",
+      "speech": "Next time you're building something, ask yourself: are all the things that I see here needed to be shown at this time? Follow for Part 16."
+    }
+  ],
+  "visual_demonstrations": [
+    {
+      "timestamp": "00:03",
+      "observation": "A navigation interface animation shifts from showing step-by-step turn directions to piling 35 turn instruction cards onto the screen at once.",
+      "before": "Single turn instruction card showing 'IN 300 FEET Turn Right Onto Innovation Ave'.",
+      "after": "Stack of 35 turn instruction cards cluttered across the screen.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:32",
+      "observation": "Screen capture of higgsfield.ai showing a massive dropdown menu under the 'Image' navigation header requiring vertical scrolling to see all tools.",
+      "before": "Higgsfield homepage banner.",
+      "after": "Expanded mega-menu showing numerous image generation options under 'Features' and 'Models'.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:44",
+      "observation": "Screen capture highlighting the 'Vibe Motion' option at the very bottom of the Higgsfield 'Video' dropdown tab.",
+      "before": "Video navigation tab open showing 'Create Video' outlined at the top.",
+      "after": "'Vibe Motion' item highlighted at the bottom of the list.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "01:07",
+      "observation": "Notion document interface demonstrating progressive disclosure by opening a block insertion menu only after typing '/' and filtering options as '/datab' is typed.",
+      "before": "Empty cursor line displaying 'Press space for AI or / for commands'.",
+      "after": "Filtered drop-down menu showing Database options (Inline, Full page, Table view).",
+      "certainty": "high"
+    }
+  ],
+  "creator_derived_lessons": [
+    {
+      "timestamps": [
+        "00:18-00:28",
+        "00:29-00:53"
+      ],
+      "creator_statement_paraphrase": "Progressive disclosure means showing users what they need right now rather than throwing all features at them simultaneously. Overwhelming users with huge dropdown menus (like Higgsfield's website) makes lower features like 'Vibe Motion' easy to overlook.",
+      "visual_evidence": "Higgsfield.ai dropdown menu displaying dozens of image and video tools in a long list that requires scrolling.",
+      "ux_problem": "Exposing all features at once causes cognitive overload and leads users to miss key secondary options.",
+      "recommended_change": "Disclose options progressively as needed rather than showing every tool in one large menu.",
+      "specific_visual_or_interaction_change": "Replace overwhelming mega-menus with contextual or tiered feature navigation.",
+      "creator_reasoning": "Users naturally scan top options ('Create Video') and miss important features buried at the bottom.",
+      "applicable_context": "Complex web applications, navigation menus, and toolbars.",
+      "stated_exceptions": "Do not hide primary/essential features so deep that users require a tutorial to find them.",
+      "claim_type": "usability",
+      "uncertainties": []
+    },
+    {
+      "timestamps": [
+        "00:53-01:12"
+      ],
+      "creator_statement_paraphrase": "Notion maintains a clean interface despite complex capabilities by hiding tools behind contextual triggers like slash commands ('/') and on-demand AI tools.",
+      "visual_evidence": "Notion editor hiding feature creation menus until the user types '/', then dynamically filtering choices based on typed text.",
+      "ux_problem": "Displaying all available document creation tools directly on the workspace clutter the UI.",
+      "recommended_change": "Hide tool menus by default and reveal them contextually upon user request or key press.",
+      "specific_visual_or_interaction_change": "Implement prompt bars and slash-command menus that pop up and search-filter dynamically upon command.",
+      "creator_reasoning": "Keeps the screen clean and focused while preserving access to advanced features when needed.",
+      "applicable_context": "Document editors, productivity tools, and complex workspace software.",
+      "stated_exceptions": "Caution against hiding core features so deep that new users cannot discover them.",
+      "claim_type": "usability",
+      "uncertainties": []
+    }
+  ],
+  "analyst_interpretation": {
+    "interpretation": "The creator uses navigation GPS as an intuitive real-world metaphor for software progressive disclosure, contrasting over-exposed mega-menus (Higgsfield) with trigger-based contextual menus (Notion).",
+    "inferences_not_shown_or_said": [
+      "No quantitative usability test data or conversion analytics are provided for Higgsfield or Notion."
+    ]
+  },
+  "spot_check_visuals": [
+    {
+      "timestamp": "00:13",
+      "observation": "On-screen text displays 'Build for GOOD UX Part 15' while the host holds a star-topped microphone."
+    },
+    {
+      "timestamp": "01:05",
+      "observation": "A Notion popup menu titled 'Type to search' lists basic blocks including Text, Heading 1, Heading 2, Heading 3, Bulleted list, and Numbered list."
+    }
+  ],
+  "overall_uncertainties": [],
+  "model_reported_source_identity": {
+    "video_id": "ux_progressive_disclosure_part15",
+    "source_url": "unknown"
+  },
+  "workspace_source": {
+    "video_id": "BQV0L-JmR4g",
+    "original_url": "https://www.youtube.com/watch?v=BQV0L-JmR4g",
+    "canonical_url": "https://www.youtube.com/watch?v=BQV0L-JmR4g",
+    "title": "Build for Good UX Part 15: Progressive Disclosure",
+    "category": "build-for-good-ux",
+    "series_part": 15,
+    "model": "gemini-3.6-flash",
+    "processed_at": "2026-08-31T13:40:33.411872+00:00"
+  }
+}

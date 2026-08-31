@@ -1,0 +1,12 @@
+{
+  "video_id": "WX5cvNerDm0",
+  "source_url": "https://www.youtube.com/watch?v=WX5cvNerDm0",
+  "original_url": "https://www.youtube.com/watch?v=WX5cvNerDm0",
+  "title": "Graceful Degradation: Build for Good UX Part 10",
+  "model": "gemini-3.7-flash",
+  "status": "succeeded",
+  "started_at": "2026-08-31T08:11:37.714990+00:00",
+  "attempt_limit": 3,
+  "completed_at": "2026-08-31T08:12:57.708102+00:00",
+  "extraction": "analysis/youtube/WX5cvNerDm0/extraction.json"
+}

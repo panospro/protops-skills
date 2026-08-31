@@ -1,0 +1,12 @@
+{
+  "video_id": "lLL5GcUlpZs",
+  "source_url": "https://www.youtube.com/watch?v=lLL5GcUlpZs",
+  "original_url": "https://www.youtube.com/watch?v=lLL5GcUlpZs",
+  "title": "The Psychology of Spinners: Build for Good UX Part 4 #uxdesign",
+  "model": "gemini-3.7-flash",
+  "status": "succeeded",
+  "started_at": "2026-08-31T08:04:05.759541+00:00",
+  "attempt_limit": 3,
+  "completed_at": "2026-08-31T08:05:00.187263+00:00",
+  "extraction": "analysis/youtube/lLL5GcUlpZs/extraction.json"
+}

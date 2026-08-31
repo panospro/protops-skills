@@ -1,0 +1,153 @@
+{
+  "source_identity": {
+    "video_id": "WX5cvNerDm0",
+    "source_url": "https://www.youtube.com/watch?v=WX5cvNerDm0"
+  },
+  "analysis_coverage": {
+    "audio_analyzed": true,
+    "visuals_analyzed": true,
+    "timestamp_ranges_reviewed": [
+      "00:00-00:55"
+    ],
+    "limitations": [
+      "None"
+    ]
+  },
+  "transcript": [
+    {
+      "start": "00:00",
+      "end": "00:04",
+      "speech": "If a part of your app just fails to load, do you just throw an error on the screen and hide everything else?"
+    },
+    {
+      "start": "00:04",
+      "end": "00:12",
+      "speech": "This is part 10 of my series of building with good UX. And today, we're breaking down graceful degradation, how to keep your app usable even when some parts fail."
+    },
+    {
+      "start": "00:12",
+      "end": "00:17",
+      "speech": "The general rule is that every section on your page should be responsible for its own data, its own loading state, and its own errors."
+    },
+    {
+      "start": "00:17",
+      "end": "00:22",
+      "speech": "Your profile section fetches its own data. Your feed fetches its own data."
+    },
+    {
+      "start": "00:22",
+      "end": "00:26",
+      "speech": "If a section fails, it should have its own error message and its own retry button. The rest of the page stays completely usable."
+    },
+    {
+      "start": "00:26",
+      "end": "00:35",
+      "speech": "When you open Instagram, your feed might load immediately, but it might actually be a cached version of photos and videos from a couple of hours ago that shows while the fresh content loads in the background."
+    },
+    {
+      "start": "00:35",
+      "end": "00:40",
+      "speech": "Once the new data is ready, it just swaps into your feed. You've been scrolling content this whole time, you didn't even notice this trick."
+    },
+    {
+      "start": "00:40",
+      "end": "00:51",
+      "speech": "When you're planning an app, both from a design and development perspective, you want to think about how to build things so they operate individually, what the page might look like when some things work and others don't, and how to make that feel as seamless as possible to the user."
+    },
+    {
+      "start": "00:51",
+      "end": "00:55",
+      "speech": "In the next video, we're going to be covering success states, so follow for more."
+    }
+  ],
+  "visual_demonstrations": [
+    {
+      "timestamp": "00:01",
+      "observation": "A full-screen wireframe interface transitions to display a centered red warning icon with the text 'Fatal Error: The entire application has crashed because one component failed to load', wiping away the rest of the UI.",
+      "before": "A skeleton wireframe view of an app with multiple content cards.",
+      "after": "A full-screen error state taking over the entire layout.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:22",
+      "observation": "A wireframe interface shows four separate content modules; only one individual card displays a red exclamation circle with 'Failed' and a 'Retry' button, while the other three modules remain intact and loaded.",
+      "before": "The wireframe layout with empty component placeholders.",
+      "after": "One component showing an isolated error state and retry prompt while surrounding cards display normal content/states.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:33",
+      "observation": "An Instagram post is shown displayed to the user while a red-bordered loading spinner animates at the bottom edge of the screen indicating background loading.",
+      "before": "Cached post visible on the screen.",
+      "after": "Fresh content updates seamlessly into the feed as the user scrolls.",
+      "certainty": "high"
+    }
+  ],
+  "creator_derived_lessons": [
+    {
+      "timestamps": [
+        "00:08",
+        "00:12",
+        "00:22",
+        "00:26"
+      ],
+      "creator_statement_paraphrase": "Implement graceful degradation by making each section of a page manage its own data fetching, loading state, and error handling so that if one section fails, it shows an isolated error and retry button without breaking or hiding the rest of the application.",
+      "visual_evidence": "Wireframe demonstrations show modular component architecture where an individual failure card shows 'Failed / Retry' while surrounding components remain functional.",
+      "ux_problem": "Crashing or hiding an entire page when only a single component fails to load.",
+      "recommended_change": "Isolate data, loading states, and error handling to individual page sections and provide localized error messages with retry options.",
+      "specific_visual_or_interaction_change": "Place error badges and retry buttons strictly inside the failed component container while preserving the active state of all other components.",
+      "creator_reasoning": "Keeping the rest of the page usable ensures the user experience remains seamless even when partial failures occur.",
+      "applicable_context": "App and web UI design and development where multi-component dashboards or feeds load heterogeneous data.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    },
+    {
+      "timestamps": [
+        "00:26",
+        "00:40"
+      ],
+      "creator_statement_paraphrase": "Display cached content immediately while fetching fresh data in the background, then swap in new data seamlessly so users can browse without noticing loading delays.",
+      "visual_evidence": "Instagram feed example showing cached media displayed immediately alongside a background refresh spinner.",
+      "ux_problem": "Users waiting on empty loading screens while fresh network data is fetched.",
+      "recommended_change": "Serve cached content upfront and update with fresh data in the background.",
+      "specific_visual_or_interaction_change": "Render cached posts/media on app launch while background-fetching new data and swapping it in.",
+      "creator_reasoning": "Users stay engaged and can scroll content uninterrupted without noticing the loading delay.",
+      "applicable_context": "Social feeds and content-heavy mobile or web applications.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    }
+  ],
+  "analyst_interpretation": {
+    "interpretation": "The creator advocates for independent error boundaries and optimistic/stale-while-revalidate caching patterns to maximize application resilience and perceived performance.",
+    "inferences_not_shown_or_said": [
+      "The specific programming frameworks (e.g., React Error Boundaries, SWR, TanStack Query) are not explicitly mentioned by name."
+    ]
+  },
+  "spot_check_visuals": [
+    {
+      "timestamp": "00:02",
+      "observation": "Text on screen displays 'Fatal Error' with the subtitle 'The entire application has crashed because one component failed to load.'"
+    },
+    {
+      "timestamp": "00:18",
+      "observation": "A red rectangular bounding box highlights the profile section of an Instagram profile page under the username 'synsation_'."
+    }
+  ],
+  "overall_uncertainties": [],
+  "model_reported_source_identity": {
+    "video_id": "good_ux_part_10_graceful_degradation",
+    "source_url": "supplied_video"
+  },
+  "workspace_source": {
+    "video_id": "WX5cvNerDm0",
+    "original_url": "https://www.youtube.com/watch?v=WX5cvNerDm0",
+    "canonical_url": "https://www.youtube.com/watch?v=WX5cvNerDm0",
+    "title": "Graceful Degradation: Build for Good UX Part 10",
+    "category": "build-for-good-ux",
+    "series_part": 10,
+    "model": "gemini-3.7-flash",
+    "processed_at": "2026-08-31T08:12:57.693278+00:00"
+  }
+}

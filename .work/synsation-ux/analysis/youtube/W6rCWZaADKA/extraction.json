@@ -1,0 +1,146 @@
+{
+  "source_identity": {
+    "video_id": "W6rCWZaADKA",
+    "source_url": "https://www.youtube.com/watch?v=W6rCWZaADKA"
+  },
+  "analysis_coverage": {
+    "audio_analyzed": true,
+    "visuals_analyzed": true,
+    "timestamp_ranges_reviewed": [
+      "00:00-01:04"
+    ],
+    "limitations": []
+  },
+  "transcript": [
+    {
+      "start": "00:00",
+      "end": "00:04",
+      "speech": "If you were building a web app, would you place the shopping cart here? What about here? Or here?"
+    },
+    {
+      "start": "00:04",
+      "end": "00:08",
+      "speech": "This is Part 12 of my Build for Good UX series, and today we are covering Jakob's Law."
+    },
+    {
+      "start": "00:08",
+      "end": "00:11",
+      "speech": "This is Jakob. He's been studying how people use the internet since the early 90s."
+    },
+    {
+      "start": "00:11",
+      "end": "00:16",
+      "speech": "He co-founded Nielsen Norman Group, which is basically the gold standard for UX research."
+    },
+    {
+      "start": "00:16",
+      "end": "00:22",
+      "speech": "So what is Jakob's Law? Users spend most of their time on other sites. This means that users prefer your site to work the same way as all the other sites they already know."
+    },
+    {
+      "start": "00:22",
+      "end": "00:27",
+      "speech": "So going back to the shopping cart, think about every e-commerce site that you've ever used: Amazon, Target, Shopify."
+    },
+    {
+      "start": "00:27",
+      "end": "00:31",
+      "speech": "The cart is always top right. Pay attention the next time you're browsing. It is always there."
+    },
+    {
+      "start": "00:31",
+      "end": "00:36",
+      "speech": "So if you build your site and you put the cart in the bottom right, you might be thinking, 'I am being so innovative, I am doing something different.'"
+    },
+    {
+      "start": "00:36",
+      "end": "00:48",
+      "speech": "But accessing your cart is something you want zero friction on. If it's not already in a place where there's an online habit to look for it, that microsecond of extra thought, that tiny moment of 'wait, where is it?', that's unnecessary."
+    },
+    {
+      "start": "00:48",
+      "end": "00:57",
+      "speech": "And you're thinking, 'wow, how boring, everything is structured the same.' But that's the point. The structure being predictable is what lets the user focus on what actually matters, which in this case is making sure they order what they want."
+    },
+    {
+      "start": "00:57",
+      "end": "01:04",
+      "speech": "Now, which components should you keep standardized and where do you have room to get creative? We're going to talk about this in the next part, so see you there and follow for more."
+    }
+  ],
+  "visual_demonstrations": [
+    {
+      "timestamp": "00:01",
+      "observation": "A mock mobile screen animation moves a floating shopping cart button between bottom-right, top-left, and top-right positions.",
+      "before": "Mock wireframe mobile layout with text prompt.",
+      "after": "Shopping cart badge icon relocates across three positions on the screen.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:28",
+      "observation": "A red circle highlights the shopping cart icon positioned in the top-right corner of the Target website header.",
+      "before": "Target e-commerce store landing page header.",
+      "after": "Zoomed-in header area with red circle encircling the top-right shopping cart icon.",
+      "certainty": "high"
+    },
+    {
+      "timestamp": "00:37",
+      "observation": "On the mock product site 'Nook', the floating shopping cart button is moved from the bottom-right corner up to the top-right navigation header, where clicking it triggers a slide-out cart drawer.",
+      "before": "Shopping cart icon floats as a blue action button in the bottom-right corner.",
+      "after": "Shopping cart icon sits standard in the top-right header, displaying a slide-out drawer containing 2 cart items.",
+      "certainty": "high"
+    }
+  ],
+  "creator_derived_lessons": [
+    {
+      "timestamps": [
+        "00:16",
+        "00:27",
+        "00:36",
+        "00:48",
+        "00:56"
+      ],
+      "creator_statement_paraphrase": "Jakob's Law states that users spend most of their time on other sites, so they expect your site to work like the sites they already know. Key elements like shopping carts should stay in standardized locations (top right) to ensure zero friction.",
+      "visual_evidence": "Target and mock e-commerce screens demonstrate that putting the shopping cart in the top-right header aligns with user expectations, whereas bottom-right or top-left placement creates hesitation.",
+      "ux_problem": "Placing core utility icons like shopping carts in non-standard locations creates cognitive friction and forces users to pause and locate the element.",
+      "recommended_change": "Position the shopping cart icon in the standard top-right corner of the web application navigation header.",
+      "specific_visual_or_interaction_change": "Move the cart icon from non-standard positions (e.g., floating bottom right) to the top-right corner of the header layout.",
+      "creator_reasoning": "Predictable design lets users focus on what actually matters—ordering what they want—without spending unnecessary cognitive effort searching for standard controls.",
+      "applicable_context": "E-commerce web applications and online shopping storefronts.",
+      "stated_exceptions": "none stated",
+      "claim_type": "usability",
+      "uncertainties": []
+    }
+  ],
+  "analyst_interpretation": {
+    "interpretation": "The creator uses Jakob's Law to advocate for UI convention adherence in high-intent conversion flows like checkout, contrasting novelty placement against established mental models.",
+    "inferences_not_shown_or_said": [
+      "No empirical usability test metrics or conversion rate drop percentages were explicitly measured in the video."
+    ]
+  },
+  "spot_check_visuals": [
+    {
+      "timestamp": "00:09",
+      "observation": "Photo of Jakob Nielsen presenting on stage with a presentation slide labeled 'challenges' behind him."
+    },
+    {
+      "timestamp": "00:41",
+      "observation": "The 'Nook' website mockup displays a cart drawer titled 'Your Cart - 2 items' with 'Levitating Moon Lamp' ($89.00) and 'Ribbed Ceramic Vase' ($48.00)."
+    }
+  ],
+  "overall_uncertainties": [],
+  "model_reported_source_identity": {
+    "video_id": "jakobs_law_ux_shopping_cart",
+    "source_url": "supplied_video"
+  },
+  "workspace_source": {
+    "video_id": "W6rCWZaADKA",
+    "original_url": "https://www.youtube.com/watch?v=W6rCWZaADKA",
+    "canonical_url": "https://www.youtube.com/watch?v=W6rCWZaADKA",
+    "title": "Jakobs Law: Build for Good UX Part 12 #uxdesign",
+    "category": "build-for-good-ux",
+    "series_part": 12,
+    "model": "gemini-3.6-flash",
+    "processed_at": "2026-08-31T13:38:04.356344+00:00"
+  }
+}

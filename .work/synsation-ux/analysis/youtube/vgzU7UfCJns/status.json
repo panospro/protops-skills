@@ -1,0 +1,12 @@
+{
+  "video_id": "vgzU7UfCJns",
+  "source_url": "https://www.youtube.com/watch?v=vgzU7UfCJns",
+  "original_url": "https://www.youtube.com/watch?v=vgzU7UfCJns",
+  "title": "Build for Good UX Part 16: Teslers Law",
+  "model": "gemini-3.6-flash",
+  "status": "succeeded",
+  "started_at": "2026-08-31T13:41:03.447775+00:00",
+  "attempt_limit": 3,
+  "completed_at": "2026-08-31T13:41:38.752507+00:00",
+  "extraction": "analysis/youtube/vgzU7UfCJns/extraction.json"
+}
