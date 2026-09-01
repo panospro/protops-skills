@@ -58,7 +58,7 @@ There is no report in this mode. Apply the rules as you write, and say which one
    - Navigation and layout shells (headers, carts, menus, tab bars)
    - Overlays and focus-moving UI (modals, drawers, popovers, client-side route changes)
 2. **Read every reference** the routing table maps those surfaces to.
-3. **Check each surface against every rule** in the files you read, and **report** in the format below. Every finding names the rule it violates.
+3. **Check each surface against every rule** in the files you read, and **report** in the format below.
 4. **Apply** approved findings only.
 
 **Fix policy:** report first and apply nothing until the user approves specific findings ("fix 1, 3, 5" or "fix all"). With `--fix`, apply all auto-fixable findings immediately without the approval gate. Two categories are **never auto-fixed**, `--fix` included — they are reported as flags for a human decision:
@@ -71,23 +71,38 @@ There is no report in this mode. Apply the rules as you write, and say which one
 
 ## Report format
 
+Findings are numbered in one continuous sequence across all groups, so "fix 3, 7" is unambiguous. Two lines each: what is wrong, then the fix after an arrow. Do not add a "Rule:" line — the tag already names the category, and the reasoning is available on request.
+
 ```
-# UX audit — <scope>
+# UX audit — src/components/FeedbackWidget.jsx
+16 findings · 14 fixable · 2 need a design call
 
-## Findings
-1. [loading-states] src/pages/Orders.tsx:42 — fetch renders nothing while pending
-   Rule: section loads get a skeleton matching the incoming layout
-   Fix: render <OrderListSkeleton /> (existing primitive) while isLoading
-2. [dark-patterns][FLAG ONLY] src/pages/Account.tsx:12 — no cancel-subscription route exists
-   Rule: exit must be as easy as entry
-   Fix: product decision; not auto-fixable
-...
+## Breaks the interaction loop
+1. [a11y] :334 Stars are `<div onClick>` — no keyboard access, and submit is gated on rating, so the feature is mouse-only.
+   → radiogroup of native `<button>`s in a fieldset (pattern: InlineFeedback.jsx:161)
+2. [error] :254 Download button always enabled but returns silently when there is nothing to write.
+   → disable when count is 0, try/catch the blob write, surface failure in the existing error region
 
-## Summary
-N findings: X auto-fixable, Y flag-only. Reply with the numbers to fix, "fix all", or rerun with --fix.
+## Contrast floors
+7. [a11y] :425 Disabled submit — #FFF on #E0E6E1 = 1.27:1 against a 4.5:1 floor.
+   → needs a token pair chosen  [design call]
+
+## Polish
+14. [familiarity] :433 `title="Submit feedback"` hardcoded English in a Greek-default widget.
+   → translate or drop
+
+Holding up: double-submit guard, in-flight label swap, inline error placement.
+
+Reply with numbers to fix · "all" · "why 3" for the reasoning · or rerun with --fix
 ```
 
-Order findings by severity: broken feedback loops (silent failures, missing error/success states) first, then missing states, then polish.
+Rules for keeping it readable:
+- **One line for the problem, one for the fix.** Push the justification out of the report; offer `why N` instead.
+- **Path once in the header** when the scope is a single file, then bare `:line` per finding. Multi-file scans keep the path per finding.
+- **Counts at the top**, not the bottom — the reader sees the scale before deciding to read on.
+- **Mark, don't explain, the special cases**: `[design call]` when a token or product choice is needed first, `[FLAG ONLY]` for dark patterns and `suggest-only` rules that are never auto-fixed.
+- **Group by severity** with the groups in this order: breaks the interaction loop, missing states, contrast floors, polish. Omit any group that is empty.
+- **Close with one "Holding up" line** naming what is already correct — a short list, not a paragraph.
 
 ## Adding rules
 

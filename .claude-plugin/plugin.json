@@ -1,7 +1,7 @@
 {
   "name": "me",
-  "version": "0.3.2",
-  "description": "Personal Claude Code skills + slash commands. Skills auto-trigger on natural language; commands surface in /-autocomplete as /me:check-consistency, /me:rubber-duck, /me:standup, /me:bank-jargon, /me:safe-commit, /me:ship-ready.",
+  "version": "0.4.0",
+  "description": "Personal Claude Code skills + slash commands. Skills auto-trigger on natural language; commands surface in /-autocomplete as /me:check-consistency, /me:rubber-duck, /me:standup, /me:bank-jargon, /me:safe-commit, /me:ship-ready, /me:good-ux.",
   "author": {
     "name": "pprotops"
   },
@@ -14,7 +14,8 @@
     "./plugins/standup/skills/",
     "./plugins/bank-jargon/skills/",
     "./plugins/safe-commit/skills/",
-    "./plugins/ship-ready/skills/"
+    "./plugins/ship-ready/skills/",
+    "./plugins/good-ux/skills/"
   ],
   "commands": [
     "./plugins/check-consistency/commands/check-consistency.md",
@@ -22,6 +23,7 @@
     "./plugins/standup/commands/standup.md",
     "./plugins/bank-jargon/commands/bank-jargon.md",
     "./plugins/safe-commit/commands/safe-commit.md",
-    "./plugins/ship-ready/commands/ship-ready.md"
+    "./plugins/ship-ready/commands/ship-ready.md",
+    "./plugins/good-ux/commands/good-ux.md"
   ]
 }
