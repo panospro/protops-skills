@@ -1,6 +1,6 @@
 # Forms
 
-Nobody likes filling out forms; these six behaviors reduce the frustration. All are cheap to implement and all are commonly missing from generated code.
+Nobody likes filling out forms; these behaviors reduce the frustration. All are cheap to implement and all are commonly missing from generated code.
 
 1. **Gate submit, but explain the gate.** Keep the submit button disabled until required fields are valid — and mark required fields visibly (e.g. a red "REQUIRED *" beside the empty field). A grayed-out button with no explanation is *more* frustrating than no gating at all: the user is left guessing why they can't submit.
 2. **Validate inline, on blur.** The moment someone leaves an email field containing `hello@company`, show the red outline + "Please enter a valid email address" beneath it. The failure mode this prevents: fill everything → submit → wait for the round-trip → scroll back up hunting for the broken field.
@@ -8,5 +8,9 @@ Nobody likes filling out forms; these six behaviors reduce the frustration. All 
 4. **Prefill what you already know.** Logged-in users don't retype their email — populate it (with a validation checkmark) and let them move on.
 5. **Password rules as a live checklist.** Show the requirements under the field ("8+ characters", "One uppercase letter", "One number", "One special character") and flip each from red exclamation to green check as it's satisfied. Rules revealed only by a failed submit are a design failure.
 6. **Be forgiving with formats.** A phone field should accept `5551234567`, `(555) 123-4567`, `555 123 4567`, `555-123-4567`, and `555.123.4567` alike, normalizing server-side. Applies wherever the backend can normalize — rejecting valid data over cosmetic formatting is friction with no benefit.
+7. **Let the browser do the work.** Put `autocomplete` on every identity and payment field (`name`, `email`, `tel`, `street-address`, `postal-code`, `cc-number`, `one-time-code`, `current-password`, `new-password`) so browsers and password managers can fill them; `autocomplete="off"` on a login or checkout field is almost always wrong. Use the right input `type` (`email`, `tel`, `url`, `number`) for built-in semantics and validation. Never block paste in password, one-time-code, or card fields — it breaks password managers and stops nobody.
+8. **Debounce input-driven work.** Search-as-you-type and network validation fire on a delay (250–400ms is the usual starting range; tune it to how fast the endpoint answers), not on every keystroke, and superseded requests are cancelled so a late response can't overwrite fresher results.
 
-**Audit checks:** validation firing only on submit, disabled submit without required-field markers, `maxLength` fields with no counter, known-user data left blank, password rules that appear only in the rejection error, input masks/regexes that reject valid-but-differently-formatted values.
+**Audit checks:** validation firing only on submit, disabled submit without required-field markers, `maxLength` fields with no counter, known-user data left blank, password rules that appear only in the rejection error, input masks/regexes that reject valid-but-differently-formatted values, missing or `off` `autocomplete` on identity/payment fields, text inputs where a specific `type` applies, paste handlers blocking input, search or validation hitting the network on every keystroke with no debounce or cancellation.
+
+For the accessibility half of a form review — labels rather than placeholders, `aria-invalid` / `aria-describedby` on errors, never signalling validity by color alone — see `accessibility.md`.

@@ -18,7 +18,7 @@ Building for a global audience means checking the pattern per device class and p
 Time to decide increases with the number and complexity of options (picking from 24 jam jars vs 6; a 250-item menu vs a 4-item one). Applications:
 
 - **One clear primary action per screen.** A search page with a single input beats a portal homepage where news cards, ads, and widgets all compete for attention — that's not richness, it's unnecessary competing choices.
-- **Forms over ~7 fields: split into steps.** A long "Create Account" card listing every field at once becomes "1/3 Basic Info" with two fields, a progress bar, and a Next button. Multi-page conversion gains on long forms are large (the cited research: 300%+).
+- **Forms over ~7 fields: split into steps.** A long "Create Account" card listing every field at once becomes "1/3 Basic Info" with two fields, a progress bar, and a Next button. The field count is a rule of thumb, not a threshold — what matters is whether one screen asks for more than a person wants to face at once. Conversion gains from splitting long forms are reported as large, but the figures come from vendor case studies rather than controlled research; use the pattern, don't quote the numbers.
 - **Navigation: few top-level categories + filters at the results level.** Replace a 15-link vertical menu of every subcategory with ~4 category cards, then filter chips ("Dresses", "Tops", "Jeans") on the listing page.
 - **It's not about limiting capability — it's keeping visible options manageable.** A streaming service holds thousands of titles but shows a few curated rows, and most of what people watch comes from recommendations, not search.
 

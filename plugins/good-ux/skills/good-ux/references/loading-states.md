@@ -17,6 +17,8 @@ Optimistic UI requires a client-side rollback path and a failure notification; d
 
 ## Duration thresholds
 
+These are perception defaults, not hard limits — the ~1s and ~10s endpoints come from long-standing research on attention, the steps between them are rules of thumb. Treat a 1.1-second spinner as fine and a 30-second one as a finding; tune to the product if you have real data.
+
 | Expected wait | Show | Why |
 |---|---|---|
 | < 1 second | Nothing — just show the result | One second isn't enough to play a full animation loop; a flashing spinner registers as "something weird happened" and makes the app feel *slower*. |
@@ -34,7 +36,7 @@ People polarize on skeletons, and the dislike has a mechanism: skeletons tend to
 - **Animate them.** Static grey boxes don't produce the perceived-speed benefit.
 - **Shimmer wave, not pulsing fade** — sweeping **left to right**, slow and steady, not fast. That specific combination is what tests as faster; other variants test as the *slowest* option.
 - **A skeleton is a promise of layout.** If the real content renders in a different arrangement than the boxes showed, everything jumps — a broken promise that actively annoys users. Match the skeleton's dimensions and alignment to the incoming components.
-- **Skeletons suit waits under ~3 seconds** — they convey zero information about duration. On longer loads, switch to an explicit indicator with text ("Just a moment…"). Caveat: detecting a slow load and swapping indicators is genuinely fiddly to build, which is why most apps don't — but leaving users staring at a skeleton for 10+ seconds is the failure mode that made people hate them.
+- **Skeletons suit waits under ~3 seconds** (a default, not a measured cliff) — they convey zero information about duration. On longer loads, switch to an explicit indicator with text ("Just a moment…"). Caveat: detecting a slow load and swapping indicators is genuinely fiddly to build, which is why most apps don't — but leaving users staring at a skeleton for 10+ seconds is the failure mode that made people hate them.
 
 ## Progress bars — honesty mechanics
 

@@ -1,6 +1,6 @@
 ---
 name: good-ux
-description: Audit and improve frontend UX against a curated rule set — loading states (skeleton vs spinner vs progress bar vs optimistic UI, with timing thresholds), error message content and placement (toast vs modal vs inline), form behavior, empty states, success feedback, graceful degradation, familiarity and complexity laws (Jakob, Hick, progressive disclosure, Tesler), and dark-pattern detection. Three modes — scan (whole-repo audit), diff (current changes only), guide (applied while writing new UI). Use whenever the user asks to audit, review, polish, or improve the UX or UI of frontend code, mentions loading/error/empty/success states, spinners, skeletons, toasts, forms, or wants an AI-generated frontend checked for UX quality. Also consult proactively whenever building or modifying frontend components that fetch data, submit forms, render lists, or run async actions — even if the user never says "UX", because AI-generated frontends typically ship only the happy path.
+description: Audit and fix frontend UX defects — missing loading/error/empty/success states, error placement, form behavior, graceful degradation, accessibility, destructive-action guards, and dark patterns. Use when asked to audit, review, or improve the UX, UI, or accessibility of frontend code, and when writing or reworking UI components that fetch, submit, list, or delete data. Not for backend work, styling-only tweaks, or general design discussion.
 ---
 
 # good-ux
@@ -13,28 +13,50 @@ Frontend UX auditor and build-time guide. AI generation tools design the happy p
 |---|---|---|
 | **Scan** | `scan` (optionally a path) | Whole repo / given directory |
 | **Diff** | `diff` (default) | Uncommitted changes or current branch vs default branch |
-| **Guide** | automatic — no command | The UI code being written right now |
+| **Guide** | automatic — no command | The UI component being written right now |
 
-All three modes apply the **full rule set** (loading, errors, forms, empty states, success states, degradation, familiarity/complexity laws, dark patterns).
-
-**Fix policy:** Scan and Diff produce a numbered findings report first and apply nothing. Wait for the user to approve specific findings ("fix 1, 3, 5" or "fix all"), then apply only those. With `--fix`, apply all auto-fixable findings immediately without the approval gate. Two categories are **never auto-fixed**, `--fix` included — they are reported as flags for a human decision:
+**Fix policy** (Scan and Diff): produce a numbered findings report first and apply nothing. Wait for the user to approve specific findings ("fix 1, 3, 5" or "fix all"), then apply only those. With `--fix`, apply all auto-fixable findings immediately without the approval gate. Two categories are **never auto-fixed**, `--fix` included — they are reported as flags for a human decision:
 - Dark-pattern findings (product decisions, not lint fixes)
 - Rules marked `suggest-only` in references (aesthetic or ethics-adjacent claims)
 
+## Guide mode — build-time checklist
+
+Guide mode is deliberately cheap: **do not read the reference files here.** They exist for audits; pulling them into a build session spends context on rules you already have below. The checklist is sufficient for writing new UI — read a reference only if the user asks why a rule exists or pushes back on one.
+
+When writing or reworking a component that fetches, submits, lists, or deletes:
+
+- **Four states before done:** loading, success, error, empty. Missing states are the default failure of generated UI.
+- **Loading indicator by situation:** skeleton for a page/large section, determinate progress bar when duration is measurable, inline spinner for a button or small component, optimistic update for instant low-stakes actions. Show nothing under 1s; past 10s use a progress bar or step indicator, never a looped spinner.
+- **Errors:** say what happened, why, and what to do next. Never render raw backend errors. Never let an action fail silently. Place inline next to the source; modal only for hard blockers (and always with an action button); toast only for transient, non-critical status.
+- **Success:** anything transactional gets an explicit confirmation state, and the submit path is guarded against double-clicks.
+- **Empty:** say why it's empty and give the next action; zero search results offer a correction, not a dead end.
+- **Degradation:** each section owns its fetch, loading, and error state — no full-page loader gating a multi-fetch page, no one failure blanking the rest.
+- **Forms:** validate on blur, mark required fields, live counters on limited fields, prefill known values, live password checklist, accept any sane format, and set `autocomplete` plus the right input `type`.
+- **Destructive actions:** prefer undo over confirmation; irreversible actions name the object and consequence; high-blast-radius ones need type-to-confirm. Never autofocus or default-style the destructive button.
+- **Accessibility:** native interactive elements, visible focus, focus trapped in modals and restored on close, `aria-live` for async messages, real labels (not placeholders), sufficient contrast, and animation behind `prefers-reduced-motion`.
+- **Familiarity:** conventional placement for conventional controls, one primary action per screen, split forms over ~7 fields into steps.
+- **Never emit a dark pattern** — no buried cancel, rigged button hierarchy, or shaming decline copy.
+
+Mention which rules shaped the component; there is no report in this mode.
+
 ## Procedure (Scan and Diff)
 
-1. **Inventory the UI surfaces** in scope. Search for these, using the project's actual stack (fetch/axios/react-query/SWR/RTK Query, form libs, router):
+1. **Inventory the UI surfaces** in scope, using the project's actual stack (fetch/axios/react-query/SWR/RTK Query, form libs, router):
    - Async data fetches (queries, loaders, `useEffect` fetches)
    - Mutations and submits (POST/PUT/DELETE actions, form handlers)
    - Forms and inputs
    - Lists / collections / search results (anything that can be empty)
    - Long-running operations (uploads, exports, generation jobs)
    - Multi-source pages (dashboards, feeds — several independent fetches on one screen)
+   - Destructive actions (delete, remove, revoke, reset, bulk operations)
    - Account and subscription flows (signup, cancel, delete account, unsubscribe, opt-outs)
    - Navigation and layout shells (headers, carts, menus, tab bars)
-2. **Check each surface** against the matching reference file (map below). Read only the reference files whose surfaces actually appear in scope.
+   - Overlays and focus-moving UI (modals, drawers, popovers, client-side route changes)
+2. **Read only the references whose surfaces actually appear** (map below). On a narrow diff that is usually one or two files; reading all of them is wasted context.
 3. **Report** using the format below. Every finding names the rule it violates.
 4. **Apply** approved findings only. When fixing, reuse the repo's existing UI primitives (its own Skeleton/Spinner/Toast/Modal components and design tokens). Never introduce a parallel component or new design system; if no primitive exists, say so in the finding and propose the smallest new component consistent with existing styling.
+
+**Prefer the project's own values over the numbers in these references.** If the repo defines design tokens, a type/spacing scale, an accessibility lint config (`eslint-plugin-jsx-a11y`, axe), or i18n locale config, audit against those — the figures in the references are defaults for projects that have none. One exception: the accessibility minimums (contrast ratios, flash rate) are floors rather than defaults. A project may set a stricter bar; a project setting a looser one is itself the finding.
 
 ## Surface → reference map
 
@@ -46,8 +68,12 @@ All three modes apply the **full rule set** (loading, errors, forms, empty state
 | List, collection, search results | `references/empty-states.md` |
 | Long operation (upload, export, job) | `references/loading-states.md` (timing thresholds, progress-bar mechanics) |
 | Multi-fetch page (dashboard, feed) | `references/degradation.md` |
+| Delete, remove, revoke, reset, bulk action | `references/destructive-actions.md` |
 | Signup/cancel/delete/unsubscribe flow, opt-out microcopy | `references/dark-patterns.md` |
 | Navigation, layout, menus, long forms, cart, RTL/i18n | `references/familiarity.md` |
+| Interactive markup, modals, focus, contrast, animation | `references/accessibility.md` |
+
+`accessibility.md` is cross-cutting rather than surface-specific — it is the announced-and-focusable half of the state rules above. Read it on any scan, and on a diff whenever the change touches interactive markup, styling, or form fields.
 
 ## Report format
 
@@ -67,8 +93,4 @@ All three modes apply the **full rule set** (loading, errors, forms, empty state
 N findings: X auto-fixable, Y flag-only. Reply with the numbers to fix, "fix all", or rerun with --fix.
 ```
 
-Severity is implied by ordering: broken feedback loops (silent failures, missing error/success states) first, then missing states, then polish. In Guide mode there is no report — apply the rules directly while writing the component and mention which rules shaped it.
-
-## Guide mode contract
-
-When writing any new screen or component that fetches, submits, or lists data: design all four core states — loading, success, error, empty — before considering it done. Pick the loading indicator from the decision tree in `references/loading-states.md`, place errors per `references/error-messages.md`, give transactional actions explicit success feedback per `references/success-states.md`, and never emit an opt-out or cancellation flow with dark-pattern traits.
+Severity is implied by ordering: broken feedback loops (silent failures, missing error/success states) first, then missing states, then polish.
