@@ -1,6 +1,6 @@
 {
   "name": "me",
-  "version": "0.4.1",
+  "version": "0.4.6",
   "description": "Personal Claude Code skills + slash commands. Skills auto-trigger on natural language; commands surface in /-autocomplete as /me:check-consistency, /me:rubber-duck, /me:standup, /me:bank-jargon, /me:safe-commit, /me:ship-ready, /me:good-ux.",
   "author": {
     "name": "pprotops"

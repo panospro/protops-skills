@@ -71,38 +71,74 @@ There is no report in this mode. Apply the rules as you write, and say which one
 
 ## Report format
 
-Findings are numbered in one continuous sequence across all groups, so "fix 3, 7" is unambiguous. Two lines each: what is wrong, then the fix after an arrow. Do not add a "Rule:" line — the tag already names the category, and the reasoning is available on request.
+Open with a short read of the component as a whole, then three lines per finding. The line breaks are mandatory — a finding whose fix trails after an arrow inside the same wrapping paragraph is unreadable no matter how few words it uses.
 
 ```
-# UX audit — src/components/FeedbackWidget.jsx
-16 findings · 14 fixable · 2 need a design call
+# UX audit — src/features/signup/SignupForm.tsx
+12 findings · 10 fixable · 2 need a design call
 
-## Breaks the interaction loop
-1. [a11y] :334 Stars are `<div onClick>` — no keyboard access, and submit is gated on rating, so the feature is mouse-only.
-   → radiogroup of native `<button>`s in a fieldset (pattern: InlineFeedback.jsx:161)
-2. [error] :254 Download button always enabled but returns silently when there is nothing to write.
-   → disable when count is 0, try/catch the blob write, surface failure in the existing error region
+The happy path is solid: the submit is guarded against double-clicks, the in-flight label
+is the right weight, and validation errors sit next to the fields they belong to. Two
+themes account for most of what follows. First, none of this form works without a mouse —
+the custom select, the failure message, and the confirmation are all invisible to keyboard
+and screen-reader users, so signup effectively does not exist for them. Second, the
+disabled and secondary styles were never checked against a background, leaving several
+labels below the readable minimum.
 
-## Contrast floors
-7. [a11y] :425 Disabled submit — #FFF on #E0E6E1 = 1.27:1 against a 4.5:1 floor.
-   → needs a token pair chosen  [design call]
+## 🔴 Breaks the interaction loop
 
-## Polish
-14. [familiarity] :433 `title="Submit feedback"` hardcoded English in a Greek-default widget.
-   → translate or drop
+**1. [line 118](src/features/signup/SignupForm.tsx#L118) — The country picker is a div; keyboard users cannot choose one**
+Fix → native select, or a listbox with arrow-key handling *(pattern: [Dropdown.tsx:44](src/components/Dropdown.tsx#L44))*
+Why → submit is blocked until a country is set, so this one gap makes the whole form unusable without a mouse
 
-Holding up: double-submit guard, in-flight label swap, inline error placement.
+**2. [line 203](src/features/signup/SignupForm.tsx#L203) — Submit failure is silent for screen readers**
+Fix → role="alert" on the error container *(pattern: [Alert.tsx:22](src/components/Alert.tsx#L22))*
+Why → the button just re-enables, so a non-sighted user cannot tell whether the account was created or the request failed
 
-Reply with numbers to fix · "all" · "why 3" for the reasoning · or rerun with --fix
+## 🟠 Missing states
+
+**5. [line 96](src/features/signup/SignupForm.tsx#L96) — The email field has no label, only a placeholder**
+Fix → visible label above the field, keep the placeholder as an example
+Why → the placeholder is the only thing naming the field, and it disappears on the first keystroke
+
+## 🟡 Contrast floors
+
+**8. [line 241](src/features/signup/SignupForm.tsx#L241) — Disabled submit is 1.3:1, needs 4.5:1** ⚠️ design call
+Fix → pick a token pair for the disabled state
+Why → the label is illegible in exactly the state where the user is trying to work out why they cannot submit
+
+## 🔵 Polish
+
+**11. [line 250](src/features/signup/SignupForm.tsx#L250) — Tooltip text is hardcoded English in a localized app**
+Fix → move it into the translation files, or drop the tooltip
+Why → it is the only untranslated string on the screen, so it reads as a bug rather than a default
+
+✅ Holding up: double-submit guard, in-flight label swap, inline error placement
+
+Reply: numbers to fix · all · why 3 · --fix
 ```
 
-Rules for keeping it readable:
-- **One line for the problem, one for the fix.** Push the justification out of the report; offer `why N` instead.
-- **Path once in the header** when the scope is a single file, then bare `:line` per finding. Multi-file scans keep the path per finding.
-- **Counts at the top**, not the bottom — the reader sees the scale before deciding to read on.
-- **Mark, don't explain, the special cases**: `[design call]` when a token or product choice is needed first, `[FLAG ONLY]` for dark patterns and `suggest-only` rules that are never auto-fixed.
-- **Group by severity** with the groups in this order: breaks the interaction loop, missing states, contrast floors, polish. Omit any group that is empty.
-- **Close with one "Holding up" line** naming what is already correct — a short list, not a paragraph.
+The opening read, in three or four sentences: name what already works, then the one or two themes that explain most of the findings. Themes are patterns ("nothing works without a mouse", "the dark theme is half-wired"), not a summary of the list that follows. This is what tells the reader whether they are looking at a component that needs polish or one that needs rework.
+
+Hard constraints on each finding:
+
+- **Line 1 is a headline: a clickable location, then one clause under about 12 words.** Link a single-file scan as `[line 334](path/to/File.jsx#L334)`; a multi-file scan as `[File.jsx:334](path/to/File.jsx#L334)` so the file is visible without scrolling up. A bare `:334` is not acceptable — it is neither clickable nor self-explanatory.
+- **State the user-visible consequence, not the mechanism.** "Stars are divs; keyboard users cannot rate at all" beats "no tabIndex, no role, no key handler".
+- **Line 2 starts with `Fix →` on its own line.** Never continue the sentence from line 1, and never put the fix behind an arrow mid-paragraph.
+- **Line 3 starts with `Why →` and argues for this change in this code.** What breaks for a real user if it stays, or what the fix buys beyond compliance. Never restate the generic rule — "errors should be announced" is worthless; "the button just re-enables, so the user cannot tell whether it sent" is the point. If the honest why is only "the rule says so", the finding is probably not worth reporting.
+- **Write it in plain language.** Spell out anything a competent developer who does not follow accessibility or UX discourse would have to look up: write accessibility, not a11y; screen reader, not AT; say "the four states a screen needs — loading, success, error, empty" rather than "the feedback states". Real package and attribute names (eslint-plugin-jsx-a11y, aria-live) stay as they are, since those are things you type.
+- **No backticks except real identifiers** you would type into a search box. Prose mentions of attributes (tabIndex, role, aria-label) stay plain — a line speckled with code spans has no shape to scan.
+- **One reference to an existing repo pattern**, linked the same way, when one exists. Not two, not a list.
+- **Markers at the end of line 1**: `⚠️ design call` when a token or product decision comes first, `🚩 flag only` for dark patterns and `suggest-only` rules that are never auto-fixed.
+- **No category tag.** The group heading already says what kind of problem this is.
+
+Structure around the findings:
+
+- Counts on line 2, then the opening read, then the groups in this order, each with its emoji so severity is visible at a glance: `🔴 Breaks the interaction loop`, `🟠 Missing states`, `🟡 Contrast floors`, `🔵 Polish`. Omit empty groups.
+- Numbering runs continuously across groups so "fix 3, 7" is unambiguous.
+- Close with one `✅ Holding up:` line naming what is already correct.
+- Emoji appear only on group headings, the two markers, and that closing line. Never inside a finding's text.
+- `why N` on request goes deeper than line 3 — the mechanism, the rule behind it, and what a correct implementation looks like.
 
 ## Adding rules
 
