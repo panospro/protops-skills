@@ -1,11 +1,13 @@
 ---
 name: good-ux
-description: Audit and fix frontend UX defects — missing loading/error/empty/success states, error placement, form behavior, graceful degradation, accessibility, destructive-action guards, and dark patterns. Use when asked to audit, review, or improve the UX, UI, or accessibility of frontend code, and when writing or reworking UI components that fetch, submit, list, or delete data. Not for backend work, styling-only tweaks, or general design discussion.
+description: Frontend UX auditor and build-time guide, covering the states AI-generated UI usually skips — loading (skeleton vs spinner vs progress bar, with timing thresholds), error content and placement (toast vs modal vs inline), success confirmation, empty states, form behavior, graceful degradation when one section fails, accessibility (keyboard, focus, live regions, contrast, alt text, reduced motion), destructive-action guards and undo, familiarity and complexity laws, and dark-pattern detection. LOAD IMMEDIATELY when the user asks to audit, review, check, polish, or improve the UX, UI, or accessibility of frontend code, when they mention missing loading/error/empty/success states, or when they invoke the good-ux command. OFFER FIRST, DO NOT LOAD, when the user is building or reworking UI that fetches, submits, lists, or deletes data without mentioning UX — complete what they actually asked for, then ask in one line whether to apply good-ux to it, and load only if they accept. Offer at most once per session, and never offer again after a decline. Do not trigger at all for backend work, styling-only tweaks, debugging existing UI behavior, or general design discussion.
 ---
 
 # good-ux
 
 Frontend UX auditor and build-time guide. AI generation tools design the happy path and forget the loading, empty, error, and success states real users hit constantly. This skill closes that gap.
+
+The rules live in `references/`. This file holds the workflow only — it deliberately does not restate rules, so there is never a second copy to drift out of date. Whatever the mode, the rules come from the reference files.
 
 ## Modes
 
@@ -13,33 +15,36 @@ Frontend UX auditor and build-time guide. AI generation tools design the happy p
 |---|---|---|
 | **Scan** | `scan` (optionally a path) | Whole repo / given directory |
 | **Diff** | `diff` (default) | Uncommitted changes or current branch vs default branch |
-| **Guide** | automatic — no command | The UI component being written right now |
+| **Guide** | the user accepted an offer to apply it while building | The UI component being written right now |
 
-**Fix policy** (Scan and Diff): produce a numbered findings report first and apply nothing. Wait for the user to approve specific findings ("fix 1, 3, 5" or "fix all"), then apply only those. With `--fix`, apply all auto-fixable findings immediately without the approval gate. Two categories are **never auto-fixed**, `--fix` included — they are reported as flags for a human decision:
-- Dark-pattern findings (product decisions, not lint fixes)
-- Rules marked `suggest-only` in references (aesthetic or ethics-adjacent claims)
+Guide is never entered unprompted: when UI work appears and the user has not asked for a UX pass, finish their request first, offer in one line, and enter Guide only on acceptance. One offer per session; a decline ends offering for that session.
 
-## Guide mode — build-time checklist
+## Routing — which references to read
 
-Guide mode is deliberately cheap: **do not read the reference files here.** They exist for audits; pulling them into a build session spends context on rules you already have below. The checklist is sufficient for writing new UI — read a reference only if the user asks why a rule exists or pushes back on one.
+Identify the UI surfaces in scope, then read **every** reference file those surfaces map to. This is a lookup, not a judgment call: if the surface is present, read the file. Do not skip a file to save context, and do not audit a surface from memory.
 
-When writing or reworking a component that fetches, submits, lists, or deletes:
+| Surface in code | Read |
+|---|---|
+| Async fetch, page/section load | `references/loading-states.md`, `references/degradation.md` |
+| Mutation, submit, button action | `references/loading-states.md`, `references/error-messages.md`, `references/success-states.md` |
+| Form or input | `references/forms.md`, `references/error-messages.md` |
+| List, collection, search results | `references/empty-states.md` |
+| Long operation (upload, export, job) | `references/loading-states.md` |
+| Multi-fetch page (dashboard, feed) | `references/degradation.md` |
+| Delete, remove, revoke, reset, bulk action | `references/destructive-actions.md` |
+| Signup/cancel/delete/unsubscribe flow, opt-out microcopy | `references/dark-patterns.md` |
+| Navigation, layout, menus, long forms, cart, RTL/i18n | `references/familiarity.md` |
+| Any interactive markup, modal, focus change, form field, image, or animation | `references/accessibility.md` |
 
-- **Four states before done:** loading, success, error, empty. Missing states are the default failure of generated UI.
-- **Loading indicator by situation:** skeleton for a page/large section, determinate progress bar when duration is measurable, inline spinner for a button or small component, optimistic update for instant low-stakes actions. Show nothing under 1s; past 10s use a progress bar or step indicator, never a looped spinner.
-- **Errors:** say what happened, why, and what to do next. Never render raw backend errors. Never let an action fail silently. Place inline next to the source; modal only for hard blockers (and always with an action button); toast only for transient, non-critical status.
-- **Success:** anything transactional gets an explicit confirmation state, and the submit path is guarded against double-clicks.
-- **Empty:** say why it's empty and give the next action; zero search results offer a correction, not a dead end.
-- **Degradation:** each section owns its fetch, loading, and error state — no full-page loader gating a multi-fetch page, no one failure blanking the rest.
-- **Forms:** validate on blur, mark required fields, live counters on limited fields, prefill known values, live password checklist, accept any sane format, and set `autocomplete` plus the right input `type`.
-- **Destructive actions:** prefer undo over confirmation; irreversible actions name the object and consequence; high-blast-radius ones need type-to-confirm. Never autofocus or default-style the destructive button.
-- **Accessibility:** native interactive elements, visible focus, focus trapped in modals and restored on close, `aria-live` for async messages, real labels (not placeholders), sufficient contrast, and animation behind `prefers-reduced-motion`.
-- **Familiarity:** conventional placement for conventional controls, one primary action per screen, split forms over ~7 fields into steps.
-- **Never emit a dark pattern** — no buried cancel, rigged button hierarchy, or shaming decline copy.
+The accessibility file is cross-cutting rather than surface-specific — it is the announced-and-focusable half of the state rules above. In practice any UI change in scope means reading it.
 
-Mention which rules shaped the component; there is no report in this mode.
+## Guide mode
 
-## Procedure (Scan and Diff)
+Entered only after the user accepts an offer. Read the reference files for the surfaces being built — usually one or two, plus `accessibility.md` — and write or rework the component to satisfy them. Cost stays bounded because you are building one thing, not auditing a repo.
+
+There is no report in this mode. Apply the rules as you write, and say which ones shaped the component.
+
+## Scan and Diff
 
 1. **Inventory the UI surfaces** in scope, using the project's actual stack (fetch/axios/react-query/SWR/RTK Query, form libs, router):
    - Async data fetches (queries, loaders, `useEffect` fetches)
@@ -52,28 +57,17 @@ Mention which rules shaped the component; there is no report in this mode.
    - Account and subscription flows (signup, cancel, delete account, unsubscribe, opt-outs)
    - Navigation and layout shells (headers, carts, menus, tab bars)
    - Overlays and focus-moving UI (modals, drawers, popovers, client-side route changes)
-2. **Read only the references whose surfaces actually appear** (map below). On a narrow diff that is usually one or two files; reading all of them is wasted context.
-3. **Report** using the format below. Every finding names the rule it violates.
-4. **Apply** approved findings only. When fixing, reuse the repo's existing UI primitives (its own Skeleton/Spinner/Toast/Modal components and design tokens). Never introduce a parallel component or new design system; if no primitive exists, say so in the finding and propose the smallest new component consistent with existing styling.
+2. **Read every reference** the routing table maps those surfaces to.
+3. **Check each surface against every rule** in the files you read, and **report** in the format below. Every finding names the rule it violates.
+4. **Apply** approved findings only.
 
-**Prefer the project's own values over the numbers in these references.** If the repo defines design tokens, a type/spacing scale, an accessibility lint config (`eslint-plugin-jsx-a11y`, axe), or i18n locale config, audit against those — the figures in the references are defaults for projects that have none. One exception: the accessibility minimums (contrast ratios, flash rate) are floors rather than defaults. A project may set a stricter bar; a project setting a looser one is itself the finding.
+**Fix policy:** report first and apply nothing until the user approves specific findings ("fix 1, 3, 5" or "fix all"). With `--fix`, apply all auto-fixable findings immediately without the approval gate. Two categories are **never auto-fixed**, `--fix` included — they are reported as flags for a human decision:
+- Dark-pattern findings (product decisions, not lint fixes)
+- Rules marked `suggest-only` in the references (aesthetic or ethics-adjacent claims)
 
-## Surface → reference map
+**When fixing,** reuse the repo's existing UI primitives (its own Skeleton/Spinner/Toast/Modal components and design tokens). Never introduce a parallel component or new design system; if no primitive exists, say so in the finding and propose the smallest new component consistent with existing styling.
 
-| Surface found in code | Read |
-|---|---|
-| Async fetch, page/section load | `references/loading-states.md`, `references/degradation.md` |
-| Mutation, submit, button action | `references/loading-states.md`, `references/error-messages.md`, `references/success-states.md` |
-| Form or input | `references/forms.md`, `references/error-messages.md` |
-| List, collection, search results | `references/empty-states.md` |
-| Long operation (upload, export, job) | `references/loading-states.md` (timing thresholds, progress-bar mechanics) |
-| Multi-fetch page (dashboard, feed) | `references/degradation.md` |
-| Delete, remove, revoke, reset, bulk action | `references/destructive-actions.md` |
-| Signup/cancel/delete/unsubscribe flow, opt-out microcopy | `references/dark-patterns.md` |
-| Navigation, layout, menus, long forms, cart, RTL/i18n | `references/familiarity.md` |
-| Interactive markup, modals, focus, contrast, animation | `references/accessibility.md` |
-
-`accessibility.md` is cross-cutting rather than surface-specific — it is the announced-and-focusable half of the state rules above. Read it on any scan, and on a diff whenever the change touches interactive markup, styling, or form fields.
+**Prefer the project's own values over the numbers in the references.** If the repo defines design tokens, a type/spacing scale, an accessibility lint config (`eslint-plugin-jsx-a11y`, axe), or i18n locale config, audit against those — the figures in the references are defaults for projects that have none. One exception: the accessibility minimums (contrast ratios, flash rate) are floors rather than defaults. A project may set a stricter bar; a project setting a looser one is itself the finding.
 
 ## Report format
 
@@ -93,4 +87,8 @@ Mention which rules shaped the component; there is no report in this mode.
 N findings: X auto-fixable, Y flag-only. Reply with the numbers to fix, "fix all", or rerun with --fix.
 ```
 
-Severity is implied by ordering: broken feedback loops (silent failures, missing error/success states) first, then missing states, then polish.
+Order findings by severity: broken feedback loops (silent failures, missing error/success states) first, then missing states, then polish.
+
+## Adding rules
+
+Add them to the reference file for their topic, in that file's existing style (rule, why it matters, what it looks like in code). If a rule introduces a genuinely new surface, add a row to the routing table above. Never restate a rule in this file.

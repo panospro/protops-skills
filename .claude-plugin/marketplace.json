@@ -59,7 +59,7 @@
     {
       "name": "good-ux",
       "source": "./plugins/good-ux",
-      "description": "Frontend UX auditor and build-time guide. Three modes — scan (whole-repo audit), diff (current changes), guide (a self-contained checklist applied while writing UI) — covering loading/error/empty/success states, forms, graceful degradation, familiarity and complexity laws, accessibility, destructive-action guards, and dark-pattern detection. Reports findings first; applies fixes only on approval (--fix skips the gate; dark patterns are never auto-fixed).",
+      "description": "Frontend UX auditor and build-time guide. Three modes — scan (whole-repo audit), diff (current changes), and guide (applied while writing UI, offered when relevant work appears and entered only on acceptance) — covering loading/error/empty/success states, forms, graceful degradation, familiarity and complexity laws, accessibility, destructive-action guards, and dark-pattern detection. Reports findings first; applies fixes only on approval (--fix skips the gate; dark patterns are never auto-fixed).",
       "version": "0.1.0"
     },
     {
