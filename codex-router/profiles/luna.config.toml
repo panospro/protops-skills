@@ -1,0 +1,3 @@
+# codex -p luna — short sessions and trivial, bounded tasks only. Weak long-context recall.
+model = "gpt-5.6-luna"
+model_reasoning_effort = "medium"
