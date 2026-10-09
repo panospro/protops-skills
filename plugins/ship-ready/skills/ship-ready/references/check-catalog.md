@@ -1,6 +1,8 @@
 # ship-ready — check catalog
 
-Per-module detectors. Cheap deterministic ones are regex over the **target set** (run via `scripts/scan-target.sh <mode>` or `grep`); semantic ones require reading the candidate files. The target is **all uncommitted changes by default** (staged ∪ unstaged ∪ untracked), or the whole publish set with `--full` (see `scan-target.sh`). Exclude lockfiles from content scans. All detection is **folder-agnostic** — by content / markers / heuristics, never by assuming `seeds/` or `docs/`.
+Per-module detectors. Cheap deterministic ones are regex over the **target set** (run via `scripts/scan-target.sh <mode>` or `grep`); semantic ones require reading the candidate files. The target is **the added lines of all uncommitted changes by default** (staged ∪ unstaged ∪ untracked), every line of the changed files with `--whole-files`, or every line of the whole publish set with `--full` (see `scan-target.sh`). Exclude lockfiles from content scans. All detection is **folder-agnostic** — by content / markers / heuristics, never by assuming `seeds/` or `docs/`.
+
+Path sets used by the scan: **docs** = `.md/.mdx/.txt/.rst` anywhere; **test** = a non-doc file under `tests/`, `__tests__/`, `spec/`, `fixtures/`, `mocks/`, `sandbox/`, `e2e/`, `examples/`, or named `*.test.*` / `*.spec.*`; **src** = code that is neither.
 
 Severity is contextual: a hit in a core/source path is higher than the same hit in `examples/`, `scripts/`, `sandbox/`, `fixtures/`. PII severity is set by the **audience** gate (internal → Info; public → Blocker).
 
@@ -14,11 +16,13 @@ Reuse the `me:safe-commit` catalog. High-confidence patterns: AWS `AKIA[0-9A-Z]{
 
 **Limitation:** bare UUIDs/high-entropy strings in prose (e.g. an API key written as `value `\``ccc4…`\``) won't match a key=value regex — scan documentation/markdown for known-credential shapes too, and read any file that *describes* auth.
 
+**Masking:** the scan prints secret hits with each value cut to its first 4 characters and its length (`sk_l…(32)`). Keep that form in the report and the fix-plan; the full value is read from the file only when the fix needs it, and is never copied anywhere.
+
 ### 1b. Hardcoded home/user paths (Blocker)
 `/(home|Users)/[a-zA-Z][a-zA-Z0-9._-]+/`, `/mnt/c/Users/[^/]+`, `[A-Za-z]:[\\/]{1,2}Users[\\/]{1,2}[a-zA-Z]`, and any `/tmp/.../<encoded-project-path>` agent-transcript path. Includes paths inside comments (e.g. `// Source: /home/me/...`).
 
 ### 1c. Personal identifiers (Blocker→public / Warning→internal)
-- OS username: detect the repo owner's username (`git config user.name`/`user.email` local part, and the literal home-dir segment) and grep for it across the set.
+- OS username: detect the repo owner's username (`git config user.name`/`user.email` local part, and the literal home-dir segment) and grep for it across the set. The scan labels these checks by their source (`owner name (git user.name)`) and never prints the values; the report does the same.
   - **Published-identity exemption:** if the owner handle appears **only** in plugin-manifest attribution fields (`author.name`, `repository`/`homepage` in `.claude-plugin/*.json` or a plugin's `plugin.json`), it's the intended publish identity → `keep`, not a judgment call. Still flag it in source / comments / data; always flag the *private* git work identity (real name, work email).
 - Real names: grep for the `git config user.name` tokens; also workspace/team names (`<Name>'s Workspace`).
 - Emails: `[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.(gr|com|net|org)` (filter `example.com`, `@types/`, schema URLs).
@@ -38,6 +42,26 @@ Reuse the `me:safe-commit` catalog. High-confidence patterns: AWS `AKIA[0-9A-Z]{
 
 ### 1f. Hardcoded domain literal in logic (Warning)
 A specific business/domain identifier or magic value embedded in **live logic** — most often a long numeric id in a comparison or switch (`=== '9000000428'`, `== "123456"`, `case '900…':`) — that special-cases one record/tenant/env instead of being driven by config, state, or a named constant. Cheap grep: a quoted ≥6-digit literal on the right of `==`/`===`/`!=`/`!==`, or after `case`. **Semantic confirm by reading**: is it a real domain value (customer/account/tenant code, magic threshold) hard-branching behavior? Source/core paths are higher severity than tests/fixtures (a literal in a test body is *data*, not a smell — skip it). Gated fix (not a blind auto-fix): extract to a named constant, to config, or — for record-specific behavior — drive it from seed/state (a flag on the record) so no code branches on a literal id. Overlaps `me:check-consistency`; ship-ready flags it because shipping a one-off hardcoded id is a maintainability + leak risk.
+
+### 1g. Provenance / hearsay (Warning; docs: review)
+A comment, test title, assertion message or doc that says **where a fact came from** — who said it, when, in which run — instead of what the code does and why. Examples: `// The owner (2026-09-22): "we show the document…"`, `// confirmed with the owner on the call`, `test("found in the live run: …")`, `assert.ok(x, "seen on QA during the sweep")`, `(captured in QA)`.
+- Cheap grep (case-insensitive): owner + ruling/said/wants/asked/decided/words, owner within a few words of an ISO date, `(owner, …)`, `confirmed|agreed|checked with the owner|user|team|client`, `as discussed|agreed`, `per the chat|ticket|call|meeting|thread`, `the user told|asked|wants|said`, `live run`, `qa run`, `in this|the last session`, `seen|observed|captured … on|in QA|prod|staging|UAT|live`, `found in QA|the live …`, `the QA sweep`, `told me|us`.
+- Where: comment lines and test titles in src; every line of test files (assertion messages count); every line of docs.
+- **Work-note dates and tags** (Info): an ISO date, `F1 fix`, `Fix 3:` or `added in sprint 7` on a comment line or test title. The date often marks provenance the phrase list misses ("The owner's assumption under test (2026-10-07)").
+- **Semantic confirm:** describing the *system's* contract stays ("the upstream returns the row in QA's shape"); the *act of observing* goes ("saw it on QA"). In docs, a decision record may name the decider **by role** ("(owner, 2026-10-07)"); session narrative ("re-checked this session", "verbatim in the inbox") goes.
+- Fix: rewrite as an impersonal statement of the behaviour and its reason; the source belongs in the commit message or PR description.
+
+### 1h. Internal infrastructure + private denylist (Blocker / Warning)
+- **Private / raw IPs** (Blocker): `10.x`, `172.16–31.x`, `192.168.x`, and any IP literal in a URL (`http://203.0.113.7/…`). Loopback (`127.0.0.1`, `0.0.0.0`) is left to module 8.
+- **Cloud / internal hostnames** (Warning): `*.azurewebsites.net`, `*.vault.azure.net`, `*.azurecr.io`, `*.core.windows.net`, `*.amazonaws.com`, `*.run.app`, `*.svc.cluster.local`, and `//host.internal|intranet|corp|lan|local`. In an internal-audience repo, deployment config naming its own hosts is usually intended → Info; in a public one → Blocker.
+- **Private denylist** (Blocker): the terms only the user knows are sensitive — a confidential project's name or host, internal hostnames and IPs, login/employee codes, subscription and resource-group names. They live in **one file outside every repo**: `$SHIP_READY_DENYLIST`, default `~/.claude/ship-ready-denylist.txt`. Format, one entry per line:
+  ```
+  # comment
+  some-internal-host.example        fixed text, case-insensitive
+  re:\bE[0-9]{5}\b                  extended regex, case-insensitive
+  DEMO-USER- @src                   flagged only outside test/fixture/sandbox paths
+  ```
+  The scan warns (Blocker) when the denylist file itself sits inside the scanned repo unignored — committing it would publish every term. Report a hit as `denylist entry <n> at <file:line>`; never write the term into the report, the fix-plan, a commit message, or a code comment. Never add denylist terms to the skill or to any repo file.
 
 ---
 
@@ -119,3 +143,22 @@ Read `git status --porcelain` and give every changed/untracked path ONE verdict,
 - **delete** — approved slop / dead / superseded → `rm`.
 
 Mapping: staged file with no open finding → **commit**; a path with a deferred (unselected) finding → **hold**; untracked generated/secret/local artifact → **gitignore**; approved-for-deletion → **delete**. Emit the per-folder table; when the **commit** set is clean and non-empty, propose **3–5** compact commit-message candidates in `type: subject` form (conventional prefix, ≤~72-char subject, no body) derived from the diff — ~3 for a focused single-concern set, up to 5 only when it spans multiple concerns — for the user to pick. `.gitignore` additions are already applied in-file (P3), so they're staged, not commanded. THEN one consolidated command block (`git add` / `git restore --staged` / `git rm --cached` / `rm` / `git commit -m`) — nothing executed, the user runs it. Suggest `/me:safe-commit` as the final gate.
+
+---
+
+## Module 8 — debug leftovers
+
+Things that are fine on a laptop and wrong in production. Cheap grep, then read the hit: a CLI or script that prints on purpose keeps its `console.log`.
+
+| Check | Pattern | Where | Severity |
+|---|---|---|---|
+| Debug output / breakpoints | `console.(log\|debug\|trace\|dir\|table)(`, a `debugger` statement, `breakpoint()`, `pdb.set_trace(`, `import pdb`, `binding.pry`, `byebug`, `var_dump(` | src | Warning |
+| Focused tests | `it/test/describe/context/suite.only(`, `fit(`, `fdescribe(`, `only: true` — every other test in the suite stops running | code | Blocker |
+| Local / dev endpoints | `localhost:<port>`, `127.0.0.1:<port>`, `0.0.0.0:<port>` | src | Warning |
+| TLS verification off | `NODE_TLS_REJECT_UNAUTHORIZED=0`, `rejectUnauthorized: false`, `strictSSL=false`, `verify=False`, `InsecureSkipVerify: true`, `curl -k/--insecure`, `GIT_SSL_NO_VERIFY` | everything but tests | Blocker |
+| Dev switch defaulting on | an env-style name containing `SKIP_AUTH`, `DISABLE_AUTH`, `NO_AUTH`, `BYPASS_AUTH`, `INSECURE`, `ALLOW_ALL`, `DEV_MODE`, `DEBUG`, `SANDBOX`, `MOCK`, `FAKE` set or defaulted (`=`, `:`, `??`, `\|\|`) to `true/1/yes/on` | everything but tests | Warning |
+| Non-test code importing test code | `from` / `require(` / `import(` of a path through `tests/`, `__tests__/`, `__mocks__/`, `mocks/`, `fixtures/`, `sandbox/` | src | Warning |
+
+Project-specific sandbox markers (seeded ids such as `DEMO-USER-…`, a mock-only header) belong in the private denylist with the `@src` suffix (§1h), so they are flagged in production code and allowed in tests.
+
+Semantic confirm: a dev default is fine when production config always overrides it and the override is required at boot; it is a finding when an unset variable silently lands on the dev behaviour. Fix: remove the leftover, or move the default into dev-only config (`.env.example`, a dev script) and make production fail fast when the variable is missing.

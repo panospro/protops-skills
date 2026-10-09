@@ -1,26 +1,29 @@
 ---
 name: ship-ready
-description: Pre-commit / pre-distribution audit + guided cleanup. By default scans your UNCOMMITTED CHANGES (staged + unstaged + untracked) for sensitive data, personal identifiers, references to gitignored paths, workflow/AI-tool leakage, generated-file slop, dead code, and doc-slop; `--full` scans the whole repo for a pre-share sweep. Folder-agnostic — nothing assumes seeds/ or docs/. Stops at a fix-plan checklist you select from, then applies only the chosen fixes and hands over git/rm commands. Complements `me:check-consistency` (pattern/style drift) and `me:safe-commit` (secret gate). Use when the user types `/me:ship-ready`, or says "audit my changes before commit", "check this diff for sensitive data / leaks", "is this clean to push", "prep this repo to share/open-source", "de-slop", "what should I not commit". On-demand only — never auto-runs.
+description: Pre-commit / pre-distribution audit + guided cleanup. By default scans the ADDED LINES of your uncommitted changes (staged + unstaged + untracked) for sensitive data, personal identifiers, internal hosts and private-denylist terms, provenance/hearsay comments, debug leftovers, references to gitignored paths, workflow/AI-tool leakage, generated-file slop, dead code, and doc-slop; `--whole-files` reads every line of the changed files, `--full` scans the whole repo for a pre-share sweep. Folder-agnostic — nothing assumes seeds/ or docs/. Stops at a fix-plan checklist you select from, then applies only the chosen fixes and hands over git/rm commands. Complements `me:check-consistency` (pattern/style drift) and `me:safe-commit` (secret gate). Use when the user types `/me:ship-ready`, or says "audit my changes before commit", "check this diff for sensitive data / leaks", "is this clean to push", "prep this repo to share/open-source", "full scan", "de-slop", "what should I not commit". On-demand only — never auto-runs.
 ---
 
 # ship-ready
 
-Audits a **target set** for things that shouldn't be shared, shows a **fix-plan you choose from**, then applies only what you pick and hands you the git/rm commands. Default target is **all your uncommitted changes** (staged + unstaged + untracked) — the everyday case; `--full` widens to the whole repo for a pre-distribution sweep. Folder-agnostic: detection is by content/markers/heuristics, never by assuming `seeds/`, `docs/`, etc.
+Audits a **target set** for things that shouldn't be shared, shows a **fix-plan you choose from**, then applies only what you pick and hands you the git/rm commands. Default target is **the lines your uncommitted changes add** (staged + unstaged + untracked) — the everyday case; `--whole-files` reads every line of the changed files, `--full` widens to the whole repo for a pre-distribution sweep. Folder-agnostic: detection is by content/markers/heuristics, never by assuming `seeds/`, `docs/`, etc.
 
 ## Invocation
 
 ```
-/me:ship-ready                 # default: ALL uncommitted changes (staged + unstaged + untracked)
-/me:ship-ready staged          # only staged (git diff --cached)
-/me:ship-ready branch          # changed vs origin/main (or main)
-/me:ship-ready range A..B      # changed in a range
-/me:ship-ready --full          # whole repo — pre-distribution / first-share sweep
+/me:ship-ready                 # default: lines added by ALL uncommitted changes (staged + unstaged + untracked)
+/me:ship-ready staged          # lines added by the staged changes (git diff --cached)
+/me:ship-ready branch          # lines added vs origin/main (or main)
+/me:ship-ready range A..B      # lines added in a range
+/me:ship-ready staged --whole-files   # any diff mode, but every line of the changed files
+/me:ship-ready --full          # every line of the whole repo — pre-distribution / first-share sweep
 /me:ship-ready audit           # read-only: report + plan, no selection prompt
 /me:ship-ready --audience public   # preset PII gate (internal | public | unsure)
-/me:ship-ready pii gitignore   # run only named modules (subset of the 7)
+/me:ship-ready pii gitignore   # run only named modules (subset of the 8)
 ```
 
-Module names: `audit-core` (1, incl. sensitive-data), `dead-code` (2), `gitignore` (3), `pii` (4), `gen-hygiene` (5), `docs` (6), `triage` (7).
+Module names: `audit-core` (1, incl. sensitive-data, provenance, internal infrastructure), `dead-code` (2), `gitignore` (3), `pii` (4), `gen-hygiene` (5), `docs` (6), `triage` (7), `debug` (8).
+
+**Choosing the scope from what the user says.** No scope word → the diff mode they named (default `changes`), added lines only. Pick `--full` without asking when they say "full scan", "whole repo", "everything", "the entire codebase", "before sharing / publishing / open-sourcing / making it public", "first push", or "hand the repo over". Pick `--whole-files` when they say "whole files", "these files", or "including what was already there". When it is unclear whether they want the diff or the whole repo, run the diff and say in the verdict line that `--full` would sweep everything.
 
 ## Core principles
 
@@ -33,7 +36,7 @@ Module names: `audit-core` (1, incl. sensitive-data), `dead-code` (2), `gitignor
 ## Pipeline
 
 ```
-P0 SCOPE (pick target by mode) ─► P1 AUDIT (7 lenses, read-only) ─► P2 REPORT + FIX-PLAN ──■ STOP
+P0 SCOPE (pick target by mode) ─► P1 AUDIT (8 lenses, read-only) ─► P2 REPORT + FIX-PLAN ──■ STOP
                                                                                             │
                                                                        (your selection + gate answers)
                                                                                             ▼
@@ -42,31 +45,33 @@ P0 SCOPE (pick target by mode) ─► P1 AUDIT (7 lenses, read-only) ─► P2 R
 
 ### P0 — Scope & baseline
 1. Confirm it's a git repo; else stop.
-2. **Pick the target set by mode** (`scripts/scan-target.sh <mode>` prints it and runs the cheap checks):
+2. **Pick the target set by mode** (`scripts/scan-target.sh <mode> [--whole-files]` prints it and runs the cheap checks):
    - `changes` (default): staged ∪ unstaged ∪ untracked — everything uncommitted right now.
-   - `staged`: only `git diff --cached`.
-   - `branch` / `range A..B`: files changed vs a base.
+   - `staged`: only `git diff --cached` (read from the index, not the working tree).
+   - `branch` / `range A..B`: files changed vs a base (read from git).
    - `full`: `git ls-files` ∪ untracked-not-ignored — the whole repo (pre-distribution).
-   Exclude lockfiles from content scans. In diff modes, scope is the **changed files** (and ideally the changed hunks).
+   Exclude lockfiles from content scans. In diff modes the scan reads **only the added lines** (an untracked file counts as all added); `--whole-files` reads every line of the changed files; `full` reads every line.
+   **Findings live on scanned lines.** A problem noticed on an older line while reading a candidate is not a plan row — mention it once after the verdict ("older lines in <files> carry …; `--whole-files` lists them").
 3. Read `.gitignore`; detect language(s), generated-file markers, and any doc/data files **by characteristics**, not fixed folders.
 4. **Audience gate (ask once):** `internal` / `public` / `unsure` → sets PII severity (internal → Info/keep; public → Blocker/scrub). Skip if `--audience` given.
 
-### P1 — Audit (7 lenses, read-only)
+### P1 — Audit (8 lenses, read-only)
 Patterns live in `references/check-catalog.md`. Per finding: stable **ID**, severity (🔴/🟡/🔵), module, `file:line`, concrete proposed fix, risk tag, and whether it's a safe auto-fix / gated decision / destructive (command-only).
 
 | # | Module | Detects (folder-agnostic) |
 |---|---|---|
-| 1 | **audit-core** | **sensitive data anywhere in the target** — secrets/API keys/tokens/private keys, hardcoded home paths, PII shapes (emails, IBANs, national-ID/long-digit IDs, DOBs); personal identifiers (OS username, owner name, employee codes, workspace names); workflow/AI-tool leakage (skill names, slash commands, `Cap N`/phase tags, `Claude`/`anthropic`, ISO `Generated:` stamps); comment-voice (first-person, `Note:`, translator commentary, dangling `see <file>` refs); **hardcoded domain literals in live logic** (a business id / magic value in a comparison or `case` — e.g. `=== '9000000428'` — that should be a constant/config/state-flag) |
+| 1 | **audit-core** | **sensitive data anywhere in the target** — secrets/API keys/tokens/private keys, hardcoded home paths, PII shapes (emails, IBANs, national-ID/long-digit IDs, DOBs); personal identifiers (OS username, owner name, employee codes, workspace names); workflow/AI-tool leakage (skill names, slash commands, `Cap N`/phase tags, `Claude`/`anthropic`, ISO `Generated:` stamps); comment-voice (first-person, `Note:`, translator commentary, dangling `see <file>` refs); **provenance / hearsay** — where a fact came from instead of what the code does (`the owner (2026-10-07): "…"`, `confirmed with the owner`, `found in the live run`, `seen on QA`), in comments, test titles, assertion messages and docs, plus work-note dates and tags (`F1 fix`, `added in sprint 7`); **internal infrastructure** — private/raw IPs, cloud and internal hostnames, and every term in the user's **private denylist**; **hardcoded domain literals in live logic** (a business id / magic value in a comparison or `case` — e.g. `=== '9000000428'` — that should be a constant/config/state-flag) |
 | 2 | **dead-code** | unreferenced exports/functions/classes, unreachable branches, commented-out code blocks, orphaned files; **and** dead config — env vars declared (`.env*` / config) but never read + the code reachable only through them. Confirm "uncalled" by grepping the symbol before proposing removal |
 | 3 | **gitignore** | (a) committed files **referencing** gitignored paths (dangling on clone — skips common build/dep tokens); (b) target files that **should** be ignored but aren't (secrets, generated outputs, local-only, large/binary) |
 | 4 | **pii** | data files in the target that carry real-looking PII (structured records — JSON/CSV/SQL/YAML — with names, IDs, emails, etc.) → proposes a **consistent synthetic mapping**. A file qualifies by *what's in it*, wherever it lives — the folder name is irrelevant. Prose/code with incidental PII is just flagged by audit-core. |
 | 5 | **gen-hygiene** | generated/translated files (by header markers, not folder): absolute-path provenance, ISO `Generated:` stamps, unsubstituted template placeholders (e.g. `[ClassName]`, `<%= %>`, `__NAME__` — **not** `{{var}}`, which is legit in Postman/Handlebars/Jinja), stale "stub / for later implementation" headers on implemented code |
 | 6 | **docs** | every `.md`/`.mdx`/`.txt` in the target is a doc candidate (any folder) → classify keep / distill / delete. A filename/content heuristic (`*-report*`, `*-v\d`, `plan`, `status`, `notes`, `TODO`, `session-*`, `scratch`, `wip`, `draft`; iterative logs / checklists) flags the likely-slop ones |
 | 7 | **triage** | classify the post-fix target into ship / gitignore / delete / regenerate (runs in P5) |
+| 8 | **debug** | leftovers that must not ship: `console.log` / `debugger` / `breakpoint()` in non-test code, focused tests (`.only(`, `fit(`), local endpoints (`localhost:2024`) in non-test code, TLS verification turned off, dev switches that default on (`USE_SANDBOX ?? "true"`, `SKIP_AUTH=1`), non-test code importing test/sandbox/mock modules. Project-specific sandbox ids go in the private denylist with `@src` |
 
 Cheap deterministic checks run via `scripts/scan-target.sh`; semantic ones (dead-code reachability, PII judgement, doc-slop content, "is this audit field populated vs all-null") require reading the candidates the greps surface — never assume from a path.
 
-**Self-audit caveat:** when the target set includes ship-ready's own pattern-definition files (`SKILL.md`, `references/check-catalog.md`, `scripts/scan-target.sh`), the cheap scan matches its **own** detector strings and documented examples (the home-path regex, the `/me:` invocation lines, the placeholder/stub samples). These are self-references, not findings — confirm by reading, exclude them from the report, and never "fix" a detector's own pattern. Real leaks *outside* these pattern strings still count.
+**Self-audit caveat:** when the target set includes ship-ready's own pattern-definition files (`SKILL.md`, `references/check-catalog.md`, `scripts/scan-target.sh`), the cheap scan matches its **own** detector strings and documented examples (the home-path regex, the `/me:` invocation lines, the placeholder/stub samples, the provenance / debug / infrastructure samples). These are self-references, not findings — confirm by reading, exclude them from the report, and never "fix" a detector's own pattern. Real leaks *outside* these pattern strings still count.
 
 **Published-identity exemption:** the repo owner's handle (OS username / `git config user.name`) appearing **only** in publication-attribution fields — `author.name`, `repository`/`homepage` URLs in `.claude-plugin/marketplace.json`, `.claude-plugin/plugin.json`, or a plugin's own `plugin.json` — is the deliberate publish identity. Auto-classify it `keep`; don't surface it as a judgment call. It's still a finding if the same handle leaks into source / comments / data, or if the *private* git work identity (real name, work email) appears anywhere.
 
@@ -74,12 +79,22 @@ Cheap deterministic checks run via `scripts/scan-target.sh`; semantic ones (dead
 
 **Clean-run fast path:** if the semantic pass confirms **0 real findings** (after discounting self-references and other false positives), skip the report file and the full table — emit a compact verdict, skip the selection/fix/verify stages (nothing to fix), and go straight to **P5 commit-triage** (which still proposes commit messages):
 ```
-ship-ready: <mode> (<N> files) — CLEAN. 0 real findings.
+ship-ready: <mode> (<N> files, <L> added lines) — CLEAN. 0 real findings.
 <k> matches discounted (<reason, e.g. self-reference>). <j> judgment call(s): <id> → <default>?
 ```
-Write `.claude/ship-ready-report.md` only when there are real findings, or when invoked as `--full` / `audit`.
+Write the report only when there are real findings, or when invoked as `--full` / `audit`.
 
-Otherwise, write the full report to `.claude/ship-ready-report.md`. **Writing it is always two steps: (1) `Read .claude/ship-ready-report.md` first — it usually exists from a prior run; if it doesn't, ignore the read error; (2) then `Write` the regenerated report. NEVER call `Write` on the report without a `Read` of that exact path earlier in the same turn** — the file tool rejects overwriting a file it hasn't read this session, and a prior run almost always left one there. Then print **only the fix-plan checklist** below and HALT — the table is the inline surface, so don't re-print the report's prose/identity sections inline:
+**The report lives inside the git directory**, at `<git-dir>/ship-ready-report.md` (resolve `<git-dir>` with `git rev-parse --absolute-git-dir`). Nothing there is ever committed, pushed, or copied by a directory-based plugin install — unlike `.claude/` or any working-tree path, which a `.gitignore` protects from git but from nothing else. A legacy `.claude/ship-ready-report.md` left by an older version gets a **delete** verdict in P5.
+
+**Writing it is always two steps: (1) `Read` the report path first — it usually exists from a prior run; if it doesn't, ignore the read error; (2) then `Write` the regenerated report. NEVER call `Write` on the report without a `Read` of that exact path earlier in the same turn** — the file tool rejects overwriting a file it hasn't read this session, and a prior run almost always left one there.
+
+**The report and the inline table never repeat what they are guarding.** Write each sensitive value in masked form:
+- **secret / credential** → first 4 characters and the length, as the scan prints it: `sk_l…(32)`. Never the full value, not even one that looks synthetic.
+- **identity values** (git `user.name`, `user.email`, OS username) → name the check, not the value: `owner name (git user.name): found at src/a.ts:12` / `not found`.
+- **private-denylist term** → cite the entry by its line in the denylist file: `denylist entry 3 at src/a.ts:12`. Never spell the term out.
+- **PII** → masked (`n•••@example.gr`, `0940…(9)`); a proposed synthetic mapping shows `masked → fake`.
+
+Then print **only the fix-plan checklist** below and HALT — the table is the inline surface, so don't re-print the report's prose/identity sections inline:
 
 ```
 ID   SEV  MODULE        WHERE                         PROBLEM → PROPOSED FIX                       RISK    DEFAULT
@@ -153,11 +168,11 @@ git commit -m "<one of the 5 above>"
 Suggest `/me:safe-commit` as the final secret/identity gate before committing.
 
 ## Outputs
-- `.claude/ship-ready-report.md` — findings + fix-plan + applied/emitted/deferred. Advise adding it to `.gitignore`.
+- `<git-dir>/ship-ready-report.md` — findings + fix-plan + applied/emitted/deferred, sensitive values masked (see P2).
 - In-file edits for approved `✓` IDs (including `.gitignore` additions); one command block for all `⚠` actions (git ops + deletions).
 
 ## Safety
-Read-only by default; the only pre-approval writes are the report + `.claude/`. Never runs `git`/`rm`/destructive shell — emits commands. Re-reads files before editing (respects parallel edits). `abort` leaves the tree as found.
+Read-only by default; the only pre-approval write is the report inside the git directory. The scan itself writes nothing (it runs git with optional locks off, so not even the index is refreshed). Never runs `git`/`rm`/destructive shell — emits commands. Re-reads files before editing (respects parallel edits). `abort` leaves the tree as found.
 
 ## Relationship to other skills
 - **`me:check-consistency`** — pattern/style drift on a diff. Overlaps on comment-voice (intentional); ship-ready adds the distribution lenses (sensitive data, personal identifiers, gitignore-dangling, gen-hygiene, dead-config, pii, doc-slop, triage) and the select-then-fix gate.

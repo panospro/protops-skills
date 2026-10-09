@@ -1,7 +1,7 @@
 {
   "name": "ship-ready",
-  "version": "0.1.0",
-  "description": "Whole-repo pre-distribution audit + guided cleanup. Scans everything that would be committed for personal identifiers, secrets, dangling references to gitignored paths, workflow/AI leakage, generated-file slop, dead config/code, and PII; stops with a fix-plan checklist you select from; then applies only the chosen fixes and hands over git/rm commands.",
+  "version": "0.2.0",
+  "description": "Pre-commit / pre-distribution audit + guided cleanup. Scans the lines your changes add (or the whole repo with --full) for secrets, personal identifiers, internal hosts and private-denylist terms, provenance comments, debug leftovers, dangling references to gitignored paths, workflow/AI leakage, generated-file slop, dead config/code, and PII; stops with a fix-plan checklist you select from; then applies only the chosen fixes and hands over git/rm commands.",
   "author": {
     "name": "pprotops"
   }
